@@ -1,6 +1,381 @@
 {
  "runs": [
   {
+   "run_id": "20260903-153320",
+   "timestamp": "2026-09-03T21:33:20Z",
+   "cpu": "12th Gen Intel(R) Core(TM) i5-12450H",
+   "label": "local",
+   "warnings": [
+    "CPU governor is 'powersave', not 'performance': timings are noisier. Fix: sudo cpupower frequency-set -g performance",
+    "Turbo boost enabled: single-thread timings drift with temperature. Fix: echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo",
+    "1-min load average 2.04 > 1.0: other processes were competing for CPU."
+   ],
+   "summary": {
+    "symmetry": {
+     "Si_relajado.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.61270660100854,
+       "rss": 97.25390625,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.4685080920025939,
+       "rss": 80.94921875,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.43354102500597946,
+       "rss": 77.84765625,
+       "correct": true
+      }
+     },
+     "ZnO.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.6006750859960448,
+       "rss": 97.22265625,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.46938263000629377,
+       "rss": 80.91015625,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.42652281100163236,
+       "rss": 78.015625,
+       "correct": true
+      }
+     },
+     "grafito.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.614586663999944,
+       "rss": 97.19140625,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.4648072699928889,
+       "rss": 80.90625,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.4312808969989419,
+       "rss": 77.99609375,
+       "correct": true
+      }
+     },
+     "hbn.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.5881290389952483,
+       "rss": 97.23828125,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.4610117859992897,
+       "rss": 80.92578125,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.4355720919993473,
+       "rss": 78.02734375,
+       "correct": true
+      }
+     },
+     "POSCAR_NaCl": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.6660043409938226,
+       "rss": 97.234375,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.5005527819885174,
+       "rss": 80.43359375,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.9370174319919897,
+       "rss": 120.66015625,
+       "correct": true
+      }
+     }
+    },
+    "kpath": {
+     "Si_relajado.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.6182735490001505,
+       "rss": 97.59375,
+       "correct": true
+      },
+      "seekpath": {
+       "unsupported": false,
+       "wall": 0.4800355560000753,
+       "rss": 81.21484375,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.47267440998984966,
+       "rss": 82.13671875,
+       "correct": false
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.5547926119907061,
+       "rss": 88.9375,
+       "correct": false
+      }
+     },
+     "ZnO.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.6766570770123508,
+       "rss": 97.62890625,
+       "correct": true
+      },
+      "seekpath": {
+       "unsupported": false,
+       "wall": 0.47829595700022765,
+       "rss": 81.23046875,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.47488937100570183,
+       "rss": 82.19921875,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.5281283490039641,
+       "rss": 88.91796875,
+       "correct": true
+      }
+     },
+     "grafito.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.9370434479933465,
+       "rss": 97.44921875,
+       "correct": true
+      },
+      "seekpath": {
+       "unsupported": false,
+       "wall": 0.7606953270005761,
+       "rss": 81.19921875,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.8162523400096688,
+       "rss": 82.13671875,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.8290497779962607,
+       "rss": 88.7734375,
+       "correct": true
+      }
+     },
+     "hbn.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.7763601350015961,
+       "rss": 97.42578125,
+       "correct": true
+      },
+      "seekpath": {
+       "unsupported": false,
+       "wall": 0.6313713550043758,
+       "rss": 81.11328125,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.6171402199979639,
+       "rss": 82.0859375,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.6888529459974961,
+       "rss": 88.61328125,
+       "correct": true
+      }
+     },
+     "POSCAR_NaCl": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.8187472760037053,
+       "rss": 97.39453125,
+       "correct": true
+      },
+      "seekpath": {
+       "unsupported": false,
+       "wall": 0.6244310269976268,
+       "rss": 80.85546875,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.8198822759877658,
+       "rss": 81.78515625,
+       "correct": false
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 1.522778256010497,
+       "rss": 130.859375,
+       "correct": false
+      }
+     }
+    },
+    "eos": {
+     "EOS.dat": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.6522903730074177,
+       "rss": 91.66015625,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.57274799598963,
+       "rss": 78.72265625,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.9732449630100746,
+       "rss": 112.3046875,
+       "correct": true
+      }
+     }
+    },
+    "bandgap": {
+     "Si_scf.xml": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.3844860530080041,
+       "rss": 51.734375,
+       "correct": true
+      },
+      "qeschema": {
+       "unsupported": false,
+       "wall": 0.6805672449991107,
+       "rss": 48.1484375,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": true,
+       "wall": null,
+       "rss": null,
+       "correct": false
+      },
+      "pymatgen": {
+       "unsupported": true,
+       "wall": null,
+       "rss": null,
+       "correct": false
+      }
+     },
+     "Si_scf.out": {
+      "olla-dft": {
+       "unsupported": true,
+       "wall": null,
+       "rss": null,
+       "correct": false
+      },
+      "qeschema": {
+       "unsupported": true,
+       "wall": null,
+       "rss": null,
+       "correct": false
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.5311407730041537,
+       "rss": 78.5,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": true,
+       "wall": null,
+       "rss": null,
+       "correct": false
+      }
+     }
+    },
+    "inputgen": {
+     "Si_relajado.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.7062953999993624,
+       "rss": 98.80078125,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.5319752359937411,
+       "rss": 79.703125,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.4928240090084728,
+       "rss": 77.17578125,
+       "correct": true
+      }
+     },
+     "ZnO.cif": {
+      "olla-dft": {
+       "unsupported": false,
+       "wall": 0.7098725919931894,
+       "rss": 98.0390625,
+       "correct": true
+      },
+      "ase": {
+       "unsupported": false,
+       "wall": 0.524422909002169,
+       "rss": 79.6953125,
+       "correct": true
+      },
+      "pymatgen": {
+       "unsupported": false,
+       "wall": 0.484039679999114,
+       "rss": 77.12890625,
+       "correct": true
+      }
+     }
+    }
+   },
+   "packages": {
+    "seekpath": "2.2.1",
+    "olla-dft": "1.1.0",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1",
+    "pymatgen": "2026.5.4",
+    "ase": "3.29.0",
+    "spglib": "2.7.0",
+    "numpy": "2.2.6"
+   }
+  },
+  {
    "run_id": "20260903-145333",
    "timestamp": "2026-09-03T20:53:33Z",
    "cpu": "12th Gen Intel(R) Core(TM) i5-12450H",
