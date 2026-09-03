@@ -1,6 +1,6 @@
 """Task registry: inputs, contestants, reference and grading. Grading is deterministic and
 symmetric: the same rule is applied to every tool, including Olla-DFT."""
-import math, re
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -43,7 +43,7 @@ def grade_kpath(p, r):
     sp, sr = path_segments(p.get("path", [])), path_segments(r["path"])
     same = sp == sr
     j = len(sp & sr) / len(sp | sr) if (sp | sr) else 0.0
-    return same, (f"segments identical to HPKOT reference" if same else
+    return same, ("segments identical to HPKOT reference" if same else
                   f"path differs from HPKOT reference (Jaccard {j:.2f}); a different convention, not necessarily an error")
 
 

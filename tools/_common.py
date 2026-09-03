@@ -1,4 +1,4 @@
-import json, sys, gzip, io, re, os
+import json, sys, gzip
 
 def emit(d):
     print("@@RESULT " + json.dumps(d, sort_keys=True))

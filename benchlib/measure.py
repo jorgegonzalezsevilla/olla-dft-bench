@@ -3,7 +3,7 @@
 Every measurement is a separate subprocess so that import cost is included (that is what a
 user pays on the command line) and so that one tool cannot warm caches for another.
 """
-import json, os, resource, shutil, subprocess, sys, time
+import json, os, shutil, subprocess, time
 
 CLEAN_ENV_KEYS = ("PATH", "HOME", "LANG", "TERM", "USER", "XDG_CONFIG_HOME", "XDG_CACHE_HOME",
                   "DBUS_SESSION_BUS_ADDRESS", "XDG_RUNTIME_DIR", "BENCH_PW_X")  # last two: systemd-run needs the session bus

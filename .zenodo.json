@@ -1,0 +1,11 @@
+{
+  "title": "olla-dft-bench: reproducible benchmarks of Olla-DFT against ASE, pymatgen, seekpath and qeschema",
+  "version": "0.1.0",
+  "upload_type": "software",
+  "license": "GPL-3.0-or-later",
+  "creators": [{ "name": "González Sevilla, Jorge Enrique" }],
+  "description": "Benchmark harness and published results comparing Olla-DFT with ASE, pymatgen, seekpath and qeschema on Quantum ESPRESSO workflows: same inputs, independent references, recomputable statistics, independent verdicts. GPL-3.0.",
+  "keywords": ["Quantum ESPRESSO", "benchmark", "reproducibility", "materials science"],
+  "related_identifiers": [{ "identifier": "10.5281/zenodo.22263121", "relation": "isSupplementTo", "scheme": "doi" }],
+  "access_right": "open"
+}

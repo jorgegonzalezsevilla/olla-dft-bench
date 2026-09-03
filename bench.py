@@ -12,6 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
+import benchlib
 from benchlib import envinfo, measure, report
 from benchlib.tasks import TASKS, TOOLS, INP
 
@@ -130,7 +131,7 @@ def cmd_run(a):
             shutil.rmtree(d / "out", ignore_errors=True)
     env_info["load_avg_end"] = envinfo.load_avg()
 
-    run = {"run_id": run_id, "env": env_info, "warnings": warns, "config": config,
+    run = {"run_id": run_id, "harness_version": benchlib.__version__, "env": env_info, "warnings": warns, "config": config,
            "tasks_meta": {t: {"title": TASKS[t]["title"], "note": TASKS[t]["note"], "inputs": TASKS[t]["inputs"], "tools": TASKS[t]["tools"]} for t in tasks},
            "references": {f"{k[0]}/{k[1]}": v for k, v in refs.items()},
            "records": records, "e2e": e2e}
@@ -190,28 +191,48 @@ def cmd_verify(a):
         if cur != h or sums.get(base) != h:
             ok = False; print(f"FAIL input hash {base}: run={h[:12]} now={str(cur)[:12]} manifest={str(sums.get(base))[:12]}")
     print("inputs: hashes match run and manifest" if ok else "inputs: MISMATCH")
-    # 2. aggregates recomputed from raw samples
+    same_version = run.get("harness_version") == benchlib.__version__
+    if not same_version:
+        print(f"harness version differs (run: {run.get('harness_version') or 'unversioned'}, now: {benchlib.__version__}): "
+              "report text and grading rules are not compared; raw-sample statistics and hashes are")
+    # 2. aggregates recomputed from raw samples (medians of every supported cell must match)
     recomputed = json.loads(json.dumps(report.aggregate(run["records"]), default=str))
     stored = json.loads(json.dumps(run["summary"], default=str))
-    if recomputed != stored:
-        ok = False; print("FAIL summary differs from recomputation")
+    if same_version:
+        if recomputed != stored:
+            ok = False; print("FAIL summary differs from recomputation")
+        else:
+            print(f"summary: {sum(len(t) for t in recomputed.values())} cells recomputed from {len(run['records'])} raw samples, identical")
     else:
-        print(f"summary: {sum(len(t) for t in recomputed.values())} cells recomputed from {len(run['records'])} raw samples, identical")
+        bad = 0
+        for task, inputs in stored.items():
+            for inp, tools in inputs.items():
+                for tool, d in tools.items():
+                    r = recomputed.get(task, {}).get(inp, {}).get(tool, {})
+                    if d.get("unsupported"):
+                        continue
+                    for key in ("wall_s", "cpu_s", "max_rss_mb"):
+                        if d.get(key, {}).get("n") and d[key].get("median") != r.get(key, {}).get("median"):
+                            bad += 1
+        ok &= bad == 0
+        print(f"summary: medians of wall/CPU/RSS recomputed from {len(run['records'])} raw samples: {'identical' if not bad else str(bad) + ' differ'}")
     # 3. grades recomputed
-    bad = 0
-    for r in run["records"]:
-        if r.get("payload") and not r.get("unsupported") and r["returncode"] == 0:
-            g, _ = TASKS[r["task"]]["grade"](r["payload"], run["references"][f"{r['task']}/{r['input']}"])
-            bad += bool(g) != bool(r.get("correct"))
-    print(f"grades: {bad} of {len(run['records'])} records disagree with re-grading" if bad else "grades: all records re-graded identically")
-    ok &= bad == 0
+    if same_version:
+        bad = 0
+        for r in run["records"]:
+            if r.get("payload") and not r.get("unsupported") and r["returncode"] == 0:
+                g, _ = TASKS[r["task"]]["grade"](r["payload"], run["references"][f"{r['task']}/{r['input']}"])
+                bad += bool(g) != bool(r.get("correct"))
+        print(f"grades: {bad} of {len(run['records'])} records disagree with re-grading" if bad else "grades: all records re-graded identically")
+        ok &= bad == 0
     # 4. report text matches
-    fresh = report.markdown({**run, "summary": recomputed}).splitlines()
-    old = (rdir / "report.md").read_text().splitlines()
-    if fresh != old:
-        ok = False; print("FAIL report.md differs from regeneration:"); print("\n".join(list(difflib.unified_diff(old, fresh, lineterm=""))[:40]))
-    else:
-        print("report.md: identical to regeneration")
+    if same_version:
+        fresh = report.markdown({**run, "summary": recomputed}).splitlines()
+        old = (rdir / "report.md").read_text().splitlines()
+        if fresh != old:
+            ok = False; print("FAIL report.md differs from regeneration:"); print("\n".join(list(difflib.unified_diff(old, fresh, lineterm=""))[:40]))
+        else:
+            print("report.md: identical to regeneration")
     print("VERIFY", "PASS" if ok else "FAIL"); sys.exit(0 if ok else 1)
 
 
