@@ -1,3 +1,4 @@
+import re
 import sys, os, re, warnings
 warnings.filterwarnings("ignore")
 from _common import emit, unsupported, read_ev

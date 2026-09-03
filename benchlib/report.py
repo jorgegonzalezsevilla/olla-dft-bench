@@ -88,6 +88,16 @@ def markdown(run):
         for tool, e in run["e2e"].items():
             L.append(f"| {tool} | {e.get('kgrid')} | {e.get('ecutwfc')} | {e.get('total_energy_Ry')} | {e.get('scf_iterations')} | {e.get('pw_wall_s', 0):.1f} | {e.get('via','')} |")
         es = [e["total_energy_Ry"] for e in run["e2e"].values() if e.get("total_energy_Ry") is not None]
+        o = run["e2e"].get("olla-dft") or {}
+        others = [e for t, e in run["e2e"].items() if t != "olla-dft" and e.get("total_energy_Ry") is not None]
+        if o.get("total_energy_Ry") is not None and others:
+            bi = min(e["scf_iterations"] or 1e9 for e in others); bt = min(e.get("pw_wall_s") or 1e9 for e in others)
+            if (o.get("scf_iterations") or 0) > 1.5 * bi:
+                opp.append(f"end-to-end/Si: the input written by Olla-DFT needed {o['scf_iterations']} SCF iterations vs {bi} for the best competitor at the same energy (defaults such as mixing_beta differ)")
+            if (o.get("pw_wall_s") or 0) > 1.5 * bt:
+                opp.append(f"end-to-end/Si: pw.x took {o['pw_wall_s']:.1f} s on Olla-DFT's input vs {bt:.1f} s on the best competitor's")
+            if any(abs(e["total_energy_Ry"] - o["total_energy_Ry"]) > 1e-6 for e in others):
+                opp.append("end-to-end/Si: total energy from Olla-DFT's input differs by more than 1e-6 Ry from another tool's; inputs are not physically equivalent")
         if len(es) > 1:
             L += ["", f"Spread of total energies across tools: {max(es)-min(es):.2e} Ry (identical physics ⇒ should be ≲ 1e-6 Ry). "]
         L.append("")

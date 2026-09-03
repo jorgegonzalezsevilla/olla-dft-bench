@@ -1,3 +1,4 @@
+import re
 import sys, os
 from _common import emit, unsupported, read_ev
 task, args = sys.argv[1], sys.argv[2:]

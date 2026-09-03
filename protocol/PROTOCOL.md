@@ -67,7 +67,7 @@ the UPF reader; reproduced with v1 and v2 files, with and without MPI). It is th
 The reference runs use QE pinned from conda-forge:
 ```bash
 curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj -C .micromamba bin/micromamba
-./.micromamba/bin/micromamba create -r .micromamba/root -p .qe -c conda-forge --no-rc qe=7.4
+./.micromamba/bin/micromamba create -r .micromamba/root -n .qe -c conda-forge --no-rc qe=7.4 && ln -s .micromamba/root/envs/.qe .qe
 python bench.py run --with-qe            # picks ./.qe/bin/pw.x automatically; or --pw-x /path/to/pw.x
 ```
 The exact pw.x version banner is stored in `env.json`.
