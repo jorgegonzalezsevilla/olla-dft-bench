@@ -1,0 +1,19 @@
+name: benchmark (CI runner, indicative only)
+on:
+  schedule: [{cron: "0 4 1 * *"}]
+  workflow_dispatch:
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m venv .venv && .venv/bin/pip install -r requirements.lock
+      - run: sudo apt-get install -y -qq quantum-espresso >/dev/null
+      - run: python bench.py run --reps 3 --with-qe --label ci-runner
+      - run: python bench.py verify results/$(ls -1 results | grep -E '^[0-9]{8}-' | tail -1)
+      - uses: actions/upload-artifact@v4
+        with: {name: results, path: results/}
+# Shared CI runners have unknown neighbours and frequency scaling: results are labelled
+# 'ci-runner' and are only indicative. The reference numbers are the 'local'/'periodic' runs.

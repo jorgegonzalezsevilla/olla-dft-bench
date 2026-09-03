@@ -1,0 +1,8 @@
+[Unit]
+Description=Olla-DFT periodic benchmark
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/GITHUB/olla-dft-bench
+ExecStart=%h/GITHUB/olla-dft-bench/scripts/run_periodic.sh
+Nice=-5

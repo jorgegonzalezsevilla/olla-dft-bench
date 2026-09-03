@@ -1,0 +1,7 @@
+.venv/
+.bench_home/
+__pycache__/
+results/*/work/
+*.pyc
+.micromamba/
+.qe/
