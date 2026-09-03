@@ -1,7 +1,6 @@
-"""Markdown and HTML reports generated only from results.json. No number in a report exists
-that cannot be recomputed from the raw samples by `bench.py verify`."""
-import json, statistics as st
-from pathlib import Path
+"""Markdown and HTML reports generated only from results.json. Every number is recomputable by
+`bench.py verify`; the bootstrap uses a fixed seed so the report regenerates byte for byte."""
+import json, random, statistics as st
 
 def agg(xs):
     xs = [x for x in xs if x is not None]
@@ -12,7 +11,6 @@ def agg(xs):
             "iqr": q[2] - q[0], "mean": st.fmean(xs), "stdev": st.pstdev(xs) if len(xs) > 1 else 0.0}
 
 def aggregate(results):
-    """results: list of measurement records -> nested summary {task: {input: {tool: {...}}}}"""
     out = {}
     for r in results:
         d = out.setdefault(r["task"], {}).setdefault(r["input"], {}).setdefault(r["tool"], {"samples": []})
@@ -21,113 +19,177 @@ def aggregate(results):
         for inp in task.values():
             for tool, d in inp.items():
                 s = [x for x in d["samples"] if not x.get("warmup")]
+                ok = [x for x in s if x.get("returncode") == 0 and not x.get("unsupported")]
                 d["unsupported"] = any(x.get("unsupported") for x in s)
                 d["reason"] = next((x.get("reason") for x in s if x.get("reason")), None)
                 d["failed"] = sum(1 for x in s if x.get("returncode") not in (0, None) and not x.get("unsupported"))
-                d["wall_s"] = agg([x["wall_s"] for x in s if x.get("returncode") == 0])
-                d["cpu_s"] = agg([(x["user_s"] or 0) + (x["sys_s"] or 0) for x in s if x.get("returncode") == 0 and x.get("user_s") is not None])
-                d["max_rss_mb"] = agg([x["max_rss_kb"] / 1024 for x in s if x.get("returncode") == 0 and x.get("max_rss_kb")])
-                d["correct"] = [x.get("correct") for x in s if x.get("returncode") == 0]
-                d["detail"] = next((x.get("detail") for x in s if x.get("detail")), None)
-                d["via"] = next(((x.get("payload") or {}).get("via") for x in s if x.get("payload")), None)
+                d["wall_s"] = agg([x["wall_s"] for x in ok])
+                d["cpu_s"] = agg([(x["user_s"] or 0) + (x["sys_s"] or 0) for x in ok if x.get("user_s") is not None])
+                d["max_rss_mb"] = agg([x["max_rss_kb"] / 1024 for x in ok if x.get("max_rss_kb")])
+                d["correct"] = [x.get("correct") for x in ok]
+                d["detail"] = next((x.get("detail") for x in ok if x.get("detail")), None)
+                d["via"] = next(((x.get("payload") or {}).get("via") for x in ok if x.get("payload")), None)
                 del d["samples"]
     return out
+
+def raw_walls(records, task, inp, tool):
+    return [x["wall_s"] for x in records if x["task"] == task and x["input"] == inp and x["tool"] == tool
+            and not x.get("warmup") and x.get("returncode") == 0 and not x.get("unsupported")]
+
+def boot_ratio(a, b, n=2000, seed=0):
+    """95% bootstrap CI of median(a)/median(b)."""
+    rng = random.Random(seed); rs = []
+    for _ in range(n):
+        sa = [rng.choice(a) for _ in a]; sb = [rng.choice(b) for _ in b]
+        rs.append(st.median(sa) / st.median(sb))
+    rs.sort()
+    return rs[int(0.025 * n)], rs[int(0.975 * n) - 1]
 
 def _fmt(a, key="median", unit="", digits=3):
     if not a or a.get("n", 0) == 0:
         return "—"
     return f"{a[key]:.{digits}f}{unit}"
 
+def ratios(run):
+    """Per contested cell: olla-dft vs best *supported* competitor."""
+    rows = []
+    for task, inputs in run["summary"].items():
+        for inp, tools in inputs.items():
+            o = tools.get("olla-dft")
+            if not o or o["unsupported"] or not o["wall_s"].get("n"):
+                continue
+            comp = {t: d for t, d in tools.items() if t != "olla-dft" and not d["unsupported"] and d["wall_s"].get("n")}
+            if not comp:
+                continue
+            bt, bd = min(comp.items(), key=lambda kv: kv[1]["wall_s"]["median"])
+            bm = min(comp.values(), key=lambda d: d["max_rss_mb"]["median"] if d["max_rss_mb"].get("n") else 1e9)
+            lo, hi = boot_ratio(raw_walls(run["records"], task, inp, "olla-dft"), raw_walls(run["records"], task, inp, bt))
+            rows.append({"task": task, "input": inp, "vs": bt,
+                         "wall_ratio": o["wall_s"]["median"] / bd["wall_s"]["median"], "ci": (lo, hi),
+                         "min_ratio": o["wall_s"]["min"] / bd["wall_s"]["min"],
+                         "rss_ratio": o["max_rss_mb"]["median"] / bm["max_rss_mb"]["median"] if o["max_rss_mb"].get("n") and bm["max_rss_mb"].get("n") else None,
+                         "correct": bool(o["correct"]) and all(o["correct"])})
+    return rows
+
+def e2e_rows(e2e):
+    rows = {}
+    for tool, e in e2e.items():
+        s = e.get("samples") or []
+        okk = [x for x in s if x.get("total_energy_Ry") is not None]
+        rows[tool] = {"n": len(okk), "energy": okk[0]["total_energy_Ry"] if okk else None,
+                      "iters": okk[0].get("scf_iterations") if okk else None, "nk": okk[0].get("nkpoints") if okk else None,
+                      "wall": agg([x["pw_wall_s"] for x in okk]), "kgrid": e.get("kgrid"), "ecutwfc": e.get("ecutwfc"), "via": e.get("via", "")}
+    return rows
+
 def markdown(run):
-    env, summ, tasks = run["env"], run["summary"], run["tasks_meta"]
+    env, summ, tasks, cfg = run["env"], run["summary"], run["tasks_meta"], run["config"]
+    thr = cfg.get("opp_threshold", 1.15)
     L = [f"# Olla-DFT benchmark — run {run['run_id']}", "",
-         f"*Generated from `results.json`; every number is recomputable with `python bench.py verify`.*", "",
+         "*Generated from `results.json`; every number is recomputable with `python bench.py verify`.*", "",
          "## Environment", "",
-         f"- CPU: {env.get('cpu_model')} ({env.get('cpu_count')} logical CPUs), pinned to CPU {run['config'].get('cpu')}",
+         f"- CPU: {env.get('cpu_model')} ({env.get('cpu_count')} logical CPUs), pinned to CPU {cfg.get('cpu')}",
          f"- RAM: {round((env.get('mem_total_kb') or 0)/1048576, 1)} GiB; governor `{env.get('governor')}`; turbo disabled: `{env.get('intel_no_turbo') == '1'}`",
-         f"- OS: {env.get('os')}; {env.get('python')}",
-         f"- Packages: " + ", ".join(f"{k} {v}" for k, v in sorted(env.get("packages", {}).items())),
-         f"- Repetitions per cell: {run['config']['reps']} (+1 warm-up, discarded); threads per process: 1; order interleaved across tools",
-         f"- Load average at start: {env.get('load_avg_start')}", ""]
+         f"- OS: {env.get('os')}; {env.get('python')}; pw.x: {env.get('pw_x_version') or env.get('pw_x')}",
+         "- Packages: " + ", ".join(f"{k} {v}" for k, v in sorted(env.get("packages", {}).items())),
+         f"- Olla-DFT source: `{(env.get('olla_dft_source') or {}).get('url', '?')}` @ `{((env.get('olla_dft_source') or {}).get('vcs_info') or {}).get('commit_id', '?')}`",
+         f"- Repetitions per cell: {cfg['reps']} (+1 warm-up, discarded); threads per process: 1; tool order shuffled per repetition (seed {cfg.get('seed')})",
+         f"- End-to-end repetitions: {cfg.get('e2e_reps', 1)}; opportunity threshold: {thr}× (stated here, applied identically to time and memory)",
+         f"- Load average at start / end: {env.get('load_avg_start')} / {env.get('load_avg_end')}", ""]
     if run.get("warnings"):
         L += ["> **Environment warnings**", ""] + [f"> - {w}" for w in run["warnings"]] + [""]
     L += ["## How to read the tables", "",
           "Wall time is the median of a fresh process per repetition (imports included, because that is what the",
-          "command line costs). CPU is user+system time; RSS is peak resident memory of the process. `correct` is",
-          "the deterministic grade against an independent reference described in each task's note. `—` means the",
-          "tool does not cover the task; that is a coverage fact, not a failure.", ""]
-    opp = []
+          "command line costs). CPU is user+system time; RSS is peak resident memory. `correct` is the deterministic",
+          "grade against the reference described in each task's note; where the reference shares a backend with a",
+          "contestant, the note says so and the grade only shows the wrapper passes the result through. `—` means",
+          "the tool does not cover the task; that is a coverage fact, not a failure, and such cells are excluded from",
+          "every speed or memory comparison.", ""]
     for task, inputs in summ.items():
         meta = tasks[task]
         L += [f"## {meta['title']}", "", f"*{meta['note']}*", "",
               "| input | tool | wall s (median) | min | IQR | CPU s | peak RSS MB | correct | detail |", "|---|---|---|---|---|---|---|---|---|"]
         for inp, tools in inputs.items():
-            fastest = min((d["wall_s"]["median"], t) for t, d in tools.items() if d["wall_s"].get("n")) if any(d["wall_s"].get("n") for d in tools.values()) else (None, None)
+            sup = [(d["wall_s"]["median"], t) for t, d in tools.items() if not d["unsupported"] and d["wall_s"].get("n")]
+            fastest = min(sup)[1] if sup else None
             for tool, d in tools.items():
                 if d["unsupported"]:
-                    L.append(f"| {inp} | {tool} | — | — | — | — | — | n/a | not supported: {d['reason']} |")
-                    continue
+                    L.append(f"| {inp} | {tool} | — | — | — | — | — | n/a | not supported: {d['reason']} |"); continue
                 c = d["correct"]; cs = "✔" if c and all(c) else ("✘" if c else "?")
-                mark = " **←fastest**" if fastest[1] == tool else ""
+                mark = " **←fastest**" if fastest == tool else ""
                 L.append(f"| {inp} | {tool} | {_fmt(d['wall_s'])}{mark} | {_fmt(d['wall_s'],'min')} | {_fmt(d['wall_s'],'iqr')} | {_fmt(d['cpu_s'])} | {_fmt(d['max_rss_mb'],digits=0)} | {cs} | {d['detail'] or ''} |")
-                if tool == "olla-dft":
-                    others = [x for t, x in tools.items() if t != tool and x["wall_s"].get("n")]
-                    if others:
-                        best = min(x["wall_s"]["median"] for x in others)
-                        if d["wall_s"].get("n") and d["wall_s"]["median"] > 1.5 * best:
-                            opp.append(f"{task}/{inp}: Olla-DFT wall time {d['wall_s']['median']:.2f} s vs best competitor {best:.2f} s ({d['wall_s']['median']/best:.1f}×)")
-                        bestm = min(x["max_rss_mb"]["median"] for x in others if x["max_rss_mb"].get("n"))
-                        if d["max_rss_mb"].get("n") and d["max_rss_mb"]["median"] > 1.5 * bestm:
-                            opp.append(f"{task}/{inp}: Olla-DFT peak RSS {d['max_rss_mb']['median']:.0f} MB vs best competitor {bestm:.0f} MB")
-                    if c and not all(c):
-                        opp.append(f"{task}/{inp}: Olla-DFT result did not match the reference ({d['detail']})")
         L.append("")
+    # ---- ratio table ----
+    R = ratios(run); opp = []
+    L += ["## Olla-DFT relative to the best supported competitor, every contested cell", "",
+          "Ratios > 1 mean Olla-DFT is slower or heavier. `min` ratio uses the fastest sample of each (robust to background noise); the CI is a 95 % bootstrap of the ratio of medians.", "",
+          "| task | input | vs | wall ratio (median) | 95 % CI | wall ratio (min) | RSS ratio |", "|---|---|---|---|---|---|---|"]
+    for r in R:
+        L.append(f"| {r['task']} | {r['input']} | {r['vs']} | {r['wall_ratio']:.2f} | {r['ci'][0]:.2f}–{r['ci'][1]:.2f} | {r['min_ratio']:.2f} | {r['rss_ratio']:.2f} |" if r['rss_ratio'] else
+                 f"| {r['task']} | {r['input']} | {r['vs']} | {r['wall_ratio']:.2f} | {r['ci'][0]:.2f}–{r['ci'][1]:.2f} | {r['min_ratio']:.2f} | — |")
+    if R:
+        slower = sum(r["wall_ratio"] > 1 for r in R); heavier = sum((r["rss_ratio"] or 0) > 1 for r in R)
+        gm = st.geometric_mean([r["wall_ratio"] for r in R]); gmr = st.geometric_mean([r["rss_ratio"] for r in R if r["rss_ratio"]])
+        L += ["", f"**Summary:** Olla-DFT is slower than the best supported competitor in {slower} of {len(R)} contested cells "
+              f"(geometric-mean wall ratio {gm:.2f}×, min-based {st.geometric_mean([r['min_ratio'] for r in R]):.2f}×) and uses more peak memory in {heavier} of {len(R)} (geometric mean {gmr:.2f}×).", ""]
+        for r in R:
+            if r["wall_ratio"] > thr:
+                opp.append(f"{r['task']}/{r['input']}: {r['wall_ratio']:.2f}× the wall time of {r['vs']} (95 % CI {r['ci'][0]:.2f}–{r['ci'][1]:.2f})")
+            if r["rss_ratio"] and r["rss_ratio"] > thr:
+                opp.append(f"{r['task']}/{r['input']}: {r['rss_ratio']:.2f}× the peak memory of the lightest competitor")
+            if not r["correct"]:
+                opp.append(f"{r['task']}/{r['input']}: result did not match the reference")
+        if slower == len(R):
+            opp.append(f"Olla-DFT is slower in every contested cell: a uniform start-up/import cost, not a per-task problem (geometric mean {gm:.2f}×)")
+        if heavier == len(R):
+            opp.append(f"Olla-DFT uses more peak memory in every contested cell (geometric mean {gmr:.2f}×)")
+    # ---- e2e ----
     if run.get("e2e"):
-        L += ["## End to end with pw.x (same binary, inputs from each tool)", "",
-              "| tool | k-grid | ecutwfc | total energy (Ry) | SCF iterations | pw.x wall s | input generated by |", "|---|---|---|---|---|---|---|"]
-        for tool, e in run["e2e"].items():
-            L.append(f"| {tool} | {e.get('kgrid')} | {e.get('ecutwfc')} | {e.get('total_energy_Ry')} | {e.get('scf_iterations')} | {e.get('pw_wall_s', 0):.1f} | {e.get('via','')} |")
-        es = [e["total_energy_Ry"] for e in run["e2e"].values() if e.get("total_energy_Ry") is not None]
-        o = run["e2e"].get("olla-dft") or {}
-        others = [e for t, e in run["e2e"].items() if t != "olla-dft" and e.get("total_energy_Ry") is not None]
-        if o.get("total_energy_Ry") is not None and others:
-            bi = min(e["scf_iterations"] or 1e9 for e in others); bt = min(e.get("pw_wall_s") or 1e9 for e in others)
-            if (o.get("scf_iterations") or 0) > 1.5 * bi:
-                opp.append(f"end-to-end/Si: the input written by Olla-DFT needed {o['scf_iterations']} SCF iterations vs {bi} for the best competitor at the same energy (defaults such as mixing_beta differ)")
-            if (o.get("pw_wall_s") or 0) > 1.5 * bt:
-                opp.append(f"end-to-end/Si: pw.x took {o['pw_wall_s']:.1f} s on Olla-DFT's input vs {bt:.1f} s on the best competitor's")
-            if any(abs(e["total_energy_Ry"] - o["total_energy_Ry"]) > 1e-6 for e in others):
-                opp.append("end-to-end/Si: total energy from Olla-DFT's input differs by more than 1e-6 Ry from another tool's; inputs are not physically equivalent")
+        E = e2e_rows(run["e2e"])
+        L += ["## End to end with pw.x (same binary, same k-grid and cutoffs, inputs from each tool)", "",
+              "| tool | k-grid | irreducible k | ecutwfc | total energy (Ry) | SCF iterations | pw.x wall s (median of n) | n | input generated by |", "|---|---|---|---|---|---|---|---|---|"]
+        for tool, e in E.items():
+            L.append(f"| {tool} | {e['kgrid']} | {e['nk']} | {e['ecutwfc']} | {e['energy']} | {e['iters']} | {_fmt(e['wall'], digits=2)} | {e['n']} | {e['via']} |")
+        es = [e["energy"] for e in E.values() if e["energy"] is not None]
         if len(es) > 1:
-            L += ["", f"Spread of total energies across tools: {max(es)-min(es):.2e} Ry (identical physics ⇒ should be ≲ 1e-6 Ry). "]
+            L += ["", f"Spread of total energies across tools: {max(es)-min(es):.2e} Ry. Same grid and cutoffs should agree to ≲ 1e-6 Ry; the number of irreducible k-points may differ if a tool writes the cell differently, which is itself a difference in the input."]
+        o = E.get("olla-dft"); others = [e for t, e in E.items() if t != "olla-dft" and e["energy"] is not None]
+        if o and o["energy"] is not None and others:
+            bi = min(e["iters"] or 1e9 for e in others); bt = min(e["wall"]["median"] for e in others if e["wall"].get("n"))
+            if (o["iters"] or 0) > thr * bi:
+                opp.append(f"end-to-end/Si: Olla-DFT's input needed {o['iters']} SCF iterations vs {bi} for the best competitor at the same energy (its defaults, e.g. mixing_beta, differ)")
+            if o["wall"].get("n") and o["wall"]["median"] > thr * bt:
+                opp.append(f"end-to-end/Si: pw.x took {o['wall']['median']:.2f} s on Olla-DFT's input vs {bt:.2f} s on the best competitor's")
+            if any(abs(e["energy"] - o["energy"]) > 1e-6 for e in others):
+                opp.append("end-to-end/Si: total energy from Olla-DFT's input differs by > 1e-6 Ry from another tool's")
         L.append("")
-    L += ["## Coverage matrix", "", "| task | " + " | ".join(run["config"]["tools"]) + " |", "|---|" + "---|" * len(run["config"]["tools"])]
+    L += ["## Coverage matrix", "", "| task | " + " | ".join(cfg["tools"]) + " |", "|---|" + "---|" * len(cfg["tools"])]
     for task, inputs in summ.items():
         row = []
-        for t in run["config"]["tools"]:
+        for t in cfg["tools"]:
             cells = [d for inp in inputs.values() for tt, d in inp.items() if tt == t]
-            row.append("—" if not cells else ("✘ n/a" if all(d["unsupported"] for d in cells) else "✔"))
+            n_ok = sum(1 for d in cells if not d["unsupported"])
+            row.append("—" if not cells else (f"✔ {n_ok}/{len(cells)} inputs" if 0 < n_ok < len(cells) else ("✘ n/a" if n_ok == 0 else "✔")))
         L.append(f"| {task} | " + " | ".join(row) + " |")
-    L += ["", "## Areas of opportunity for Olla-DFT (generated automatically, same rule for every tool)", ""]
-    L += [f"- {o}" for o in opp] or ["- none triggered by the automatic rules (>1.5× slower / >1.5× memory / mismatch)"]
+    L += ["", f"## Areas of opportunity for Olla-DFT (generated automatically; threshold {thr}×, same rule for every tool)", ""]
+    L += [f"- {o}" for o in opp] or [f"- none triggered (nothing above {thr}× and no mismatch)"]
     L += ["", "## Known limitations of this benchmark", "",
           "- One consumer laptop, hybrid CPU: absolute times are only comparable within one run; compare ratios across runs.",
-          "- Post-processing tasks are small; import time dominates and favours light dependency trees.",
+          "- Post-processing tasks are small; import time dominates and favours light dependency trees. That is a real cost for a CLI tool, but it is not algorithmic speed.",
           "- Only tasks every tool can express with the same inputs are compared; Olla-DFT features without a counterpart are not benchmarked here, and features of the other tools that Olla-DFT lacks are visible in the coverage matrix.",
-          "- Correctness is checked against independent code for the numeric tasks; for k-paths, only agreement with one convention is measured.", ""]
+          "- symmetry and kpath references share a backend with some contestants (stated in the notes); eos and bandgap references are independent code.",
+          "- The end-to-end stage uses one small system (Si, 2 atoms).", ""]
     return "\n".join(L)
 
 def html(history):
-    """Static dashboard: embeds the history JSON and renders tables client-side."""
     data = json.dumps(history)
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Olla-DFT benchmark dashboard</title>
 <style>body{{font:14px system-ui,sans-serif;max-width:1100px;margin:2rem auto;padding:0 1rem;color:#222}}table{{border-collapse:collapse;width:100%;margin:1rem 0}}td,th{{border:1px solid #ddd;padding:4px 8px;text-align:left}}th{{background:#f4f4f4}}.bar{{height:10px;background:#4a7;display:inline-block}}.o{{background:#e63}}small{{color:#666}}h2{{margin-top:2rem}}</style></head><body>
-<h1>Olla-DFT benchmark dashboard</h1><p><small>Rendered from <code>results/history.json</code>. Medians of wall time in seconds; bar length relative to the slowest tool in the row. Olla-DFT in orange, competitors in green. Lower is better. Nothing here is hand-edited.</small></p>
+<h1>Olla-DFT benchmark dashboard</h1><p><small>Rendered from <code>results/history.json</code>. Medians of wall time in seconds; bar length relative to the slowest supported tool in the row. Olla-DFT in orange, competitors in green. Lower is better. Nothing here is hand-edited.</small></p>
 <div id="app"></div>
 <script>const H={data};const app=document.getElementById('app');
-for(const run of H.runs){{const h=document.createElement('h2');h.textContent=`Run ${{run.run_id}} — ${{run.timestamp}} — ${{run.cpu}}`;app.appendChild(h);
+for(const run of H.runs){{const h=document.createElement('h2');h.textContent=`Run ${{run.run_id}} — ${{run.timestamp}} — ${{run.label}} — ${{run.cpu}}`;app.appendChild(h);
 if(run.warnings.length){{const w=document.createElement('p');w.innerHTML='<b>Warnings:</b> '+run.warnings.join(' · ');app.appendChild(w);}}
 for(const [task,inputs] of Object.entries(run.summary)){{const t=document.createElement('table');t.innerHTML=`<tr><th colspan=6>${{task}}</th></tr><tr><th>input</th><th>tool</th><th>wall s</th><th></th><th>RSS MB</th><th>correct</th></tr>`;
-for(const [inp,tools] of Object.entries(inputs)){{const mx=Math.max(...Object.values(tools).map(d=>d.wall||0));for(const [tool,d] of Object.entries(tools)){{const tr=document.createElement('tr');
+for(const [inp,tools] of Object.entries(inputs)){{const mx=Math.max(...Object.values(tools).filter(d=>!d.unsupported).map(d=>d.wall||0));for(const [tool,d] of Object.entries(tools)){{const tr=document.createElement('tr');
 tr.innerHTML=`<td>${{inp}}</td><td>${{tool}}</td><td>${{d.unsupported?'—':d.wall.toFixed(3)}}</td><td>${{d.unsupported?'<small>n/a</small>':`<span class="bar ${{tool==='olla-dft'?'o':''}}" style="width:${{(200*d.wall/mx)|0}}px"></span>`}}</td><td>${{d.unsupported?'—':d.rss.toFixed(0)}}</td><td>${{d.unsupported?'n/a':(d.correct?'✔':'✘')}}</td>`;t.appendChild(tr);}}}}app.appendChild(t);}}}}
 </script></body></html>"""

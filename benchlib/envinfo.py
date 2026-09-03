@@ -82,6 +82,11 @@ def collect(python=sys.executable, input_files=()):
         if line.startswith("MemTotal"):
             mem_kb = int(line.split()[1])
     pkgs = package_versions(python)
+    src = _cmd(python, "-c", "import importlib.metadata as m,json;d=m.distribution('olla-dft');print(d.read_text('direct_url.json') or '')")
+    try:
+        src = json.loads(src)
+    except Exception:
+        src = {"raw": src}
     keep = {k: v for k, v in pkgs.items() if k.lower() in
             {"olla-dft", "ase", "pymatgen", "spglib", "seekpath", "numpy", "scipy", "matplotlib"}}
     return {
@@ -99,6 +104,7 @@ def collect(python=sys.executable, input_files=()):
         "python": _cmd(python, "--version"),
         "python_path": python,
         "packages": keep,
+        "olla_dft_source": src,
         "pw_x": os.environ.get("BENCH_PW_X") or _cmd("bash", "-c", "command -v pw.x"),
         "pw_x_version": (_cmd("bash", "-c", f"echo | {os.environ.get('BENCH_PW_X', 'pw.x')} 2>/dev/null | grep -m1 'Program PWSCF'") or "").strip(),
         "bench_git_sha": git_sha(ROOT),

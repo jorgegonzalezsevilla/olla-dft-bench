@@ -35,11 +35,15 @@ elif task == "eos":
     emit({"via": "qekit.modules.eos.fit (function behind `olla-dft eos`)",
           "V0_A3": f.V0, "B0_GPa": f.B0, "Bp": f.Bp, "E0_eV": f.E0, "ok": f.ok})
 elif task == "bandgap":
-    # the CLI wants a folder with the .xml (uncompressed) inside
+    if args[0].endswith(".out"):
+        unsupported("`olla-dft gap` reads the data-file-schema XML, not the pw.x text output")
     d = tempfile.mkdtemp(prefix="ollad_gap_")
     import gzip
-    with gzip.open(args[0], "rb") as f, open(os.path.join(d, "Si.xml"), "wb") as g:
-        shutil.copyfileobj(f, g)
+    if args[0].endswith(".gz"):
+        with gzip.open(args[0], "rb") as f, open(os.path.join(d, "Si.xml"), "wb") as g:
+            shutil.copyfileobj(f, g)
+    else:
+        shutil.copy(args[0], os.path.join(d, "Si.xml"))
     rc, out = cli(["gap", d])
     shutil.rmtree(d, ignore_errors=True)
     def grab(pat):

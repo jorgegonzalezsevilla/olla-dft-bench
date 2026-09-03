@@ -26,7 +26,7 @@ elif task == "eos":
     emit({"via": "pymatgen.analysis.eos.EOS('birch_murnaghan')", "V0_A3": float(f.v0),
           "B0_GPa": float(f.b0_GPa), "Bp": float(f.b1), "E0_eV": float(f.e0), "ok": True})
 elif task == "bandgap":
-    unsupported("pymatgen has no parser for the pw.x data-file-schema XML")
+    unsupported("pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser")
 elif task == "inputgen":
     from pymatgen.io.pwscf import PWInput
     cif, outdir, pseudo_dir = args[0], args[1], args[2]

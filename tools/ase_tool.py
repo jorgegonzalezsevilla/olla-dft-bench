@@ -26,7 +26,17 @@ elif task == "eos":
           "Bp": None, "E0_eV": e0, "ok": True,
           "note": "ASE does not expose B' from fit(); reported as null"})
 elif task == "bandgap":
-    unsupported("ASE reads pw.x text output (espresso-out), not the data-file-schema XML")
+    if not args[0].endswith(".out"):
+        unsupported("ASE reads pw.x text output (espresso-out), not the data-file-schema XML")
+    a = read(args[0], format="espresso-out"); c = a.calc
+    ef = c.get_fermi_level()   # for fixed occupations pw.x reports the highest occupied level here
+    eig = [c.get_eigenvalues(kpt=k, spin=0) for k in range(len(c.get_ibz_k_points()))]
+    occ = [e for row in eig for e in row if e <= ef + 1e-6]; emp = [e for row in eig for e in row if e > ef + 1e-6]
+    if not occ or not emp:
+        unsupported("no eigenvalues/Fermi level in the parsed output")
+    vbm, cbm = max(occ), min(emp)
+    emit({"via": "ase.io.read(espresso-out): eigenvalues + reported Fermi/HOMO level; VBM/CBM by comparison (ase.dft.bandgap returns 0 when the level equals the VBM)",
+          "gap_eV": float(cbm - vbm), "vbm_eV": float(vbm), "cbm_eV": float(cbm)})
 elif task == "inputgen":
     cif, outdir, pseudo_dir = args[0], args[1], args[2]
     kpts = tuple(int(x) for x in args[3].split("x")) if len(args) > 3 else (4, 4, 4)

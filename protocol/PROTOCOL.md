@@ -6,17 +6,19 @@ that all of them can perform from the same inputs. The goal is to find where Oll
 much as where it is strong; the report generator applies the same rules to every tool.
 
 ## Contestants and versions
-Pinned in `requirements.lock`. Olla-DFT is installed from its public repository at the commit
-recorded in `results/<run>/env.json`. Competitors: ASE, pymatgen, seekpath/spglib.
+Pinned in `requirements.lock`. Olla-DFT is installed from its public repository at a pinned commit;
+`results/<run>/env.json` records URL and commit under `olla_dft_source`. Competitors: ASE, pymatgen,
+seekpath/spglib, qeschema. Where a reference shares a backend with a contestant (spglib, seekpath)
+the task note says so; independent verdicts and the responses to them are in `judge/`.
 
 ## Tasks (see `benchlib/tasks.py`)
 | task | input | what is compared | reference |
 |---|---|---|---|
 | symmetry | 5 structure files | space group number, atoms in primitive cell | spglib called directly |
 | kpath | 5 structure files | set of path segments | seekpath called directly (HPKOT) |
-| eos | 9-point E(V) table | V0, B0 | independent scipy fit of BM3 |
-| bandgap | pw.x XML, Si, 122 k | gap, VBM, CBM | independent XML parse |
-| inputgen | 2 structures | atoms and volume after parsing the generated input back; k-grid, cutoff | ASE parse of the source structure |
+| eos | 9-point E(V) table | V0, B0 | analytic linear fit of E as cubic in V^(-2/3) |
+| bandgap | pw.x XML (bands run, 122 k), and XML + text output of a shipped scf input | gap, VBM, CBM | independent XML parse; pw.x's own HOMO/LUMO line for text |
+| inputgen | 2 structures | atoms, volume, k-grid and ecutwfc after parsing the generated input back | ASE parse of the source structure + requested grid/cutoff |
 | end-to-end (optional) | Si input from each tool | pw.x total energy, SCF iterations, pw.x time | agreement between tools |
 
 Reference implementations live in `tools/reference.py`, share no code with any contestant and are
@@ -27,9 +29,13 @@ counted as a failure and not silently dropped.
 - Each repetition is a fresh process (`python wrapper.py task args`), so import time is included:
   it is what a user pays at the command line. Warm-up run per cell is executed and discarded.
 - Wall time with `time.perf_counter()`; CPU user/system time and peak RSS from `os.wait4` rusage.
-- Default 5 repetitions per (task, input, tool); tools are interleaved inside each repetition so
-  thermal drift and background noise affect all of them alike.
-- Reported: median, min, IQR, mean, standard deviation. Raw samples are kept in `results.json`.
+- Default 15 repetitions per (task, input, tool); within each repetition the tool order is shuffled
+  with a recorded seed, so thermal drift and background noise affect all tools alike.
+- Reported: median, min, IQR, mean, standard deviation, and for every contested cell the ratio of
+  Olla-DFT to the best *supported* competitor with a 95 % bootstrap CI. Raw samples are kept in `results.json`.
+- The end-to-end stage runs pw.x 5 times per tool (median reported) and shows irreducible k-points.
+- "Areas of opportunity" are listed by a stated threshold (default 1.15×, `--opp-threshold`) applied
+  identically to time and memory; a rule also fires when Olla-DFT loses every contested cell.
 - Environment: single thread (`OMP_NUM_THREADS=1` etc.), `MPLBACKEND=Agg`, `PYTHONHASHSEED=0`,
   private `XDG_CONFIG_HOME` so no user configuration leaks in, process pinned with `taskset` to the
   fastest core; with `--isolate`, a transient systemd scope adds `MemoryMax` and `CPUQuota=100%`.

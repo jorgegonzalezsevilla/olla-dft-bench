@@ -2,12 +2,12 @@
 """olla-dft-bench: reproducible benchmarks of Olla-DFT against comparable tools.
 
   python bench.py env                      show the environment fingerprint and warnings
-  python bench.py run [--reps 5] [--isolate] [--with-qe] [--tasks a,b] [--label local]
+  python bench.py run [--reps 15] [--e2e-reps 5] [--isolate] [--with-qe] [--tasks a,b] [--label local] [--seed N] [--opp-threshold 1.15]
   python bench.py verify results/<run>     recompute every aggregate from raw samples, check hashes
   python bench.py report results/<run>     regenerate report.md, history.json and docs/index.html
   python bench.py judge-pack results/<run> build the packet for an independent evaluator
 """
-import argparse, json, os, shutil, sys, time, hashlib, difflib
+import argparse, json, os, shutil, sys, time, hashlib, difflib, random
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -54,8 +54,11 @@ def cmd_run(a):
     penv = measure.clean_env()
     tasks = [t for t in (a.tasks.split(",") if a.tasks else TASKS) if t in TASKS]
     tools_used = sorted({t for k in tasks for t in TASKS[k]["tools"]}, key=lambda t: (t != "olla-dft", t))
+    seed = a.seed if a.seed is not None else int(time.time()) % 100000
+    rng = random.Random(seed)
     config = {"reps": a.reps, "cpu": cpu, "isolate": a.isolate, "mem_max": a.mem_max, "label": a.label,
-              "tasks": tasks, "tools": tools_used, "with_qe": a.with_qe}
+              "tasks": tasks, "tools": tools_used, "with_qe": a.with_qe, "seed": seed,
+              "e2e_reps": a.e2e_reps, "opp_threshold": a.opp_threshold}
     records, refs = [], {}
 
     def wrap(cmd):
@@ -94,22 +97,32 @@ def cmd_run(a):
         meta = TASKS[task]
         for inp in meta["inputs"]:
             refs[(task, inp)] = reference(task, meta["args"](inp, work)[:1], penv, str(work))
+            if task == "inputgen":
+                refs[(task, inp)]["kgrid_expected"] = [int(x) for x in meta["args"](inp, work)[3].split("x")]
             for tool in meta["tools"]:
                 one(task, inp, tool, -1, True)
             for rep in range(a.reps):
-                for tool in meta["tools"]:          # interleaved: thermal drift hits every tool alike
+                order = list(meta["tools"]); rng.shuffle(order)   # random order per repetition
+                for tool in order:
                     one(task, inp, tool, rep, False)
 
     e2e = {}
     if a.with_qe and (work / "e2e").exists():
-        print("end-to-end: running pw.x on each tool's Si input")
-        for d in sorted((work / "e2e").iterdir()):
-            r = measure.run_measured(wrap(tool_cmd("run_pw.py", str(d / "scf.in"), [str(d)])), penv, str(d))
-            p = r["payload"] or {}
+        print(f"end-to-end: running pw.x {a.e2e_reps}x on each tool's Si input")
+        dirs = sorted((work / "e2e").iterdir())
+        for d in dirs:
             rt = reference("roundtrip", [str(d / "scf.in")], penv, str(work))
             via = next((x["payload"]["via"] for x in records if x["task"] == "inputgen" and x["tool"] == d.name and x.get("payload")), "")
-            e2e[d.name] = {**p, "kgrid": rt.get("kgrid"), "ecutwfc": rt.get("ecutwfc"), "via": via}
-            print(f"  {d.name:9s} E={p.get('total_energy_Ry')} Ry  iters={p.get('scf_iterations')}  pw.x {p.get('pw_wall_s',0):.1f}s")
+            e2e[d.name] = {"samples": [], "kgrid": rt.get("kgrid"), "ecutwfc": rt.get("ecutwfc"), "via": via}
+        for rep in range(a.e2e_reps):
+            order = list(dirs); rng.shuffle(order)
+            for d in order:
+                shutil.rmtree(d / "out", ignore_errors=True)
+                r = measure.run_measured(wrap(tool_cmd("run_pw.py", str(d / "scf.in"), [str(d)])), penv, str(d))
+                p = r["payload"] or {}
+                e2e[d.name]["samples"].append(p)
+                print(f"  {d.name:9s} rep{rep} E={p.get('total_energy_Ry')} Ry  iters={p.get('scf_iterations')}  nk={p.get('nkpoints')}  pw.x {p.get('pw_wall_s',0):.2f}s")
+        for d in dirs:
             shutil.rmtree(d / "out", ignore_errors=True)
     env_info["load_avg_end"] = envinfo.load_avg()
 
@@ -216,7 +229,7 @@ if __name__ == "__main__":
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("env").set_defaults(f=cmd_env)
     r = sub.add_parser("run"); r.set_defaults(f=cmd_run)
-    r.add_argument("--reps", type=int, default=5); r.add_argument("--isolate", action="store_true", help="systemd scope with MemoryMax and CPUQuota=100%%")
+    r.add_argument("--reps", type=int, default=15); r.add_argument("--e2e-reps", type=int, default=5); r.add_argument("--seed", type=int); r.add_argument("--opp-threshold", type=float, default=1.15); r.add_argument("--isolate", action="store_true", help="systemd scope with MemoryMax and CPUQuota=100%%")
     r.add_argument("--mem-max", default="3G"); r.add_argument("--cpu", type=int); r.add_argument("--tasks"); r.add_argument("--label", default="local")
     r.add_argument("--with-qe", action="store_true", help="also run pw.x on each tool's Si input (needs pw.x)")
     r.add_argument("--pw-x", help="pw.x executable to use (default: BENCH_PW_X env, else ./.qe/bin/pw.x if present, else pw.x on PATH)")

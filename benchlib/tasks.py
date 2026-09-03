@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 INP = ROOT / "inputs"
-TOOLS = {"olla-dft": "ollad.py", "ase": "ase_tool.py", "pymatgen": "pymatgen_tool.py", "seekpath": "seekpath_tool.py"}
+TOOLS = {"olla-dft": "ollad.py", "ase": "ase_tool.py", "pymatgen": "pymatgen_tool.py", "seekpath": "seekpath_tool.py", "qeschema": "qeschema_tool.py"}
 STRUCTURES = ["Si_relajado.cif", "ZnO.cif", "grafito.cif", "hbn.cif", "POSCAR_NaCl"]
 
 GAMMA = {"G", "GAMMA", "\\GAMMA", "Γ", "\\Gamma", "Gamma"}
@@ -63,8 +63,9 @@ def grade_bandgap(p, r):
 
 def grade_inputgen(p, r):
     rt = p.get("roundtrip") or {}
-    ok = rt.get("natoms") == r["natoms"] and close(rt.get("volume_A3"), r["volume_A3"], 1e-3)
-    return ok, f"parsed back: {rt.get('natoms')} atoms, V={rt.get('volume_A3')} Å³ (ref {r['natoms']}, {r['volume_A3']:.4f}); k-grid {rt.get('kgrid')}, ecutwfc {rt.get('ecutwfc')}"
+    ok = (rt.get("natoms") == r["natoms"] and close(rt.get("volume_A3"), r["volume_A3"], 1e-3)
+          and rt.get("kgrid") == r.get("kgrid_expected") and rt.get("ecutwfc") == 30.0)
+    return ok, f"parsed back: {rt.get('natoms')} atoms, V={rt.get('volume_A3')} Å³ (ref {r['natoms']}, {r['volume_A3']:.4f}); k-grid {rt.get('kgrid')} (expected {r.get('kgrid_expected')}), ecutwfc {rt.get('ecutwfc')} (expected 30)"
 
 
 TASKS = {
@@ -72,30 +73,30 @@ TASKS = {
         "title": "Structure parsing and symmetry (file → space group, primitive cell)",
         "inputs": STRUCTURES, "tools": ["olla-dft", "ase", "pymatgen"], "grade": grade_symmetry,
         "args": lambda inp, work: [str(INP / inp)],
-        "note": "All three use spglib underneath; this measures the wrapper cost (import + parse + report), not the algorithm.",
+        "note": "Reference shares its backend (spglib) with all three contestants: the grade checks that each wrapper preserves the result, not the algorithm. Timing measures wrapper cost (import + parse + report).",
     },
     "kpath": {
         "title": "High-symmetry k-path from a structure",
         "inputs": STRUCTURES, "tools": ["olla-dft", "seekpath", "ase", "pymatgen"], "grade": grade_kpath,
         "args": lambda inp, work: [str(INP / inp)],
-        "note": "Reference is the HPKOT convention (seekpath). ASE and pymatgen implement Setyawan–Curtarolo; a mismatch there is a convention difference.",
+        "note": "Reference is the HPKOT convention (seekpath). Olla-DFT and the seekpath contestant call the same library, so their agreement is expected and only shows the path is passed through intact. ASE and pymatgen implement Setyawan–Curtarolo; a mismatch there is a convention difference, not an error.",
     },
     "eos": {
         "title": "Birch–Murnaghan fit of an E(V) table (9 points, Si)",
         "inputs": ["EOS.dat"], "tools": ["olla-dft", "ase", "pymatgen"], "grade": grade_eos,
         "args": lambda inp, work: [str(INP / inp)],
-        "note": "Olla-DFT is called through the fit function behind `olla-dft eos --collect`, because the command reads pw.x outputs, not a bare table.",
+        "note": "Olla-DFT is called through the fit function behind `olla-dft eos --collect`, because the command reads pw.x outputs, not a bare table. The reference is an analytic linear fit, deliberately a different algorithm from every contestant's curve_fit.",
     },
     "bandgap": {
-        "title": "Band gap from a pw.x data-file-schema XML (Si, 122 k-points)",
-        "inputs": ["Si.xml.gz"], "tools": ["olla-dft", "ase", "pymatgen"], "grade": grade_bandgap,
+        "title": "Band gap from pw.x output (XML and text)",
+        "inputs": ["Si.xml.gz", "Si_scf.xml", "Si_scf.out"], "tools": ["olla-dft", "qeschema", "ase", "pymatgen"], "grade": grade_bandgap,
         "args": lambda inp, work: [str(INP / inp)],
-        "note": "ASE and pymatgen do not read this XML; they are listed to make the coverage gap explicit.",
+        "note": "Three inputs so that no tool is judged only on the format it prefers: the XML of a 122-k bands run (QE 6.6, no input shipped), and the XML and text output of the same scf run generated with the shipped inputs/Si_scf.in (QE 7.4). Olla-DFT and qeschema read the XML; ASE reads the text output; pymatgen reads neither for eigenvalues.",
     },
     "inputgen": {
         "title": "pw.x scf input from a structure (Si 4×4×4, ZnO 6×6×4, fixed cutoffs)",
         "inputs": ["Si_relajado.cif", "ZnO.cif"], "tools": ["olla-dft", "ase", "pymatgen"], "grade": grade_inputgen,
         "args": lambda inp, work: [str(INP / inp), str(work / "gen"), str(work / "pp"), {"Si_relajado.cif": "4x4x4", "ZnO.cif": "6x6x4"}[inp]],
-        "note": "Each generated file is parsed back by ASE (reference) to check atoms and volume. Cutoffs are forced equal so the comparison is about correctness and cost, not defaults.",
+        "note": "Each generated file is parsed back by ASE (reference) to check atoms, volume, k-grid and ecutwfc. Cutoffs and grid are forced equal so the comparison is about correctness and cost, not defaults; other defaults (mixing, smearing) remain each tool's own and show up in the end-to-end stage.",
     },
 }
