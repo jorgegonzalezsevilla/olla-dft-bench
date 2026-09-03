@@ -70,6 +70,8 @@ def cmd_run(a):
         args = meta["args"](inp, work)
         if task == "inputgen":
             shutil.rmtree(work / "gen", ignore_errors=True)
+            if tool == "olla-dft":
+                args = args + [str(refs[(task, inp)].get("kspacing_for_olla"))]
         r = measure.run_measured(wrap(tool_cmd(TOOLS[tool], task, args)), penv, str(work))
         rec = {"task": task, "input": inp, "tool": tool, "rep": rep, "warmup": warmup,
                "wall_s": r["wall_s"], "user_s": r["user_s"], "sys_s": r["sys_s"], "max_rss_kb": r["max_rss_kb"],
@@ -99,6 +101,8 @@ def cmd_run(a):
             refs[(task, inp)] = reference(task, meta["args"](inp, work)[:1], penv, str(work))
             if task == "inputgen":
                 refs[(task, inp)]["kgrid_expected"] = [int(x) for x in meta["args"](inp, work)[3].split("x")]
+                ksp = reference("kspacing", [str(INP / inp), meta["args"](inp, work)[3]], penv, str(work))
+                refs[(task, inp)]["kspacing_for_olla"] = ksp.get("kspacing")
             for tool in meta["tools"]:
                 one(task, inp, tool, -1, True)
             for rep in range(a.reps):

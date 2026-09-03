@@ -77,3 +77,17 @@ curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xj -C .mic
 python bench.py run --with-qe            # picks ./.qe/bin/pw.x automatically; or --pw-x /path/to/pw.x
 ```
 The exact pw.x version banner is stored in `env.json`.
+
+## Not yet compared (future work)
+- `postqe` (QE's post-processing Python package) reads the XML but needs compiled Fortran extensions; not installed.
+- `aiida-quantumespresso` generates pw.x inputs but requires a running AiiDA profile and database; not installed.
+- `sumo` / `pyprocar` plot bands and DOS from QE outputs; a plotting task is not defined yet.
+Adding any of them is one wrapper in `tools/` plus one line in `benchlib/tasks.py`.
+
+## Input provenance
+| input | origin |
+|---|---|
+| `Si_scf.in`, `Si_scf.out`, `Si_scf.xml` | generated here with QE 7.4 (conda-forge); the input is shipped |
+| `EOS.dat` | exported by `olla-dft eos Si.cif --run` in `examples/demo_calculo` of Olla-DFT (QE 6.6) |
+| `Si.xml.gz` | 122-k bands run from the Olla-DFT test suite (QE 6.6); its input is not available, so it is no longer used for grading and is kept only for reference |
+| structure files | Olla-DFT `examples/` and `tests/datos/` |

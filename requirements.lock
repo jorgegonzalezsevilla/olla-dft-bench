@@ -17,13 +17,14 @@ mpmath==1.3.0
 narwhals==2.25.0
 networkx==3.6.1
 numpy==2.2.6
-olla-dft @ git+https://github.com/jorgegonzalezsevilla/olla-dft@15b44febbfdd218667da5a7c8a11715ca98758b3
+olla-dft @ git+https://github.com/jorgegonzalezsevilla/olla-dft@558ed7e234d3549e57fdfb8107d06e960fc5ec4a
 orjson==3.12.0
 packaging==26.3
 palettable==3.3.3
 pandas==3.0.5
 pillow==12.3.0
 plotly==7.0.0
+pyflakes==3.4.0
 pymatgen==2026.5.4
 pymatgen-core==2026.8.30
 pyparsing==3.3.2

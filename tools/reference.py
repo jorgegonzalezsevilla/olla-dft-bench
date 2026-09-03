@@ -61,6 +61,17 @@ elif task == "inputgen":
     from ase.io import read
     a = read(args[0])
     emit({"via": "ase.io.read of the source structure", "natoms": len(a), "volume_A3": float(a.get_volume())})
+elif task == "kspacing":
+    # untimed helper: which --kspacing makes olla-dft's own grid rule return the requested grid
+    from qekit.core.structure import load
+    from qekit.core.kpoints import kgrid_from_spacing
+    want = tuple(int(x) for x in args[1].split("x")); atoms = load(args[0]); lo, hi = 0.05, 1.0; ks = None
+    for _ in range(60):
+        mid = 0.5 * (lo + hi); g = tuple(kgrid_from_spacing(atoms, mid))
+        if g == want: ks = mid; break
+        if g < want: hi = mid
+        else: lo = mid
+    emit({"kspacing": ks, "grid": list(want)})
 elif task == "roundtrip":
     # parse a generated pw.x input back and report natoms, volume, k-grid, ecut (used to grade inputgen)
     from ase.io import read

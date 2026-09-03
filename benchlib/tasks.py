@@ -85,13 +85,13 @@ TASKS = {
         "title": "Birch–Murnaghan fit of an E(V) table (9 points, Si)",
         "inputs": ["EOS.dat"], "tools": ["olla-dft", "ase", "pymatgen"], "grade": grade_eos,
         "args": lambda inp, work: [str(INP / inp)],
-        "note": "Olla-DFT is called through the fit function behind `olla-dft eos --collect`, because the command reads pw.x outputs, not a bare table. The reference is an analytic linear fit, deliberately a different algorithm from every contestant's curve_fit.",
+        "note": "Olla-DFT is called through the fit function behind `olla-dft eos --collect`, because the command reads pw.x outputs, not a bare table. EOS.dat is the table exported by `olla-dft eos Si.cif --run` in examples/demo_calculo of the Olla-DFT repository (QE 6.6, 9 volumes, ±10 %). The reference is an analytic linear fit, deliberately a different algorithm from every contestant's curve_fit.",
     },
     "bandgap": {
         "title": "Band gap from pw.x output (XML and text)",
-        "inputs": ["Si.xml.gz", "Si_scf.xml", "Si_scf.out"], "tools": ["olla-dft", "qeschema", "ase", "pymatgen"], "grade": grade_bandgap,
+        "inputs": ["Si_scf.xml", "Si_scf.out"], "tools": ["olla-dft", "qeschema", "ase", "pymatgen"], "grade": grade_bandgap,
         "args": lambda inp, work: [str(INP / inp)],
-        "note": "Three inputs so that no tool is judged only on the format it prefers: the XML of a 122-k bands run (QE 6.6, no input shipped), and the XML and text output of the same scf run generated with the shipped inputs/Si_scf.in (QE 7.4). Olla-DFT and qeschema read the XML; ASE reads the text output; pymatgen reads neither for eigenvalues.",
+        "note": "The XML and the text output of the same scf run, generated with the shipped inputs/Si_scf.in (QE 7.4), so that each format counts once and no tool is judged only on the format it prefers. Olla-DFT and qeschema read the XML; ASE reads the text output; pymatgen reads neither for eigenvalues.",
     },
     "inputgen": {
         "title": "pw.x scf input from a structure (Si 4×4×4, ZnO 6×6×4, fixed cutoffs)",

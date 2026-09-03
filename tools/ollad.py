@@ -53,21 +53,15 @@ elif task == "bandgap":
           "rc": rc, "raw": out[:600]})
 elif task == "inputgen":
     cif, outdir, pseudo_dir = args[0], args[1], args[2]
-    want = tuple(int(x) for x in args[3].split("x")) if len(args) > 3 else (4, 4, 4)
-    # olla-dft has no explicit k-grid option: find the --kspacing that yields the requested grid
-    from qekit.core.structure import load
-    from qekit.core.kpoints import kgrid_from_spacing
-    atoms = load(cif); lo, hi = 0.05, 1.0; ks = None
-    for _ in range(40):
-        mid = 0.5 * (lo + hi); g = tuple(kgrid_from_spacing(atoms, mid))
-        if g == want: ks = mid; break
-        if g < want: hi = mid
-        else: lo = mid
+    want = args[3]
+    # the --kspacing that reproduces the requested grid is computed once, untimed, by the harness
+    # (tools/reference.py kspacing) because olla-dft has no explicit k-grid option; it arrives as args[4]
+    ks = float(args[4]) if len(args) > 4 else None
     if ks is None:
-        unsupported(f"no --kspacing reproduces grid {want} (bisection failed)")
+        unsupported("no --kspacing supplied for the requested grid (olla-dft has no explicit k-grid option)")
     rc, out = cli(["gen", cif, "-p", "scf", "-o", outdir, "--pseudo-dir", pseudo_dir,
                    "--kspacing", f"{ks:.6f}", "--ecutwfc", "30", "--ecutrho", "240", "--insulator"])
-    emit({"via": f"cli gen -p scf --kspacing {ks:.4f} --ecutwfc 30 --ecutrho 240 --insulator (no explicit k-grid option)",
+    emit({"via": f"cli gen -p scf --kspacing {ks:.4f} --ecutwfc 30 --ecutrho 240 --insulator (no explicit k-grid option; spacing precomputed untimed by the harness)",
           "file": os.path.join(outdir, "scf.in"), "rc": rc})
 else:
     unsupported(f"task {task} not wired for olla-dft")

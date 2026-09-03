@@ -133,7 +133,8 @@ def markdown(run):
               f"(geometric-mean wall ratio {gm:.2f}×, min-based {st.geometric_mean([r['min_ratio'] for r in R]):.2f}×) and uses more peak memory in {heavier} of {len(R)} (geometric mean {gmr:.2f}×).", ""]
         for r in R:
             if r["wall_ratio"] > thr:
-                opp.append(f"{r['task']}/{r['input']}: {r['wall_ratio']:.2f}× the wall time of {r['vs']} (95 % CI {r['ci'][0]:.2f}–{r['ci'][1]:.2f})")
+                tag = "" if r["ci"][0] > 1.0 else " — not significant: the CI includes 1"
+                opp.append(f"{r['task']}/{r['input']}: {r['wall_ratio']:.2f}× the wall time of {r['vs']} (95 % CI {r['ci'][0]:.2f}–{r['ci'][1]:.2f}){tag}")
             if r["rss_ratio"] and r["rss_ratio"] > thr:
                 opp.append(f"{r['task']}/{r['input']}: {r['rss_ratio']:.2f}× the peak memory of the lightest competitor")
             if not r["correct"]:
