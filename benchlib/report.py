@@ -207,6 +207,7 @@ def html(history):
     data = json.dumps(history).replace("<", "\\u003c")
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Olla-DFT benchmark dashboard</title>
 <style>body{{font:14px system-ui,sans-serif;max-width:1100px;margin:2rem auto;padding:0 1rem;color:#222}}table{{border-collapse:collapse;width:100%;margin:1rem 0}}td,th{{border:1px solid #ddd;padding:4px 8px;text-align:left}}th{{background:#f4f4f4}}.bar{{height:10px;background:#4a7;display:inline-block}}.o{{background:#e63}}small{{color:#666}}h2{{margin-top:2rem}}</style></head><body>
+<nav aria-label="Related results"><a href="publication-1.2.0/index.html">Recuperación y explorador · Español</a> · <a href="publication-1.2.0/index-en.html">Recovery figures and explorer · English</a></nav>
 <h1>Olla-DFT benchmark dashboard</h1><p><small>Rendered from <code>results/history.json</code>. Medians of wall time in seconds; bar length relative to the slowest supported tool in the row. Olla-DFT in orange, competitors in green. Lower is better. Nothing here is hand-edited.</small></p>
 <div id="app"></div>
 <script>const H={data};const app=document.getElementById('app');const fmt=(v,n)=>Number.isFinite(v)?v.toFixed(n):'—';const esc=v=>String(v).replace(/[&<>]/g,c=>({{'&':'&amp;','<':'&lt;','>':'&gt;'}}[c]));
