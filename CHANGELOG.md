@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.1 — 2026-09-04
+
+- Retain complete performance runs for Olla-DFT 1.3.0 and 1.3.1 with fixed competitor versions.
+- Add an interleaved same-interpreter A/B check, raw samples, package hashes and review decisions.
+- Pin the measured Olla wheel by SHA-256 for reproduction.
+- Keep measurement engine 0.3.0, original wrappers, numerical grading and historical records unchanged; this is a results release, without new QE solver timings.
+
 ## 0.3.0 — 2026-09-04
 
 - Publish matched continuous/recovered QE figures, raw observables and recomputation checks.

@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this benchmark, please cite it as below."
 type: software
 title: "olla-dft-bench: reproducible benchmarks of Olla-DFT against ASE, pymatgen, seekpath and qeschema"
-version: 0.3.0
-doi: 10.5281/zenodo.22316032
+version: 0.3.1
+doi: 10.5281/zenodo.22313759
 identifiers:
   - type: doi
     value: 10.5281/zenodo.22316032
