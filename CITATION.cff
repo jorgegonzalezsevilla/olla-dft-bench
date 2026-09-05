@@ -3,6 +3,11 @@ message: "If you use this benchmark, please cite it as below."
 type: software
 title: "olla-dft-bench: reproducible benchmarks of Olla-DFT against ASE, pymatgen, seekpath and qeschema"
 version: 0.3.0
+doi: 10.5281/zenodo.22316032
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22316032
+    description: "Version DOI of 0.3.0"
 date-released: 2026-09-04
 license: GPL-3.0-or-later
 repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft-bench"
