@@ -1,0 +1,497 @@
+{
+  "canonical": {
+    "1.3.0": {
+      "run": "20260904-223352",
+      "samples_including_warmups": 832,
+      "cells": [
+        {
+          "task": "symmetry",
+          "input": "Si_relajado.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.4649226769944772,
+          "ci": [
+            1.4187907128730173,
+            1.5225964035749913
+          ],
+          "min_ratio": 1.4394380508689595,
+          "rss_ratio": 1.2525492175668853,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "ZnO.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.4648449955566516,
+          "ci": [
+            1.2593932784895776,
+            1.618256608891655
+          ],
+          "min_ratio": 1.455392888011757,
+          "rss_ratio": 1.2499118076903695,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "grafito.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.5064067005743216,
+          "ci": [
+            1.3926157493564346,
+            1.5161418351057556
+          ],
+          "min_ratio": 1.463295904981793,
+          "rss_ratio": 1.250642349740541,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "hbn.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.4298244792536179,
+          "ci": [
+            1.42675449009411,
+            1.4572332221786441
+          ],
+          "min_ratio": 1.468236475239262,
+          "rss_ratio": 1.250731067863265,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "POSCAR_NaCl",
+          "vs": "ase",
+          "wall_ratio": 1.323662947883912,
+          "ci": [
+            1.2671283015583323,
+            1.3957821063004725
+          ],
+          "min_ratio": 1.3323158257311472,
+          "rss_ratio": 1.2122795877497192,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "Si_relajado.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.4760818413971921,
+          "ci": [
+            1.1948402260702846,
+            1.7062883918437066
+          ],
+          "min_ratio": 1.304652319704267,
+          "rss_ratio": 1.2023935913521862,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "ZnO.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.3468538780864556,
+          "ci": [
+            1.2633260347301203,
+            1.3968752701854368
+          ],
+          "min_ratio": 1.333232484927177,
+          "rss_ratio": 1.202896451846488,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "grafito.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.3197669946719417,
+          "ci": [
+            1.2434833309588524,
+            1.4206219399360853
+          ],
+          "min_ratio": 1.314023224920644,
+          "rss_ratio": 1.2038235010138072,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "hbn.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.3644584576107794,
+          "ci": [
+            1.3096012702155464,
+            1.366386557702673
+          ],
+          "min_ratio": 1.3142802246807765,
+          "rss_ratio": 1.2032441826783817,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "POSCAR_NaCl",
+          "vs": "seekpath",
+          "wall_ratio": 1.3498236556742509,
+          "ci": [
+            1.2303352406329224,
+            1.4325900423997202
+          ],
+          "min_ratio": 1.2948671173483977,
+          "rss_ratio": 1.2079131109387122,
+          "correct": true
+        },
+        {
+          "task": "eos",
+          "input": "EOS.dat",
+          "vs": "ase",
+          "wall_ratio": 1.193793345912888,
+          "ci": [
+            1.0844568861481951,
+            1.304542669187837
+          ],
+          "min_ratio": 1.2205282564126412,
+          "rss_ratio": 1.169107391910739,
+          "correct": true
+        },
+        {
+          "task": "bandgap",
+          "input": "Si_scf.xml",
+          "vs": "qeschema",
+          "wall_ratio": 0.5333494986028802,
+          "ci": [
+            0.522785485159267,
+            0.5548939072055349
+          ],
+          "min_ratio": 0.5225961075587219,
+          "rss_ratio": 1.0791396103896105,
+          "correct": true
+        },
+        {
+          "task": "inputgen",
+          "input": "Si_relajado.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.4639886328179041,
+          "ci": [
+            1.2095588322105104,
+            1.7133564804399743
+          ],
+          "min_ratio": 1.4681393375546432,
+          "rss_ratio": 1.281807131280389,
+          "correct": true
+        },
+        {
+          "task": "inputgen",
+          "input": "ZnO.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.4152968235056576,
+          "ci": [
+            1.1869969378832432,
+            1.48386300994428
+          ],
+          "min_ratio": 1.4971391229512818,
+          "rss_ratio": 1.270859687294439,
+          "correct": true
+        }
+      ],
+      "geomean_time_ratio": 1.2991223087730353,
+      "geomean_rss_ratio": 1.2159167025888145,
+      "slower_cells": 13,
+      "heavier_cells": 14
+    },
+    "1.3.1": {
+      "run": "20260904-224340",
+      "samples_including_warmups": 832,
+      "cells": [
+        {
+          "task": "symmetry",
+          "input": "Si_relajado.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.1568685868532826,
+          "ci": [
+            1.1286122359190467,
+            1.2619667010822853
+          ],
+          "min_ratio": 1.157711432696202,
+          "rss_ratio": 1.0729401170643853,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "ZnO.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.2333542021368404,
+          "ci": [
+            1.1066975255743723,
+            1.349869893648882
+          ],
+          "min_ratio": 1.1963580008837829,
+          "rss_ratio": 1.0731756114640123,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "grafito.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.2205589478751666,
+          "ci": [
+            1.1310643054746594,
+            1.331041236392872
+          ],
+          "min_ratio": 1.17212636952316,
+          "rss_ratio": 1.0725108766314948,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "hbn.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.2156947987755313,
+          "ci": [
+            1.0779439431735933,
+            1.4431696340936302
+          ],
+          "min_ratio": 1.1989456784438526,
+          "rss_ratio": 1.0728827972587665,
+          "correct": true
+        },
+        {
+          "task": "symmetry",
+          "input": "POSCAR_NaCl",
+          "vs": "ase",
+          "wall_ratio": 0.9377737933832041,
+          "ci": [
+            0.635239783388669,
+            1.197521074908872
+          ],
+          "min_ratio": 1.0508149298805596,
+          "rss_ratio": 1.0319572608062166,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "Si_relajado.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.0847954737516186,
+          "ci": [
+            0.9610349307773708,
+            1.3638337186623335
+          ],
+          "min_ratio": 1.1560885933248182,
+          "rss_ratio": 1.0328751321734115,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "ZnO.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.0862096427187893,
+          "ci": [
+            1.0245493972749107,
+            1.1738472438504497
+          ],
+          "min_ratio": 1.1177383389031013,
+          "rss_ratio": 1.0334359665159243,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "grafito.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.1457828050081764,
+          "ci": [
+            1.069559721495566,
+            1.1742045851185363
+          ],
+          "min_ratio": 1.103162231402721,
+          "rss_ratio": 1.0326024235429891,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "hbn.cif",
+          "vs": "seekpath",
+          "wall_ratio": 1.0977788360597014,
+          "ci": [
+            1.0254091398889977,
+            1.1705766756968576
+          ],
+          "min_ratio": 1.1038435028196238,
+          "rss_ratio": 1.0327339343392952,
+          "correct": true
+        },
+        {
+          "task": "kpath",
+          "input": "POSCAR_NaCl",
+          "vs": "seekpath",
+          "wall_ratio": 1.0529377292351534,
+          "ci": [
+            1.0015508664005808,
+            1.125720022265999
+          ],
+          "min_ratio": 1.0769389345333065,
+          "rss_ratio": 1.0320568610385843,
+          "correct": true
+        },
+        {
+          "task": "eos",
+          "input": "EOS.dat",
+          "vs": "ase",
+          "wall_ratio": 0.8917340078650634,
+          "ci": [
+            0.8177317208707314,
+            0.9448506197114775
+          ],
+          "min_ratio": 0.8306958123295496,
+          "rss_ratio": 0.9571371808880501,
+          "correct": true
+        },
+        {
+          "task": "bandgap",
+          "input": "Si_scf.xml",
+          "vs": "qeschema",
+          "wall_ratio": 0.32639458500095153,
+          "ci": [
+            0.29077375146062345,
+            0.3402729431814988
+          ],
+          "min_ratio": 0.3030244594462972,
+          "rss_ratio": 0.7349728986327967,
+          "correct": true
+        },
+        {
+          "task": "inputgen",
+          "input": "Si_relajado.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.2100878777475859,
+          "ci": [
+            1.154686446397373,
+            1.2692159888835817
+          ],
+          "min_ratio": 1.2563746133045481,
+          "rss_ratio": 1.103636639522533,
+          "correct": true
+        },
+        {
+          "task": "inputgen",
+          "input": "ZnO.cif",
+          "vs": "pymatgen",
+          "wall_ratio": 1.133436010373093,
+          "ci": [
+            1.042553358888934,
+            1.2786964730245287
+          ],
+          "min_ratio": 1.2200446277988004,
+          "rss_ratio": 1.0934277047522751,
+          "correct": true
+        }
+      ],
+      "geomean_time_ratio": 1.0153009019016626,
+      "geomean_rss_ratio": 1.0223980675035684,
+      "slower_cells": 11,
+      "heavier_cells": 12
+    }
+  },
+  "paired": [
+    {
+      "task": "symmetry",
+      "input": "Si_relajado.cif",
+      "pairs": 15,
+      "baseline": {
+        "wall_s": 0.5460897229968396,
+        "cpu_s": 0.538387,
+        "rss_mb": 97.36328125
+      },
+      "candidate": {
+        "wall_s": 0.4469137129999581,
+        "cpu_s": 0.444527,
+        "rss_mb": 83.55859375
+      },
+      "time_reduction_percent": 18.161120017535183,
+      "rss_reduction_percent": 14.178535606820464,
+      "descriptive_95pct_pair_bootstrap": [
+        14.8879823020732,
+        19.794302225875636
+      ]
+    },
+    {
+      "task": "kpath",
+      "input": "Si_relajado.cif",
+      "pairs": 15,
+      "baseline": {
+        "wall_s": 0.6286604669985536,
+        "cpu_s": 0.620136,
+        "rss_mb": 97.671875
+      },
+      "candidate": {
+        "wall_s": 0.5075434329992277,
+        "cpu_s": 0.501652,
+        "rss_mb": 83.89453125
+      },
+      "time_reduction_percent": 19.265889992666672,
+      "rss_reduction_percent": 14.105743081107025,
+      "descriptive_95pct_pair_bootstrap": [
+        11.523755975473849,
+        22.042017320552098
+      ]
+    },
+    {
+      "task": "eos",
+      "input": "EOS.dat",
+      "pairs": 15,
+      "baseline": {
+        "wall_s": 0.47686923099900014,
+        "cpu_s": 0.47430300000000003,
+        "rss_mb": 91.84765625
+      },
+      "candidate": {
+        "wall_s": 0.3454574600000342,
+        "cpu_s": 0.34303599999999995,
+        "rss_mb": 75.37890625
+      },
+      "time_reduction_percent": 27.557192298540535,
+      "rss_reduction_percent": 17.930506528303493,
+      "descriptive_95pct_pair_bootstrap": [
+        25.66518258118472,
+        30.51010855438022
+      ]
+    },
+    {
+      "task": "bandgap",
+      "input": "Si_scf.xml",
+      "pairs": 15,
+      "baseline": {
+        "wall_s": 0.2647743420020561,
+        "cpu_s": 0.264011,
+        "rss_mb": 52.09765625
+      },
+      "candidate": {
+        "wall_s": 0.1626916919994983,
+        "cpu_s": 0.158722,
+        "rss_mb": 35.48046875
+      },
+      "time_reduction_percent": 38.55458547481352,
+      "rss_reduction_percent": 31.896228537152282,
+      "descriptive_95pct_pair_bootstrap": [
+        32.0120848038034,
+        44.30607039043557
+      ]
+    },
+    {
+      "task": "inputgen",
+      "input": "Si_relajado.cif",
+      "pairs": 15,
+      "baseline": {
+        "wall_s": 0.5661412910012587,
+        "cpu_s": 0.557213,
+        "rss_mb": 99.06640625
+      },
+      "candidate": {
+        "wall_s": 0.46787484400192625,
+        "cpu_s": 0.465132,
+        "rss_mb": 85.35546875
+      },
+      "time_reduction_percent": 17.357230175799685,
+      "rss_reduction_percent": 13.840148259138052,
+      "descriptive_95pct_pair_bootstrap": [
+        12.90248857174251,
+        20.968719980378616
+      ]
+    }
+  ],
+  "scope": "Fresh-process wrapper time, including imports; no QE solver timings.",
+  "limits": "One laptop, turbo and background load; intervals are descriptive, not independent hardware replication."
+}

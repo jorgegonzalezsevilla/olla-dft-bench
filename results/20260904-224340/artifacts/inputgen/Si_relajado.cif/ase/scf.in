@@ -1,0 +1,41 @@
+&CONTROL
+   calculation      = 'scf'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out'
+   pseudo_dir       = '/home/jorge/GITHUB/olla-dft-bench/results/20260904-224340/work/pp'
+/
+&SYSTEM
+   ecutwfc          = 30
+   ecutrho          = 240
+   occupations      = 'fixed'
+   ntyp             = 1
+   nat              = 2
+   ibrav            = 0
+/
+&ELECTRONS
+   conv_thr         = 1e-08
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Si 28.085 Si.pbe-n-rrkjus_psl.1.0.0.UPF
+
+K_POINTS automatic
+4 4 4  0 0 0
+
+CELL_PARAMETERS angstrom
+3.81953627352850 0.00000000000000 0.00000000000000
+1.90976813676425 3.30781544355183 0.00000000000000
+1.90976813676425 1.10260514785061 3.11863830806545
+
+ATOMIC_POSITIONS angstrom
+Si 0.0000000000 0.0000000000 0.0000000000  
+Si 1.9097681368 1.1026051479 0.7796595770  
+

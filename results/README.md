@@ -2,6 +2,8 @@
 
 | run | date (UTC) | label | CPU | olla-dft | warnings |
 |---|---|---|---|---|---|
+| [20260904-224340](20260904-224340/report.md) | 2026-09-05T04:43:41Z | olla-1.3.1-after | 12th Gen Intel(R) Core(TM) i5-12450H | 1.3.1 | 2 |
+| [20260904-223352](20260904-223352/report.md) | 2026-09-05T04:33:53Z | olla-1.3.0-before | 12th Gen Intel(R) Core(TM) i5-12450H | 1.3.0 | 2 |
 | [20260904-180702](20260904-180702/report.md) | 2026-09-05T00:07:03Z | local-1.1.1-corrected | 12th Gen Intel(R) Core(TM) i5-12450H | 1.1.1 | 3 |
 | [20260904-154049](20260904-154049/report.md) | 2026-09-04T21:40:49Z | candidate-smoke | 12th Gen Intel(R) Core(TM) i5-12450H | 1.1.0 | 3 |
 | [20260904-144439](20260904-144439/report.md) | 2026-09-04T20:44:39Z | audit-qe-host | 12th Gen Intel(R) Core(TM) i5-12450H | 1.1.0 | 3 |

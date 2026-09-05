@@ -14,6 +14,10 @@ New runs fail explicitly when a process, grade, expected repetition, retained ar
 
 The September audit and its correction record are in [review/](review/). A valid geometry grade now checks species, positions, cell metric, pseudopotentials, grid shifts, occupations, and both cutoffs. Gap grading includes VBM and CBM. HPKOT comparisons check coordinates as well as segments; other conventions are displayed separately and excluded from performance rankings.
 
+## Latest performance improvement
+
+Olla-DFT 1.3.1 reduces command time by **17–39%** in an interleaved comparison of five operations. In the full benchmark, its geometric time ratio against the best comparable competitor falls from **1.30× to 1.02×**; it remains slower in 11/14 cells. [Measurements, remaining gaps and reproduction](review/performance-1.3.1/README.md).
+
 ## Why this exists
 
 Olla-DFT is a one-person project. Its author wants to know where it is slow, heavy or wrong, not

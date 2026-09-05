@@ -1,0 +1,30 @@
+{
+  "baseline_run": "20260904-223352",
+  "candidate_run": "20260904-224340",
+  "en_commit": "d24629ca763ec8be51cf9b3691b399a632ea72c4",
+  "es_commit": "c2c978fb8faa4d8d61f02a103d028a8057aa81df",
+  "baseline_package": {
+    "archive_info": {
+      "hash": "sha256=80127f1116592f7f6f1274795c503404cce6b273d5efc4fa224cc7b1f44b2ea0",
+      "hashes": {
+        "sha256": "80127f1116592f7f6f1274795c503404cce6b273d5efc4fa224cc7b1f44b2ea0"
+      }
+    },
+    "url": "https://github.com/jorgegonzalezsevilla/olla-dft/releases/download/v1.3.0/olla_dft-1.3.0-py3-none-any.whl"
+  },
+  "candidate_package": {
+    "archive_info": {
+      "hash": "sha256=833d3107368a6d8d5d77297883d723315a5914e04fd7894bfae5bfd722dad13d",
+      "hashes": {
+        "sha256": "833d3107368a6d8d5d77297883d723315a5914e04fd7894bfae5bfd722dad13d"
+      }
+    },
+    "url": "file:///tmp/olla-perf-dist-en/olla_dft-1.3.1-py3-none-any.whl"
+  },
+  "changed_packages": {
+    "olla-dft": [
+      "1.3.0",
+      "1.3.1"
+    ]
+  }
+}
