@@ -1,0 +1,16 @@
+﻿case,metric,max_absolute_difference,tolerance,percent_of_tolerance,passed
+si-displaced,energy_Ry,0.0,1e-07,0.0,True
+si-displaced,forces_Ry_bohr,0.0,1e-06,0.0,True
+si-displaced,stress_Ry_bohr3,0.0,1e-08,0.0,True
+si-displaced,positions_bohr,0.0,1e-06,0.0,True
+si-displaced,cell_bohr,0.0,1e-06,0.0,True
+relax,energy_Ry,0.0,1e-07,0.0,True
+relax,forces_Ry_bohr,0.0,1e-06,0.0,True
+relax,stress_Ry_bohr3,0.0,1e-08,0.0,True
+relax,positions_bohr,0.0,1e-06,0.0,True
+relax,cell_bohr,0.0,1e-06,0.0,True
+vc-relax-v2,energy_Ry,1.879563171769405e-11,1e-07,0.01879563171769405,True
+vc-relax-v2,forces_Ry_bohr,2.2702537046715987e-08,1e-06,2.2702537046715987,True
+vc-relax-v2,stress_Ry_bohr3,1.0853130425621979e-09,1e-08,10.853130425621979,True
+vc-relax-v2,positions_bohr,1.0571669895043101e-07,1e-06,10.571669895043101,True
+vc-relax-v2,cell_bohr,2.7883375253168197e-07,1e-06,27.883375253168197,True

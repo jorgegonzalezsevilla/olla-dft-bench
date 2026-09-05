@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "toolkit_version": "1.2.0",
+  "method": "Maximum absolute component differences; QE XML Hartree converted to Ry by factor 2 for energy/force/stress, bohr geometry unchanged",
+  "source": "Previously measured local QE 7.4 serial runs",
+  "independent_repetitions_per_case": 1,
+  "cloud_savings_measured": false,
+  "new_qe_runs": 0,
+  "excluded": "Initial si-scf lacks the complete frozen-runtime metadata of subsequent cases; its results are not included in this figure.",
+  "cases": [
+    {
+      "case": "si-displaced",
+      "calculation": "scf",
+      "species": [
+        "Si",
+        "Si"
+      ],
+      "runtime_fields_checked": [
+        "assets",
+        "calculation",
+        "command",
+        "binaries",
+        "libraries",
+        "architecture",
+        "environment",
+        "threads",
+        "runtime_id"
+      ],
+      "same_physics_and_runtime": true,
+      "runtime_sha256": "86133b5c282acc6bd9e5eab665f4070b887fb2b5de75f923a74e01d0f6876947",
+      "input_sha256": "464fee9062aca424f2ff93924b7142648d275826373878d99fa950fcd9b0b454",
+      "assets_sha256": {
+        "original.in": "464fee9062aca424f2ff93924b7142648d275826373878d99fa950fcd9b0b454",
+        "pp/Si.pz-vbc.UPF": "da7386b1345863effd34d47c07894a620d12e87069a009b5eaa2a88da7ea8105"
+      },
+      "sources": {
+        "continuous": {
+          "file": "evidence/si-displaced/continuous.xml",
+          "sha256_original": "85f5332fac4d4feac5a6c781606e270ba94ef4d0c98c158f16068c15c36d875e",
+          "sha256_public": "37be5eb46cabf29251548a2c9da471ffd9629d7547e664eea7c3f519859e3753"
+        },
+        "recovered": {
+          "file": "evidence/si-displaced/recovered.xml",
+          "sha256_original": "e763e48fabb9a867c357336033b207a3db49d7ff4500dac57ddbf73de93f32b8",
+          "sha256_public": "3937e2f408b716204aea564c5e6f319aac5e4c8c66a58dc59dfdced323b27741"
+        }
+      },
+      "continuous": {
+        "energy_Ry": [
+          -15.82915822893112
+        ],
+        "forces_Ry_bohr": [
+          0.02915972400362718,
+          0.0,
+          0.0,
+          -0.02915972400362718,
+          0.0,
+          0.0
+        ],
+        "stress_Ry_bohr3": [
+          -2.729676516051784e-05,
+          1.6940658945086007e-21,
+          -1.6940658945086007e-21,
+          1.6940658945086007e-21,
+          -1.461760746019822e-05,
+          -0.00014021685482788434,
+          -1.6940658945086007e-21,
+          -0.00014021685482788434,
+          -1.461760746019822e-05
+        ],
+        "positions_bohr": [
+          0.0,
+          0.0,
+          0.0,
+          2.652,
+          2.55,
+          2.55
+        ],
+        "cell_bohr": [
+          -5.1,
+          0.0,
+          5.1,
+          0.0,
+          5.1,
+          5.1,
+          -5.1,
+          5.1,
+          0.0
+        ]
+      },
+      "recovered": {
+        "energy_Ry": [
+          -15.82915822893112
+        ],
+        "forces_Ry_bohr": [
+          0.02915972400362718,
+          0.0,
+          0.0,
+          -0.02915972400362718,
+          0.0,
+          0.0
+        ],
+        "stress_Ry_bohr3": [
+          -2.729676516051784e-05,
+          1.6940658945086007e-21,
+          -1.6940658945086007e-21,
+          1.6940658945086007e-21,
+          -1.461760746019822e-05,
+          -0.00014021685482788434,
+          -1.6940658945086007e-21,
+          -0.00014021685482788434,
+          -1.461760746019822e-05
+        ],
+        "positions_bohr": [
+          0.0,
+          0.0,
+          0.0,
+          2.652,
+          2.55,
+          2.55
+        ],
+        "cell_bohr": [
+          -5.1,
+          0.0,
+          5.1,
+          0.0,
+          5.1,
+          5.1,
+          -5.1,
+          5.1,
+          0.0
+        ]
+      },
+      "max_absolute_differences": {
+        "energy_Ry": 0.0,
+        "forces_Ry_bohr": 0.0,
+        "stress_Ry_bohr3": 0.0,
+        "positions_bohr": 0.0,
+        "cell_bohr": 0.0
+      },
+      "tolerances": {
+        "energy_Ry": 1e-07,
+        "forces_Ry_bohr": 1e-06,
+        "stress_Ry_bohr3": 1e-08,
+        "positions_bohr": 1e-06,
+        "cell_bohr": 1e-06
+      },
+      "passed": true,
+      "input_public_sha256": "8622b9011b8f5817b4bcbbc4c32a74ae8459ac624021683d0d8adee1626db549"
+    },
+    {
+      "case": "relax",
+      "calculation": "relax",
+      "species": [
+        "Si",
+        "Si"
+      ],
+      "runtime_fields_checked": [
+        "assets",
+        "calculation",
+        "command",
+        "binaries",
+        "libraries",
+        "architecture",
+        "environment",
+        "threads",
+        "runtime_id"
+      ],
+      "same_physics_and_runtime": true,
+      "runtime_sha256": "341a9de3d9989e03f3dae4a4c15536bb76d55c032861851e1f1e3d9671c01697",
+      "input_sha256": "f8756c42a7b609cb9be4262cd231beae06135e2da7cd9a4d7c4b64734210f1f8",
+      "assets_sha256": {
+        "original.in": "f8756c42a7b609cb9be4262cd231beae06135e2da7cd9a4d7c4b64734210f1f8",
+        "pp/Si.pz-vbc.UPF": "da7386b1345863effd34d47c07894a620d12e87069a009b5eaa2a88da7ea8105"
+      },
+      "sources": {
+        "continuous": {
+          "file": "evidence/relax/continuous.xml",
+          "sha256_original": "c29038baa20a33584f1ace01afc8760e83ba906f87762b17e2a0d4c068549698",
+          "sha256_public": "fd5155b837e2da3a4106bd30bbee39458d80e7641ae2fa410ed4e007e32124c5"
+        },
+        "recovered": {
+          "file": "evidence/relax/recovered.xml",
+          "sha256_original": "3c87ff3e20b4e4f896c1633b36e37e81127486bbc07bb4b72975ef7f60a32805",
+          "sha256_public": "a4c06fc26121169a73669a1446bd79b73d23c3310122d8f7544f216ec62993a5"
+        }
+      },
+      "continuous": {
+        "energy_Ry": [
+          -15.830646997753213
+        ],
+        "forces_Ry_bohr": [
+          -1.5905698203300268e-05,
+          0.0,
+          0.0,
+          1.5905698203300268e-05,
+          0.0,
+          0.0
+        ],
+        "stress_Ry_bohr3": [
+          -2.58310433108068e-05,
+          0.0,
+          0.0,
+          0.0,
+          -2.583009572446234e-05,
+          7.69616536518147e-08,
+          0.0,
+          7.69616536518147e-08,
+          -2.583009572446234e-05
+        ],
+        "positions_bohr": [
+          0.0510275798028782,
+          0.0,
+          0.0,
+          2.600972420197121,
+          2.55,
+          2.55
+        ],
+        "cell_bohr": [
+          -5.1,
+          0.0,
+          5.1,
+          0.0,
+          5.1,
+          5.1,
+          -5.1,
+          5.1,
+          0.0
+        ]
+      },
+      "recovered": {
+        "energy_Ry": [
+          -15.830646997753213
+        ],
+        "forces_Ry_bohr": [
+          -1.5905698203300268e-05,
+          0.0,
+          0.0,
+          1.5905698203300268e-05,
+          0.0,
+          0.0
+        ],
+        "stress_Ry_bohr3": [
+          -2.58310433108068e-05,
+          0.0,
+          0.0,
+          0.0,
+          -2.583009572446234e-05,
+          7.69616536518147e-08,
+          0.0,
+          7.69616536518147e-08,
+          -2.583009572446234e-05
+        ],
+        "positions_bohr": [
+          0.0510275798028782,
+          0.0,
+          0.0,
+          2.600972420197121,
+          2.55,
+          2.55
+        ],
+        "cell_bohr": [
+          -5.1,
+          0.0,
+          5.1,
+          0.0,
+          5.1,
+          5.1,
+          -5.1,
+          5.1,
+          0.0
+        ]
+      },
+      "max_absolute_differences": {
+        "energy_Ry": 0.0,
+        "forces_Ry_bohr": 0.0,
+        "stress_Ry_bohr3": 0.0,
+        "positions_bohr": 0.0,
+        "cell_bohr": 0.0
+      },
+      "tolerances": {
+        "energy_Ry": 1e-07,
+        "forces_Ry_bohr": 1e-06,
+        "stress_Ry_bohr3": 1e-08,
+        "positions_bohr": 1e-06,
+        "cell_bohr": 1e-06
+      },
+      "passed": true,
+      "input_public_sha256": "f428c31a612e5dc629e45a60fd72703b0eb8cf3d3f6f7c6b25a1bb9c109fe76c"
+    },
+    {
+      "case": "vc-relax-v2",
+      "calculation": "vc-relax",
+      "species": [
+        "Si",
+        "Si"
+      ],
+      "runtime_fields_checked": [
+        "assets",
+        "calculation",
+        "command",
+        "binaries",
+        "libraries",
+        "architecture",
+        "environment",
+        "threads",
+        "runtime_id"
+      ],
+      "same_physics_and_runtime": true,
+      "runtime_sha256": "5aba4ec72051445d3b7916e7e1f2e78f29fbf123c7e402fd4cb271e26e9d4e5f",
+      "input_sha256": "fa462296604dd4569248eac613546af30c3f02e7454a3b68cd30fe53e6007e7b",
+      "assets_sha256": {
+        "original.in": "fa462296604dd4569248eac613546af30c3f02e7454a3b68cd30fe53e6007e7b",
+        "pp/Si.pz-vbc.UPF": "da7386b1345863effd34d47c07894a620d12e87069a009b5eaa2a88da7ea8105"
+      },
+      "sources": {
+        "continuous": {
+          "file": "evidence/vc-relax-v2/continuous.xml",
+          "sha256_original": "defb6d5de08acdf3b248c38a34cccc8b94639115a747e8f471dc64d47082a522",
+          "sha256_public": "a2db9fcecc2758523de449160ecc5bf9e7150b625584dd5339817766e6fc39f5"
+        },
+        "recovered": {
+          "file": "evidence/vc-relax-v2/recovered.xml",
+          "sha256_original": "5b03e931f35f573ca79e8843bb7af990bd0a6ca8de4784517b1f4fa0559f6120",
+          "sha256_public": "9817d135c5b15f63aa8b01f07428a22fcb4e82a009fb6745cc053e8c59e5190c"
+        }
+      },
+      "continuous": {
+        "energy_Ry": [
+          -15.830659882018262
+        ],
+        "forces_Ry_bohr": [
+          -2.768818251286414e-06,
+          0.0,
+          0.0,
+          2.768818251286414e-06,
+          0.0,
+          0.0
+        ],
+        "stress_Ry_bohr3": [
+          1.2373655758485254e-06,
+          -5.293955920339378e-23,
+          5.293955920339378e-23,
+          0.0,
+          6.253092976887806e-07,
+          3.937943026255212e-08,
+          1.0587911840678754e-22,
+          3.937943026255212e-08,
+          6.253092976887806e-07
+        ],
+        "positions_bohr": [
+          0.05093295664571593,
+          -8.847089727481716e-18,
+          -7.281815076797846e-17,
+          2.597488641229413,
+          2.546769914905027,
+          2.546769914905027
+        ],
+        "cell_bohr": [
+          -5.093118457452167,
+          -1.198088812163329e-05,
+          5.09355181069818,
+          9.289772939189016e-19,
+          5.093539829810058,
+          5.093539829810058,
+          -5.093118457452167,
+          5.09355181069818,
+          -1.198088812161724e-05
+        ]
+      },
+      "recovered": {
+        "energy_Ry": [
+          -15.830659882037057
+        ],
+        "forces_Ry_bohr": [
+          -2.79152078833313e-06,
+          2.11758236813575e-22,
+          -2.11758236813575e-22,
+          2.79152078833313e-06,
+          -2.11758236813575e-22,
+          2.11758236813575e-22
+        ],
+        "stress_Ry_bohr3": [
+          1.2384091819805933e-06,
+          1.5881867761018131e-22,
+          -5.293955920339378e-23,
+          2.11758236813575e-22,
+          6.263946107313428e-07,
+          3.92502688645138e-08,
+          0.0,
+          3.92502688645138e-08,
+          6.263946107313428e-07
+        ],
+        "positions_bohr": [
+          0.05093299592256721,
+          -2.211772431870429e-17,
+          1.537678962463203e-17,
+          2.597488746946112,
+          2.546769916450051,
+          2.546769916450053
+        ],
+        "cell_bohr": [
+          -5.09311873628592,
+          -1.199725202360091e-05,
+          5.093551830152134,
+          2.674930113171536e-19,
+          5.09353983290011,
+          5.09353983290011,
+          -5.09311873628592,
+          5.093551830152134,
+          -1.199725202361305e-05
+        ]
+      },
+      "max_absolute_differences": {
+        "energy_Ry": 1.879563171769405e-11,
+        "forces_Ry_bohr": 2.2702537046715987e-08,
+        "stress_Ry_bohr3": 1.0853130425621979e-09,
+        "positions_bohr": 1.0571669895043101e-07,
+        "cell_bohr": 2.7883375253168197e-07
+      },
+      "tolerances": {
+        "energy_Ry": 1e-07,
+        "forces_Ry_bohr": 1e-06,
+        "stress_Ry_bohr3": 1e-08,
+        "positions_bohr": 1e-06,
+        "cell_bohr": 1e-06
+      },
+      "passed": true,
+      "input_public_sha256": "09f271400d93fad97c08308b9a205b423977dc72e333f3c31983ee82713d259b"
+    }
+  ],
+  "public_copy_changes": "Only pseudo_dir infrastructure paths replaced with ./pp in XML/input copies. Original and public hashes retained; scientific values unchanged. UPF content identified by hashes, not included."
+}

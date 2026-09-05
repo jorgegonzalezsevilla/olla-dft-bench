@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 — 2026-09-04
+
+- Publish matched continuous/recovered QE figures, raw observables and recomputation checks.
+- Add an offline interactive result explorer demonstration and bilingual publication pages.
+- Preserve the existing benchmark protocol/results; no new QE or cloud measurements.
+
 ## 0.2.0 — 2026-09-04
 
 - Enforce measurement timeouts and terminate descendant processes; preserve incremental samples.

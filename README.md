@@ -89,3 +89,12 @@ matters more than the score.
 ## Licence
 
 GPL-3.0-or-later. Made in Guadalajara, Jalisco, Mexico.
+
+## Recovery validation and interactive figures
+
+[Public figures and explorer](https://jorgegonzalezsevilla.github.io/olla-dft-bench/)
+include three matched local QE recovery pairs and a separate interactive UI demo.
+[Method, data and limits](docs/publication-1.2.0/README.md) explain the distinction.
+No cloud savings or physical power-loss recovery were measured.
+
+![Local recovery differences below fixed tolerances](docs/publication-1.2.0/recovery-en.png)
