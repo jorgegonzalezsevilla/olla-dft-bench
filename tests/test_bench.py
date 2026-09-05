@@ -24,11 +24,14 @@ def test_grades_are_symmetric_and_tolerant():
     assert ok
     bad, detail = tasks.grade_eos({"V0_A3": 39.5, "B0_GPa": 94.2, "Bp": 4.0}, ref)
     assert not bad and "ΔV0" in detail
-    assert tasks.grade_bandgap({"gap_eV": 0.6155}, {"gap_eV": 0.61554})[0]
+    assert tasks.grade_bandgap({"gap_eV": 0.6155, "vbm_eV": 0., "cbm_eV": .6155}, {"gap_eV": 0.61554, "vbm_eV": 0., "cbm_eV": .61554})[0]
     assert not tasks.grade_bandgap({"gap_eV": 0.62}, {"gap_eV": 0.61554})[0]
-    r = {"natoms": 2, "volume_A3": 39.4, "kgrid_expected": [4, 4, 4]}
-    assert tasks.grade_inputgen({"roundtrip": {"natoms": 2, "volume_A3": 39.4001, "kgrid": [4, 4, 4], "ecutwfc": 30.0}}, r)[0]
-    assert not tasks.grade_inputgen({"roundtrip": {"natoms": 2, "volume_A3": 39.4001, "kgrid": [4, 4, 3], "ecutwfc": 30.0}}, r)[0]
+    r = {"natoms": 1, "volume_A3": 1., "kgrid_expected": [4, 4, 4],
+         "symbols": ["Si"], "cell": [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+         "scaled_positions": [[0, 0, 0]], "pseudopotentials": {"Si": "Si.UPF"}}
+    rt = {**r, "kgrid": [4, 4, 4], "kshift": [0, 0, 0], "ecutwfc": 30., "ecutrho": 240., "occupations": "fixed"}
+    assert tasks.grade_inputgen({"roundtrip": rt}, r)[0]
+    assert not tasks.grade_inputgen({"roundtrip": {**rt, "symbols": ["He"]}}, r)[0]
 
 
 def _rec(tool, wall, rss=1000, ok=True, unsupported=False, warm=False):

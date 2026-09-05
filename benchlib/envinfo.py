@@ -44,8 +44,10 @@ def cpu_topology():
 
 def fastest_cpu():
     rows = cpu_topology()
+    allowed = os.sched_getaffinity(0) if hasattr(os, "sched_getaffinity") else set(range(os.cpu_count() or 1))
+    rows = [r for r in rows if r[0] in allowed]
     if not rows:
-        return 0
+        return min(allowed)
     rows.sort(key=lambda r: (-r[2], r[0]))
     return rows[0][0]
 
@@ -87,8 +89,7 @@ def collect(python=sys.executable, input_files=()):
         src = json.loads(src)
     except Exception:
         src = {"raw": src}
-    keep = {k: v for k, v in pkgs.items() if k.lower() in
-            {"olla-dft", "ase", "pymatgen", "spglib", "seekpath", "numpy", "scipy", "matplotlib"}}
+    keep = dict(sorted(pkgs.items()))
     return {
         "timestamp_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "hostname_hash": hashlib.sha256(platform.node().encode()).hexdigest()[:12],
@@ -106,8 +107,10 @@ def collect(python=sys.executable, input_files=()):
         "packages": keep,
         "olla_dft_source": src,
         "pw_x": os.environ.get("BENCH_PW_X") or _cmd("bash", "-c", "command -v pw.x"),
-        "pw_x_version": (_cmd("bash", "-c", f"echo | {os.environ.get('BENCH_PW_X', 'pw.x')} 2>/dev/null | grep -m1 'Program PWSCF'") or "").strip(),
+        "pw_x_version": "see retained QE output artifacts",
         "bench_git_sha": git_sha(ROOT),
+        "bench_dirty": bool(_cmd("git", "-C", str(ROOT), "status", "--porcelain")),
+        "source_sha256": {str(p.relative_to(ROOT)): sha256(p) for p in sorted([ROOT / "bench.py", *ROOT.glob("benchlib/*.py"), *ROOT.glob("tools/*.py")])},
         "inputs_sha256": {str(Path(p).relative_to(ROOT)) if str(p).startswith(str(ROOT)) else str(p): sha256(p)
                           for p in input_files},
     }

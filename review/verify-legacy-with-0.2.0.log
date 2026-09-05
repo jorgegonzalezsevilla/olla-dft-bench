@@ -1,0 +1,5 @@
+inputs: hashes match run and manifest
+LEGACY WARNING: QE failed or unconverged: ase; QE failed or unconverged: ase; QE failed or unconverged: ase; QE failed or unconverged: ase; QE failed or unconverged: ase; QE failed or unconverged: olla-dft; QE failed or unconverged: olla-dft; QE failed or unconverged: olla-dft; QE failed or unconverged: olla-dft; QE failed or unconverged: olla-dft; QE failed or unconverged: pymatgen; QE failed or unconverged: pymatgen; QE failed or unconverged: pymatgen; QE failed or unconverged: pymatgen; QE failed or unconverged: pymatgen
+harness version differs (run: 0.1.0, now: 0.2.0): report text and grading rules are not compared; raw-sample statistics and hashes are
+summary: medians of wall/CPU/RSS recomputed from 832 raw samples: identical
+VERIFY LEGACY CONSISTENCY ONLY

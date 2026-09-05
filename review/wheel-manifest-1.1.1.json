@@ -1,0 +1,12 @@
+{
+  "en": {
+    "file": "olla_dft-1.1.1-py3-none-any.whl",
+    "sha256": "aad15f3fa56aac962ba2483c60c4d926f57ccd70be380169bd76d41a51f47eed",
+    "bytes": 1000675
+  },
+  "es": {
+    "file": "olla_dft-1.1.1-py3-none-any.whl",
+    "sha256": "39355911f80a9398e456c402a212665069b449ce981b924b4c45d8104e9d2a97",
+    "bytes": 1001301
+  }
+}

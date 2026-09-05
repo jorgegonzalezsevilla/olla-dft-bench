@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.2.0 — 2026-09-04
+
+- Enforce measurement timeouts and terminate descendant processes; preserve incremental samples.
+- Validate expected cells/repetitions, sample journals, input and generated-artifact hashes.
+- Expose process failures and reject failed/unconverged QE runs, checking every energy sample.
+- Check species, periodic positions, cell metric, pseudopotentials, k-grid shifts, both cutoffs and VBM/CBM.
+- Validate HPKOT coordinates and display other path conventions separately from incorrect results.
+- Use Olla-DFT's explicit --kgrid, isolate configuration and fingerprint all installed packages and source files.
+- Handle failed cells and escaped text safely in the dashboard; retain historical evidence without upgrading its guarantees.
+- Add adversarial regression tests and a new benchmark against Olla-DFT 1.1.1.
+
 ## 0.1.0 — 2026-09-03
 
 First tagged version. Five tasks (symmetry, k-path, EOS fit, band gap from XML and text output,

@@ -1,0 +1,23 @@
+{
+  "run_id": "20260904-180702",
+  "version": "1.1.1",
+  "status": "complete",
+  "records": 832,
+  "measurements": 780,
+  "warmups": 52,
+  "olla_supported_correct": 210,
+  "olla_supported_count": 210,
+  "process_failures": 0,
+  "contested_cells": 14,
+  "slower": 13,
+  "heavier": 14,
+  "geometric_mean_wall_ratio": 1.301244676539129,
+  "geometric_mean_rss_ratio": 1.2142496321702687,
+  "qe_samples": 15,
+  "qe_energy_spread_Ry": 2.999999892949745e-08,
+  "warnings": [
+    "CPU governor is 'powersave', not 'performance': timings are noisier. Fix: sudo cpupower frequency-set -g performance",
+    "Turbo boost enabled: single-thread timings drift with temperature. Fix: echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo",
+    "1-min load average 2.03 > 1.0: other processes were competing for CPU."
+  ]
+}

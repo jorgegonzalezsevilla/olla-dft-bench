@@ -1,0 +1,6 @@
+--- Análisis de band gap ---
+Archivo XML: review/qe-default-scf/out/Si.xml
+Cálculo: scf  |  bandas: 4  |  puntos k: 13  |  electrones: 8
+Energía de Fermi: 6.4162 eV
+
+  No hay bandas de conducción en el cálculo (aumenta nbnd para obtener el gap).

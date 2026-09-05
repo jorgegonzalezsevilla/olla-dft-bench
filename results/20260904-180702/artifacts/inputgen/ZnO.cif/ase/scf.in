@@ -1,0 +1,44 @@
+&CONTROL
+   calculation      = 'scf'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './out'
+   pseudo_dir       = '/home/jorge/GITHUB/olla-dft-bench/results/20260904-180702/work/pp'
+/
+&SYSTEM
+   ecutwfc          = 30
+   ecutrho          = 240
+   occupations      = 'fixed'
+   ntyp             = 2
+   nat              = 4
+   ibrav            = 0
+/
+&ELECTRONS
+   conv_thr         = 1e-08
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+Zn 65.38 Zn_pbe_v1.uspp.F.UPF
+O 15.999 O.pbe-kjpaw.UPF
+
+K_POINTS automatic
+6 6 4  0 0 0
+
+CELL_PARAMETERS angstrom
+3.24950000000000 0.00000000000000 0.00000000000000
+-1.62475000000000 2.81414954959753 0.00000000000000
+0.00000000000000 0.00000000000000 5.20690000000000
+
+ATOMIC_POSITIONS angstrom
+Zn 0.0000000000 0.0000000000 0.0000000000  
+O -0.0000000000 1.8760996997 0.6257469548  
+Zn -0.0000000000 1.8760996997 2.6034500000  
+O 0.0000000000 0.0000000000 3.2291969548  
+

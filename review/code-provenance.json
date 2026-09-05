@@ -1,0 +1,22 @@
+{
+  "run_id": "20260904-180702",
+  "source_commit": "02156eb",
+  "files_match": {
+    "bench.py": true,
+    "benchlib/__init__.py": true,
+    "benchlib/envinfo.py": true,
+    "benchlib/measure.py": true,
+    "benchlib/report.py": true,
+    "benchlib/tasks.py": true,
+    "benchlib/validation.py": true,
+    "tools/_common.py": true,
+    "tools/ase_tool.py": true,
+    "tools/ollad.py": true,
+    "tools/pymatgen_tool.py": true,
+    "tools/qeschema_tool.py": true,
+    "tools/reference.py": true,
+    "tools/run_pw.py": true,
+    "tools/seekpath_tool.py": true
+  },
+  "all_match": true
+}

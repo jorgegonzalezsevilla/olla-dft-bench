@@ -7,13 +7,14 @@
   python bench.py report results/<run>     regenerate report.md, history.json and docs/index.html
   python bench.py judge-pack results/<run> build the packet for an independent evaluator
 """
-import argparse, json, os, shutil, sys, time, hashlib, difflib, random
+import argparse, json, os, shutil, sys, time, hashlib, difflib, random, math
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 import benchlib
 from benchlib import envinfo, measure, report
+from benchlib.validation import check_run
 from benchlib.tasks import TASKS, TOOLS, INP
 
 PY = str(ROOT / ".venv" / "bin" / "python") if (ROOT / ".venv").exists() else sys.executable
@@ -27,7 +28,7 @@ def tool_cmd(wrapper, task, args):
 def reference(task, args, env, cwd):
     r = measure.run_measured(tool_cmd("reference.py", task, args), env, cwd)
     if r["returncode"] != 0 or not r["payload"]:
-        sys.exit(f"reference for {task} failed:\n{r['stderr']}")
+        raise RuntimeError(f"reference for {task} failed:\n{r['stderr']}")
     return r["payload"]
 
 
@@ -39,6 +40,15 @@ def cmd_env(a):
 
 
 def cmd_run(a):
+    if not math.isfinite(a.opp_threshold) or a.opp_threshold <= 0:
+        raise SystemExit("--opp-threshold must be positive and finite")
+    requested = a.tasks.split(",") if a.tasks else list(TASKS)
+    if not requested or len(set(requested)) != len(requested) or any(t not in TASKS for t in requested):
+        raise SystemExit("unknown, empty or duplicate tasks")
+    if a.with_qe and "inputgen" not in requested:
+        raise SystemExit("--with-qe requires the inputgen task")
+    if a.cpu is not None and hasattr(os, "sched_getaffinity") and a.cpu not in os.sched_getaffinity(0):
+        raise SystemExit("requested CPU is outside the allowed affinity")
     pw = a.pw_x or os.environ.get("BENCH_PW_X") or (str(ROOT / ".qe" / "bin" / "pw.x") if (ROOT / ".qe" / "bin" / "pw.x").exists() else "pw.x")
     os.environ["BENCH_PW_X"] = pw
     run_id = time.strftime("%Y%m%d-%H%M%S")
@@ -61,6 +71,11 @@ def cmd_run(a):
               "tasks": tasks, "tools": tools_used, "with_qe": a.with_qe, "seed": seed,
               "e2e_reps": a.e2e_reps, "opp_threshold": a.opp_threshold}
     records, refs = [], {}
+    progress = rdir / "records.jsonl"
+    def checkpoint():
+        snapshot = {"run_id": run_id, "config": config, "env": env_info, "status": "incomplete",
+                    "references": {f"{t}/{i}": v for (t, i), v in refs.items()}}
+        (rdir / "checkpoint.json").write_text(json.dumps(snapshot, indent=1))
 
     def wrap(cmd):
         return measure.wrap_isolation(cmd, cpu=cpu, mem_max=a.mem_max if a.isolate else None,
@@ -71,30 +86,42 @@ def cmd_run(a):
         args = meta["args"](inp, work)
         if task == "inputgen":
             shutil.rmtree(work / "gen", ignore_errors=True)
-            if tool == "olla-dft":
-                args = args + [str(refs[(task, inp)].get("kspacing_for_olla"))]
         r = measure.run_measured(wrap(tool_cmd(TOOLS[tool], task, args)), penv, str(work))
         rec = {"task": task, "input": inp, "tool": tool, "rep": rep, "warmup": warmup,
                "wall_s": r["wall_s"], "user_s": r["user_s"], "sys_s": r["sys_s"], "max_rss_kb": r["max_rss_kb"],
-               "returncode": r["returncode"], "payload": r["payload"], "stderr_tail": r["stderr"][-600:]}
-        if r["payload"] and r["payload"].get("unsupported"):
+               "returncode": r["returncode"], "timed_out": r["timed_out"], "payload": r["payload"], "stderr_tail": r["stderr"][-600:]}
+        if r["returncode"] == 3 and r["payload"] and r["payload"].get("unsupported") is True:
             rec.update(unsupported=True, reason=r["payload"].get("reason"), returncode=0)
-        elif r["returncode"] == 0 and r["payload"]:
+        elif r["returncode"] == 0 and r["payload"] and r["payload"].get("rc", 0) == 0:
             p = dict(r["payload"])
-            if task == "inputgen":
-                p["roundtrip"] = reference("roundtrip", [p["file"]], penv, str(work))
-                if not warmup and rep == 0 and a.with_qe and inp == "Si_relajado.cif":
-                    dest = work / "e2e" / tool; dest.mkdir(parents=True, exist_ok=True)
+            try:
+                if task == "inputgen":
+                    p["roundtrip"] = reference("roundtrip", [p["file"]], penv, str(work))
+                ok, detail = meta["grade"](p, refs[(task, inp)])
+                rec.update(correct=ok, comparable=ok is not None, detail=detail, payload=p)
+                if task == "inputgen" and not warmup and rep == 0:
+                    dest = rdir / "artifacts" / task / inp / tool
+                    dest.mkdir(parents=True, exist_ok=True)
                     shutil.copy(p["file"], dest / "scf.in")
-            ok, detail = meta["grade"](p, refs[(task, inp)])
-            rec.update(correct=bool(ok), detail=detail, payload=p)
+                    if ok and a.with_qe and inp == "Si_relajado.cif":
+                        dest = work / "e2e" / tool
+                        dest.mkdir(parents=True, exist_ok=True)
+                        shutil.copy(p["file"], dest / "scf.in")
+            except (RuntimeError, ValueError, TypeError, KeyError, OSError) as exc:
+                rec.update(correct=False, detail=str(exc), payload=p)
+
         else:
             rec.update(correct=False, detail=f"exit {r['returncode']}: {r['stderr'][-200:].strip()}")
         records.append(rec)
+        with progress.open("a") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+            f.flush()
+        checkpoint()
         flag = "warm" if warmup else f"rep{rep}"
         print(f"  {task:9s} {inp:17s} {tool:9s} {flag:5s} wall={r['wall_s']:.3f}s rss={(r['max_rss_kb'] or 0)//1024}MB "
-              f"{'n/a' if rec.get('unsupported') else ('ok' if rec.get('correct') else 'MISMATCH')}", flush=True)
+              f"{'n/a' if rec.get('unsupported') else ('other convention' if rec.get('comparable') is False else ('ok' if rec.get('correct') else 'MISMATCH'))}", flush=True)
 
+    checkpoint()
     print(f"run {run_id}: tasks={tasks} tools={tools_used} reps={a.reps} cpu={cpu} isolate={a.isolate}")
     for task in tasks:
         meta = TASKS[task]
@@ -102,8 +129,6 @@ def cmd_run(a):
             refs[(task, inp)] = reference(task, meta["args"](inp, work)[:1], penv, str(work))
             if task == "inputgen":
                 refs[(task, inp)]["kgrid_expected"] = [int(x) for x in meta["args"](inp, work)[3].split("x")]
-                ksp = reference("kspacing", [str(INP / inp), meta["args"](inp, work)[3]], penv, str(work))
-                refs[(task, inp)]["kspacing_for_olla"] = ksp.get("kspacing")
             for tool in meta["tools"]:
                 one(task, inp, tool, -1, True)
             for rep in range(a.reps):
@@ -124,8 +149,16 @@ def cmd_run(a):
             for d in order:
                 shutil.rmtree(d / "out", ignore_errors=True)
                 r = measure.run_measured(wrap(tool_cmd("run_pw.py", str(d / "scf.in"), [str(d)])), penv, str(d))
-                p = r["payload"] or {}
+                p = r["payload"] or {"rc": r["returncode"], "error": r["stderr"]}
+                if r["returncode"] != 0 and p.get("rc", 0) == 0:
+                    p["rc"] = r["returncode"]
+                artifact = rdir / "artifacts" / "qe" / d.name
+                artifact.mkdir(parents=True, exist_ok=True)
+                for filename in ("pw.out", "pw.stderr"):
+                    if (d / filename).exists():
+                        shutil.copy(d / filename, artifact / f"rep-{rep}-{filename}")
                 e2e[d.name]["samples"].append(p)
+                (rdir / "e2e-progress.json").write_text(json.dumps(e2e, indent=1))
                 print(f"  {d.name:9s} rep{rep} E={p.get('total_energy_Ry')} Ry  iters={p.get('scf_iterations')}  nk={p.get('nkpoints')}  pw.x {p.get('pw_wall_s',0):.2f}s")
         for d in dirs:
             shutil.rmtree(d / "out", ignore_errors=True)
@@ -136,11 +169,18 @@ def cmd_run(a):
            "references": {f"{k[0]}/{k[1]}": v for k, v in refs.items()},
            "records": records, "e2e": e2e}
     run["summary"] = report.aggregate(records)
+    run["artifacts_sha256"] = {str(p.relative_to(rdir)): envinfo.sha256(p) for p in sorted((rdir / "artifacts").rglob("*")) if p.is_file()}
+    run["validation_errors"] = check_run(run)
+    run["status"] = "failed" if run["validation_errors"] else "complete"
     shutil.rmtree(work, ignore_errors=True)
     (rdir / "results.json").write_text(json.dumps(run, indent=1, ensure_ascii=False, default=str))
     (rdir / "env.json").write_text(json.dumps(env_info, indent=2))
     write_reports(rdir, run)
+    (rdir / "checkpoint.json").unlink(missing_ok=True)
     print(f"\nwritten {rdir}/results.json, report.md; dashboard docs/index.html")
+    if run["validation_errors"]:
+        print("RUN FAILED:", "; ".join(run["validation_errors"][:20]))
+        raise SystemExit(1)
 
 
 def write_reports(rdir, run):
@@ -153,7 +193,7 @@ def write_reports(rdir, run):
         for inp, tools in inputs.items():
             for tool, d in tools.items():
                 slim.setdefault(task, {}).setdefault(inp, {})[tool] = {
-                    "unsupported": d["unsupported"], "wall": d["wall_s"].get("median"),
+                    "unsupported": d["unsupported"], "comparable": d.get("comparable", True), "failed": d.get("failed", 0), "wall": d["wall_s"].get("median"),
                     "rss": d["max_rss_mb"].get("median"), "correct": bool(d["correct"]) and all(d["correct"])}
     hist["runs"].append({"run_id": run["run_id"], "timestamp": run["env"]["timestamp_utc"], "cpu": run["env"]["cpu_model"],
                          "label": run["config"].get("label"), "warnings": run["warnings"], "summary": slim,
@@ -175,6 +215,8 @@ def load_run(path):
 
 def cmd_report(a):
     rdir, run = load_run(a.run)
+    if run.get("harness_version") != benchlib.__version__:
+        raise SystemExit("Historical report retained: regenerate with its original harness revision.")
     run["summary"] = report.aggregate(run["records"])
     write_reports(rdir, run)
     print("regenerated", rdir / "report.md")
@@ -192,6 +234,24 @@ def cmd_verify(a):
             ok = False; print(f"FAIL input hash {base}: run={h[:12]} now={str(cur)[:12]} manifest={str(sums.get(base))[:12]}")
     print("inputs: hashes match run and manifest" if ok else "inputs: MISMATCH")
     same_version = run.get("harness_version") == benchlib.__version__
+    validation = check_run(run, strict=same_version)
+    if validation:
+        if same_version:
+            ok = False
+        print(("FAIL " if same_version else "LEGACY WARNING: ") + "; ".join(validation[:15]))
+    if same_version:
+        expected_inputs = {f"inputs/{name}" for name in sums}
+        if set(run["env"]["inputs_sha256"]) != expected_inputs:
+            ok = False; print("FAIL incomplete input manifest")
+        if run.get("status") != ("failed" if validation else "complete"):
+            ok = False; print("FAIL run status disagrees with validation")
+        journal = rdir / "records.jsonl"
+        if not journal.is_file() or [json.loads(line) for line in journal.read_text().splitlines()] != run["records"]:
+            ok = False; print("FAIL sample journal differs or is missing")
+        for name, digest in run.get("artifacts_sha256", {}).items():
+            artifact = rdir / name
+            if not artifact.resolve().is_relative_to(rdir.resolve()) or not artifact.is_file() or envinfo.sha256(artifact) != digest:
+                ok = False; print(f"FAIL artifact {name}")
     if not same_version:
         print(f"harness version differs (run: {run.get('harness_version') or 'unversioned'}, now: {benchlib.__version__}): "
               "report text and grading rules are not compared; raw-sample statistics and hashes are")
@@ -222,7 +282,7 @@ def cmd_verify(a):
         for r in run["records"]:
             if r.get("payload") and not r.get("unsupported") and r["returncode"] == 0:
                 g, _ = TASKS[r["task"]]["grade"](r["payload"], run["references"][f"{r['task']}/{r['input']}"])
-                bad += bool(g) != bool(r.get("correct"))
+                bad += g != r.get("correct")
         print(f"grades: {bad} of {len(run['records'])} records disagree with re-grading" if bad else "grades: all records re-graded identically")
         ok &= bad == 0
     # 4. report text matches
@@ -233,7 +293,7 @@ def cmd_verify(a):
             ok = False; print("FAIL report.md differs from regeneration:"); print("\n".join(list(difflib.unified_diff(old, fresh, lineterm=""))[:40]))
         else:
             print("report.md: identical to regeneration")
-    print("VERIFY", "PASS" if ok else "FAIL"); sys.exit(0 if ok else 1)
+    print("VERIFY", ("PASS" if same_version else "LEGACY CONSISTENCY ONLY") if ok else "FAIL"); sys.exit(0 if ok else 1)
 
 
 def cmd_judge(a):
@@ -254,7 +314,12 @@ if __name__ == "__main__":
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("env").set_defaults(f=cmd_env)
     r = sub.add_parser("run"); r.set_defaults(f=cmd_run)
-    r.add_argument("--reps", type=int, default=15); r.add_argument("--e2e-reps", type=int, default=5); r.add_argument("--seed", type=int); r.add_argument("--opp-threshold", type=float, default=1.15); r.add_argument("--isolate", action="store_true", help="systemd scope with MemoryMax and CPUQuota=100%%")
+    def positive_int(value):
+        n = int(value)
+        if n < 1:
+            raise argparse.ArgumentTypeError("must be positive")
+        return n
+    r.add_argument("--reps", type=positive_int, default=15); r.add_argument("--e2e-reps", type=positive_int, default=5); r.add_argument("--seed", type=int); r.add_argument("--opp-threshold", type=float, default=1.15); r.add_argument("--isolate", action="store_true", help="systemd scope with MemoryMax and CPUQuota=100%%")
     r.add_argument("--mem-max", default="3G"); r.add_argument("--cpu", type=int); r.add_argument("--tasks"); r.add_argument("--label", default="local")
     r.add_argument("--with-qe", action="store_true", help="also run pw.x on each tool's Si input (needs pw.x)")
     r.add_argument("--pw-x", help="pw.x executable to use (default: BENCH_PW_X env, else ./.qe/bin/pw.x if present, else pw.x on PATH)")

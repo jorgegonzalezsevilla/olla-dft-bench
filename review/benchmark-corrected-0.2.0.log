@@ -1,0 +1,854 @@
+WARNING: CPU governor is 'powersave', not 'performance': timings are noisier. Fix: sudo cpupower frequency-set -g performance
+WARNING: Turbo boost enabled: single-thread timings drift with temperature. Fix: echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
+WARNING: 1-min load average 2.03 > 1.0: other processes were competing for CPU.
+run 20260904-180702: tasks=['symmetry', 'kpath', 'eos', 'bandgap', 'inputgen'] tools=['olla-dft', 'ase', 'pymatgen', 'qeschema', 'seekpath'] reps=15 cpu=0 isolate=False
+  symmetry  Si_relajado.cif   olla-dft  warm  wall=1.491s rss=98MB ok
+  symmetry  Si_relajado.cif   ase       warm  wall=0.578s rss=80MB ok
+  symmetry  Si_relajado.cif   pymatgen  warm  wall=0.559s rss=77MB ok
+  symmetry  Si_relajado.cif   ase       rep0  wall=0.874s rss=80MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep0  wall=0.721s rss=78MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep0  wall=0.837s rss=97MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep1  wall=1.144s rss=97MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep1  wall=0.701s rss=77MB ok
+  symmetry  Si_relajado.cif   ase       rep1  wall=0.786s rss=80MB ok
+  symmetry  Si_relajado.cif   ase       rep2  wall=0.949s rss=80MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep2  wall=0.934s rss=97MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep2  wall=0.610s rss=78MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep3  wall=0.640s rss=78MB ok
+  symmetry  Si_relajado.cif   ase       rep3  wall=0.772s rss=80MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep3  wall=0.945s rss=97MB ok
+  symmetry  Si_relajado.cif   ase       rep4  wall=0.740s rss=81MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep4  wall=0.648s rss=77MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep4  wall=0.893s rss=97MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep5  wall=0.894s rss=97MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep5  wall=0.629s rss=77MB ok
+  symmetry  Si_relajado.cif   ase       rep5  wall=0.681s rss=81MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep6  wall=0.904s rss=97MB ok
+  symmetry  Si_relajado.cif   ase       rep6  wall=0.702s rss=80MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep6  wall=0.608s rss=77MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep7  wall=0.880s rss=97MB ok
+  symmetry  Si_relajado.cif   ase       rep7  wall=0.657s rss=80MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep7  wall=0.628s rss=78MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep8  wall=0.611s rss=77MB ok
+  symmetry  Si_relajado.cif   ase       rep8  wall=0.721s rss=80MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep8  wall=1.441s rss=97MB ok
+  symmetry  Si_relajado.cif   ase       rep9  wall=0.832s rss=80MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep9  wall=0.609s rss=77MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep9  wall=0.863s rss=97MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep10 wall=0.579s rss=77MB ok
+  symmetry  Si_relajado.cif   ase       rep10 wall=0.640s rss=80MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep10 wall=0.965s rss=97MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep11 wall=0.873s rss=97MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep11 wall=0.569s rss=78MB ok
+  symmetry  Si_relajado.cif   ase       rep11 wall=0.690s rss=80MB ok
+  symmetry  Si_relajado.cif   ase       rep12 wall=0.690s rss=80MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep12 wall=0.874s rss=97MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep12 wall=0.619s rss=77MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep13 wall=0.600s rss=78MB ok
+  symmetry  Si_relajado.cif   ase       rep13 wall=0.671s rss=80MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep13 wall=0.843s rss=97MB ok
+  symmetry  Si_relajado.cif   pymatgen  rep14 wall=0.599s rss=77MB ok
+  symmetry  Si_relajado.cif   olla-dft  rep14 wall=0.928s rss=97MB ok
+  symmetry  Si_relajado.cif   ase       rep14 wall=0.905s rss=81MB ok
+  symmetry  ZnO.cif           olla-dft  warm  wall=0.974s rss=97MB ok
+  symmetry  ZnO.cif           ase       warm  wall=0.958s rss=80MB ok
+  symmetry  ZnO.cif           pymatgen  warm  wall=1.076s rss=77MB ok
+  symmetry  ZnO.cif           pymatgen  rep0  wall=0.742s rss=77MB ok
+  symmetry  ZnO.cif           ase       rep0  wall=0.701s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep0  wall=0.863s rss=97MB ok
+  symmetry  ZnO.cif           olla-dft  rep1  wall=0.823s rss=97MB ok
+  symmetry  ZnO.cif           ase       rep1  wall=0.761s rss=80MB ok
+  symmetry  ZnO.cif           pymatgen  rep1  wall=0.691s rss=78MB ok
+  symmetry  ZnO.cif           pymatgen  rep2  wall=0.559s rss=77MB ok
+  symmetry  ZnO.cif           olla-dft  rep2  wall=0.894s rss=97MB ok
+  symmetry  ZnO.cif           ase       rep2  wall=0.630s rss=80MB ok
+  symmetry  ZnO.cif           pymatgen  rep3  wall=0.569s rss=78MB ok
+  symmetry  ZnO.cif           ase       rep3  wall=0.609s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep3  wall=0.820s rss=97MB ok
+  symmetry  ZnO.cif           olla-dft  rep4  wall=0.799s rss=97MB ok
+  symmetry  ZnO.cif           ase       rep4  wall=0.638s rss=80MB ok
+  symmetry  ZnO.cif           pymatgen  rep4  wall=0.599s rss=77MB ok
+  symmetry  ZnO.cif           pymatgen  rep5  wall=0.569s rss=78MB ok
+  symmetry  ZnO.cif           ase       rep5  wall=0.650s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep5  wall=0.990s rss=97MB ok
+  symmetry  ZnO.cif           pymatgen  rep6  wall=0.681s rss=77MB ok
+  symmetry  ZnO.cif           ase       rep6  wall=0.723s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep6  wall=0.863s rss=97MB ok
+  symmetry  ZnO.cif           ase       rep7  wall=0.620s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep7  wall=0.853s rss=97MB ok
+  symmetry  ZnO.cif           pymatgen  rep7  wall=0.569s rss=78MB ok
+  symmetry  ZnO.cif           ase       rep8  wall=0.627s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep8  wall=0.968s rss=97MB ok
+  symmetry  ZnO.cif           pymatgen  rep8  wall=0.599s rss=77MB ok
+  symmetry  ZnO.cif           olla-dft  rep9  wall=0.833s rss=97MB ok
+  symmetry  ZnO.cif           pymatgen  rep9  wall=0.548s rss=78MB ok
+  symmetry  ZnO.cif           ase       rep9  wall=0.620s rss=80MB ok
+  symmetry  ZnO.cif           pymatgen  rep10 wall=0.580s rss=78MB ok
+  symmetry  ZnO.cif           olla-dft  rep10 wall=0.864s rss=97MB ok
+  symmetry  ZnO.cif           ase       rep10 wall=0.650s rss=80MB ok
+  symmetry  ZnO.cif           pymatgen  rep11 wall=0.639s rss=77MB ok
+  symmetry  ZnO.cif           olla-dft  rep11 wall=0.813s rss=97MB ok
+  symmetry  ZnO.cif           ase       rep11 wall=0.619s rss=80MB ok
+  symmetry  ZnO.cif           pymatgen  rep12 wall=0.549s rss=78MB ok
+  symmetry  ZnO.cif           ase       rep12 wall=0.599s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep12 wall=0.812s rss=97MB ok
+  symmetry  ZnO.cif           olla-dft  rep13 wall=0.793s rss=97MB ok
+  symmetry  ZnO.cif           pymatgen  rep13 wall=0.549s rss=77MB ok
+  symmetry  ZnO.cif           ase       rep13 wall=0.620s rss=80MB ok
+  symmetry  ZnO.cif           olla-dft  rep14 wall=0.810s rss=97MB ok
+  symmetry  ZnO.cif           pymatgen  rep14 wall=0.567s rss=78MB ok
+  symmetry  ZnO.cif           ase       rep14 wall=0.619s rss=80MB ok
+  symmetry  grafito.cif       olla-dft  warm  wall=0.823s rss=97MB ok
+  symmetry  grafito.cif       ase       warm  wall=0.639s rss=80MB ok
+  symmetry  grafito.cif       pymatgen  warm  wall=0.579s rss=77MB ok
+  symmetry  grafito.cif       ase       rep0  wall=0.832s rss=80MB ok
+  symmetry  grafito.cif       olla-dft  rep0  wall=1.017s rss=97MB ok
+  symmetry  grafito.cif       pymatgen  rep0  wall=0.579s rss=78MB ok
+  symmetry  grafito.cif       pymatgen  rep1  wall=0.582s rss=78MB ok
+  symmetry  grafito.cif       olla-dft  rep1  wall=0.814s rss=97MB ok
+  symmetry  grafito.cif       ase       rep1  wall=0.629s rss=81MB ok
+  symmetry  grafito.cif       pymatgen  rep2  wall=0.568s rss=78MB ok
+  symmetry  grafito.cif       ase       rep2  wall=0.629s rss=80MB ok
+  symmetry  grafito.cif       olla-dft  rep2  wall=0.832s rss=97MB ok
+  symmetry  grafito.cif       olla-dft  rep3  wall=0.812s rss=97MB ok
+  symmetry  grafito.cif       ase       rep3  wall=0.610s rss=81MB ok
+  symmetry  grafito.cif       pymatgen  rep3  wall=0.559s rss=78MB ok
+  symmetry  grafito.cif       pymatgen  rep4  wall=0.664s rss=77MB ok
+  symmetry  grafito.cif       olla-dft  rep4  wall=0.884s rss=97MB ok
+  symmetry  grafito.cif       ase       rep4  wall=0.609s rss=80MB ok
+  symmetry  grafito.cif       pymatgen  rep5  wall=0.569s rss=78MB ok
+  symmetry  grafito.cif       olla-dft  rep5  wall=0.843s rss=97MB ok
+  symmetry  grafito.cif       ase       rep5  wall=0.600s rss=80MB ok
+  symmetry  grafito.cif       pymatgen  rep6  wall=0.579s rss=78MB ok
+  symmetry  grafito.cif       olla-dft  rep6  wall=0.883s rss=97MB ok
+  symmetry  grafito.cif       ase       rep6  wall=0.640s rss=80MB ok
+  symmetry  grafito.cif       ase       rep7  wall=0.640s rss=80MB ok
+  symmetry  grafito.cif       olla-dft  rep7  wall=0.822s rss=97MB ok
+  symmetry  grafito.cif       pymatgen  rep7  wall=0.590s rss=77MB ok
+  symmetry  grafito.cif       pymatgen  rep8  wall=0.569s rss=77MB ok
+  symmetry  grafito.cif       ase       rep8  wall=0.660s rss=80MB ok
+  symmetry  grafito.cif       olla-dft  rep8  wall=1.026s rss=97MB ok
+  symmetry  grafito.cif       olla-dft  rep9  wall=0.833s rss=97MB ok
+  symmetry  grafito.cif       pymatgen  rep9  wall=0.570s rss=77MB ok
+  symmetry  grafito.cif       ase       rep9  wall=0.640s rss=80MB ok
+  symmetry  grafito.cif       ase       rep10 wall=0.630s rss=80MB ok
+  symmetry  grafito.cif       pymatgen  rep10 wall=0.713s rss=78MB ok
+  symmetry  grafito.cif       olla-dft  rep10 wall=0.915s rss=97MB ok
+  symmetry  grafito.cif       ase       rep11 wall=0.610s rss=80MB ok
+  symmetry  grafito.cif       olla-dft  rep11 wall=0.883s rss=97MB ok
+  symmetry  grafito.cif       pymatgen  rep11 wall=0.569s rss=77MB ok
+  symmetry  grafito.cif       ase       rep12 wall=0.661s rss=80MB ok
+  symmetry  grafito.cif       pymatgen  rep12 wall=0.570s rss=78MB ok
+  symmetry  grafito.cif       olla-dft  rep12 wall=0.863s rss=97MB ok
+  symmetry  grafito.cif       pymatgen  rep13 wall=0.589s rss=77MB ok
+  symmetry  grafito.cif       ase       rep13 wall=0.630s rss=80MB ok
+  symmetry  grafito.cif       olla-dft  rep13 wall=0.813s rss=97MB ok
+  symmetry  grafito.cif       pymatgen  rep14 wall=0.559s rss=77MB ok
+  symmetry  grafito.cif       olla-dft  rep14 wall=1.087s rss=97MB ok
+  symmetry  grafito.cif       ase       rep14 wall=0.670s rss=80MB ok
+  symmetry  hbn.cif           olla-dft  warm  wall=1.219s rss=97MB ok
+  symmetry  hbn.cif           ase       warm  wall=0.641s rss=80MB ok
+  symmetry  hbn.cif           pymatgen  warm  wall=0.735s rss=77MB ok
+  symmetry  hbn.cif           olla-dft  rep0  wall=0.895s rss=97MB ok
+  symmetry  hbn.cif           ase       rep0  wall=0.941s rss=80MB ok
+  symmetry  hbn.cif           pymatgen  rep0  wall=0.599s rss=77MB ok
+  symmetry  hbn.cif           olla-dft  rep1  wall=0.651s rss=97MB ok
+  symmetry  hbn.cif           pymatgen  rep1  wall=0.468s rss=77MB ok
+  symmetry  hbn.cif           ase       rep1  wall=0.519s rss=80MB ok
+  symmetry  hbn.cif           ase       rep2  wall=0.478s rss=80MB ok
+  symmetry  hbn.cif           olla-dft  rep2  wall=0.560s rss=97MB ok
+  symmetry  hbn.cif           pymatgen  rep2  wall=0.387s rss=77MB ok
+  symmetry  hbn.cif           olla-dft  rep3  wall=0.590s rss=97MB ok
+  symmetry  hbn.cif           pymatgen  rep3  wall=0.407s rss=77MB ok
+  symmetry  hbn.cif           ase       rep3  wall=0.437s rss=80MB ok
+  symmetry  hbn.cif           pymatgen  rep4  wall=0.407s rss=78MB ok
+  symmetry  hbn.cif           ase       rep4  wall=0.437s rss=81MB ok
+  symmetry  hbn.cif           olla-dft  rep4  wall=0.559s rss=97MB ok
+  symmetry  hbn.cif           ase       rep5  wall=0.418s rss=80MB ok
+  symmetry  hbn.cif           olla-dft  rep5  wall=0.529s rss=97MB ok
+  symmetry  hbn.cif           pymatgen  rep5  wall=0.377s rss=77MB ok
+  symmetry  hbn.cif           ase       rep6  wall=0.407s rss=80MB ok
+  symmetry  hbn.cif           olla-dft  rep6  wall=0.538s rss=97MB ok
+  symmetry  hbn.cif           pymatgen  rep6  wall=0.377s rss=77MB ok
+  symmetry  hbn.cif           pymatgen  rep7  wall=0.364s rss=78MB ok
+  symmetry  hbn.cif           ase       rep7  wall=0.414s rss=81MB ok
+  symmetry  hbn.cif           olla-dft  rep7  wall=0.658s rss=97MB ok
+  symmetry  hbn.cif           ase       rep8  wall=0.467s rss=80MB ok
+  symmetry  hbn.cif           pymatgen  rep8  wall=0.374s rss=78MB ok
+  symmetry  hbn.cif           olla-dft  rep8  wall=0.567s rss=97MB ok
+  symmetry  hbn.cif           ase       rep9  wall=0.415s rss=80MB ok
+  symmetry  hbn.cif           olla-dft  rep9  wall=0.560s rss=97MB ok
+  symmetry  hbn.cif           pymatgen  rep9  wall=0.377s rss=78MB ok
+  symmetry  hbn.cif           ase       rep10 wall=0.407s rss=80MB ok
+  symmetry  hbn.cif           pymatgen  rep10 wall=0.377s rss=77MB ok
+  symmetry  hbn.cif           olla-dft  rep10 wall=0.539s rss=97MB ok
+  symmetry  hbn.cif           olla-dft  rep11 wall=0.539s rss=97MB ok
+  symmetry  hbn.cif           ase       rep11 wall=0.407s rss=80MB ok
+  symmetry  hbn.cif           pymatgen  rep11 wall=0.377s rss=78MB ok
+  symmetry  hbn.cif           pymatgen  rep12 wall=0.367s rss=77MB ok
+  symmetry  hbn.cif           olla-dft  rep12 wall=0.540s rss=97MB ok
+  symmetry  hbn.cif           ase       rep12 wall=0.417s rss=80MB ok
+  symmetry  hbn.cif           ase       rep13 wall=0.417s rss=80MB ok
+  symmetry  hbn.cif           olla-dft  rep13 wall=0.549s rss=97MB ok
+  symmetry  hbn.cif           pymatgen  rep13 wall=0.407s rss=77MB ok
+  symmetry  hbn.cif           pymatgen  rep14 wall=0.387s rss=77MB ok
+  symmetry  hbn.cif           olla-dft  rep14 wall=0.539s rss=97MB ok
+  symmetry  hbn.cif           ase       rep14 wall=0.427s rss=80MB ok
+  symmetry  POSCAR_NaCl       olla-dft  warm  wall=0.610s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       warm  wall=0.580s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  warm  wall=0.926s rss=120MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep0  wall=1.282s rss=120MB ok
+  symmetry  POSCAR_NaCl       ase       rep0  wall=0.498s rss=80MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep0  wall=0.662s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep1  wall=0.519s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep1  wall=0.976s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep1  wall=0.732s rss=97MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep2  wall=0.833s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep2  wall=1.458s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep2  wall=2.032s rss=120MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep3  wall=1.134s rss=120MB ok
+  symmetry  POSCAR_NaCl       ase       rep3  wall=0.616s rss=80MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep3  wall=0.769s rss=97MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep4  wall=1.153s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep4  wall=0.709s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep4  wall=0.519s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep5  wall=1.168s rss=120MB ok
+  symmetry  POSCAR_NaCl       ase       rep5  wall=0.590s rss=80MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep5  wall=0.611s rss=97MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep6  wall=1.076s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep6  wall=0.663s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep6  wall=0.459s rss=80MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep7  wall=0.640s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep7  wall=0.447s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep7  wall=0.990s rss=120MB ok
+  symmetry  POSCAR_NaCl       ase       rep8  wall=0.485s rss=80MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep8  wall=0.616s rss=97MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep8  wall=0.969s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep9  wall=0.596s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep9  wall=0.485s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep9  wall=0.929s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep10 wall=0.627s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep10 wall=0.486s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep10 wall=0.939s rss=120MB ok
+  symmetry  POSCAR_NaCl       ase       rep11 wall=0.495s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep11 wall=1.020s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep11 wall=0.610s rss=97MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep12 wall=0.772s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep12 wall=0.488s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep12 wall=0.945s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep13 wall=0.670s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep13 wall=0.498s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep13 wall=1.056s rss=120MB ok
+  symmetry  POSCAR_NaCl       olla-dft  rep14 wall=0.641s rss=97MB ok
+  symmetry  POSCAR_NaCl       ase       rep14 wall=0.508s rss=80MB ok
+  symmetry  POSCAR_NaCl       pymatgen  rep14 wall=1.207s rss=120MB ok
+  kpath     Si_relajado.cif   olla-dft  warm  wall=0.896s rss=97MB ok
+  kpath     Si_relajado.cif   seekpath  warm  wall=0.498s rss=81MB ok
+  kpath     Si_relajado.cif   ase       warm  wall=0.498s rss=82MB other convention
+  kpath     Si_relajado.cif   pymatgen  warm  wall=0.621s rss=88MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep0  wall=0.660s rss=97MB ok
+  kpath     Si_relajado.cif   seekpath  rep0  wall=0.427s rss=81MB ok
+  kpath     Si_relajado.cif   ase       rep0  wall=0.448s rss=82MB other convention
+  kpath     Si_relajado.cif   pymatgen  rep0  wall=0.518s rss=88MB other convention
+  kpath     Si_relajado.cif   pymatgen  rep1  wall=0.569s rss=88MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep1  wall=0.650s rss=97MB ok
+  kpath     Si_relajado.cif   ase       rep1  wall=0.447s rss=82MB other convention
+  kpath     Si_relajado.cif   seekpath  rep1  wall=0.448s rss=80MB ok
+  kpath     Si_relajado.cif   pymatgen  rep2  wall=0.530s rss=88MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep2  wall=0.589s rss=97MB ok
+  kpath     Si_relajado.cif   ase       rep2  wall=0.460s rss=82MB other convention
+  kpath     Si_relajado.cif   seekpath  rep2  wall=0.489s rss=81MB ok
+  kpath     Si_relajado.cif   olla-dft  rep3  wall=0.641s rss=97MB ok
+  kpath     Si_relajado.cif   seekpath  rep3  wall=0.477s rss=81MB ok
+  kpath     Si_relajado.cif   pymatgen  rep3  wall=0.529s rss=88MB other convention
+  kpath     Si_relajado.cif   ase       rep3  wall=0.438s rss=82MB other convention
+  kpath     Si_relajado.cif   ase       rep4  wall=0.417s rss=82MB other convention
+  kpath     Si_relajado.cif   pymatgen  rep4  wall=0.499s rss=88MB other convention
+  kpath     Si_relajado.cif   seekpath  rep4  wall=0.448s rss=81MB ok
+  kpath     Si_relajado.cif   olla-dft  rep4  wall=0.570s rss=97MB ok
+  kpath     Si_relajado.cif   ase       rep5  wall=0.528s rss=82MB other convention
+  kpath     Si_relajado.cif   seekpath  rep5  wall=0.599s rss=80MB ok
+  kpath     Si_relajado.cif   pymatgen  rep5  wall=0.772s rss=88MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep5  wall=1.045s rss=97MB ok
+  kpath     Si_relajado.cif   ase       rep6  wall=0.861s rss=82MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep6  wall=0.812s rss=97MB ok
+  kpath     Si_relajado.cif   pymatgen  rep6  wall=0.734s rss=88MB other convention
+  kpath     Si_relajado.cif   seekpath  rep6  wall=0.550s rss=80MB ok
+  kpath     Si_relajado.cif   ase       rep7  wall=0.498s rss=82MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep7  wall=0.699s rss=97MB ok
+  kpath     Si_relajado.cif   seekpath  rep7  wall=0.499s rss=81MB ok
+  kpath     Si_relajado.cif   pymatgen  rep7  wall=0.528s rss=89MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep8  wall=0.619s rss=97MB ok
+  kpath     Si_relajado.cif   ase       rep8  wall=0.498s rss=82MB other convention
+  kpath     Si_relajado.cif   seekpath  rep8  wall=0.537s rss=81MB ok
+  kpath     Si_relajado.cif   pymatgen  rep8  wall=0.576s rss=88MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep9  wall=0.790s rss=97MB ok
+  kpath     Si_relajado.cif   ase       rep9  wall=0.639s rss=82MB other convention
+  kpath     Si_relajado.cif   pymatgen  rep9  wall=0.873s rss=88MB other convention
+  kpath     Si_relajado.cif   seekpath  rep9  wall=0.478s rss=81MB ok
+  kpath     Si_relajado.cif   ase       rep10 wall=0.418s rss=82MB other convention
+  kpath     Si_relajado.cif   seekpath  rep10 wall=0.417s rss=81MB ok
+  kpath     Si_relajado.cif   olla-dft  rep10 wall=0.539s rss=97MB ok
+  kpath     Si_relajado.cif   pymatgen  rep10 wall=0.479s rss=88MB other convention
+  kpath     Si_relajado.cif   ase       rep11 wall=0.407s rss=82MB other convention
+  kpath     Si_relajado.cif   seekpath  rep11 wall=0.437s rss=81MB ok
+  kpath     Si_relajado.cif   olla-dft  rep11 wall=0.579s rss=97MB ok
+  kpath     Si_relajado.cif   pymatgen  rep11 wall=0.509s rss=88MB other convention
+  kpath     Si_relajado.cif   seekpath  rep12 wall=0.478s rss=81MB ok
+  kpath     Si_relajado.cif   ase       rep12 wall=0.539s rss=82MB other convention
+  kpath     Si_relajado.cif   pymatgen  rep12 wall=0.589s rss=88MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep12 wall=0.681s rss=97MB ok
+  kpath     Si_relajado.cif   ase       rep13 wall=0.499s rss=82MB other convention
+  kpath     Si_relajado.cif   seekpath  rep13 wall=0.467s rss=81MB ok
+  kpath     Si_relajado.cif   olla-dft  rep13 wall=0.570s rss=97MB ok
+  kpath     Si_relajado.cif   pymatgen  rep13 wall=0.488s rss=88MB other convention
+  kpath     Si_relajado.cif   olla-dft  rep14 wall=0.580s rss=97MB ok
+  kpath     Si_relajado.cif   seekpath  rep14 wall=0.428s rss=81MB ok
+  kpath     Si_relajado.cif   pymatgen  rep14 wall=0.589s rss=88MB other convention
+  kpath     Si_relajado.cif   ase       rep14 wall=0.468s rss=82MB other convention
+  kpath     ZnO.cif           olla-dft  warm  wall=0.620s rss=97MB ok
+  kpath     ZnO.cif           seekpath  warm  wall=0.498s rss=81MB ok
+  kpath     ZnO.cif           ase       warm  wall=0.529s rss=82MB other convention
+  kpath     ZnO.cif           pymatgen  warm  wall=0.488s rss=89MB other convention
+  kpath     ZnO.cif           seekpath  rep0  wall=0.458s rss=81MB ok
+  kpath     ZnO.cif           pymatgen  rep0  wall=0.519s rss=88MB other convention
+  kpath     ZnO.cif           ase       rep0  wall=0.489s rss=82MB other convention
+  kpath     ZnO.cif           olla-dft  rep0  wall=0.681s rss=97MB ok
+  kpath     ZnO.cif           olla-dft  rep1  wall=0.641s rss=97MB ok
+  kpath     ZnO.cif           ase       rep1  wall=0.468s rss=82MB other convention
+  kpath     ZnO.cif           pymatgen  rep1  wall=0.498s rss=88MB other convention
+  kpath     ZnO.cif           seekpath  rep1  wall=0.888s rss=81MB ok
+  kpath     ZnO.cif           seekpath  rep2  wall=0.662s rss=81MB ok
+  kpath     ZnO.cif           olla-dft  rep2  wall=0.693s rss=97MB ok
+  kpath     ZnO.cif           ase       rep2  wall=0.458s rss=82MB other convention
+  kpath     ZnO.cif           pymatgen  rep2  wall=0.569s rss=88MB other convention
+  kpath     ZnO.cif           pymatgen  rep3  wall=0.600s rss=88MB other convention
+  kpath     ZnO.cif           seekpath  rep3  wall=0.519s rss=81MB ok
+  kpath     ZnO.cif           ase       rep3  wall=0.499s rss=82MB other convention
+  kpath     ZnO.cif           olla-dft  rep3  wall=0.751s rss=97MB ok
+  kpath     ZnO.cif           pymatgen  rep4  wall=0.730s rss=88MB other convention
+  kpath     ZnO.cif           olla-dft  rep4  wall=0.914s rss=97MB ok
+  kpath     ZnO.cif           ase       rep4  wall=0.558s rss=82MB other convention
+  kpath     ZnO.cif           seekpath  rep4  wall=0.528s rss=81MB ok
+  kpath     ZnO.cif           ase       rep5  wall=0.509s rss=82MB other convention
+  kpath     ZnO.cif           pymatgen  rep5  wall=0.569s rss=88MB other convention
+  kpath     ZnO.cif           seekpath  rep5  wall=0.530s rss=81MB ok
+  kpath     ZnO.cif           olla-dft  rep5  wall=1.025s rss=97MB ok
+  kpath     ZnO.cif           ase       rep6  wall=0.631s rss=82MB other convention
+  kpath     ZnO.cif           seekpath  rep6  wall=0.549s rss=81MB ok
+  kpath     ZnO.cif           pymatgen  rep6  wall=0.549s rss=88MB other convention
+  kpath     ZnO.cif           olla-dft  rep6  wall=0.661s rss=97MB ok
+  kpath     ZnO.cif           olla-dft  rep7  wall=0.691s rss=97MB ok
+  kpath     ZnO.cif           pymatgen  rep7  wall=0.559s rss=88MB other convention
+  kpath     ZnO.cif           seekpath  rep7  wall=0.537s rss=81MB ok
+  kpath     ZnO.cif           ase       rep7  wall=0.548s rss=82MB other convention
+  kpath     ZnO.cif           ase       rep8  wall=0.682s rss=82MB other convention
+  kpath     ZnO.cif           seekpath  rep8  wall=0.549s rss=81MB ok
+  kpath     ZnO.cif           pymatgen  rep8  wall=0.580s rss=88MB other convention
+  kpath     ZnO.cif           olla-dft  rep8  wall=0.701s rss=97MB ok
+  kpath     ZnO.cif           ase       rep9  wall=0.519s rss=82MB other convention
+  kpath     ZnO.cif           pymatgen  rep9  wall=0.610s rss=89MB other convention
+  kpath     ZnO.cif           olla-dft  rep9  wall=0.732s rss=97MB ok
+  kpath     ZnO.cif           seekpath  rep9  wall=0.468s rss=81MB ok
+  kpath     ZnO.cif           seekpath  rep10 wall=0.498s rss=81MB ok
+  kpath     ZnO.cif           olla-dft  rep10 wall=0.611s rss=97MB ok
+  kpath     ZnO.cif           pymatgen  rep10 wall=0.488s rss=89MB other convention
+  kpath     ZnO.cif           ase       rep10 wall=0.458s rss=82MB other convention
+  kpath     ZnO.cif           pymatgen  rep11 wall=0.499s rss=88MB other convention
+  kpath     ZnO.cif           seekpath  rep11 wall=0.478s rss=81MB ok
+  kpath     ZnO.cif           olla-dft  rep11 wall=0.721s rss=97MB ok
+  kpath     ZnO.cif           ase       rep11 wall=0.620s rss=82MB other convention
+  kpath     ZnO.cif           ase       rep12 wall=0.450s rss=82MB other convention
+  kpath     ZnO.cif           pymatgen  rep12 wall=0.448s rss=89MB other convention
+  kpath     ZnO.cif           olla-dft  rep12 wall=0.529s rss=97MB ok
+  kpath     ZnO.cif           seekpath  rep12 wall=0.478s rss=81MB ok
+  kpath     ZnO.cif           olla-dft  rep13 wall=0.553s rss=97MB ok
+  kpath     ZnO.cif           pymatgen  rep13 wall=0.774s rss=88MB other convention
+  kpath     ZnO.cif           seekpath  rep13 wall=0.468s rss=81MB ok
+  kpath     ZnO.cif           ase       rep13 wall=0.418s rss=82MB other convention
+  kpath     ZnO.cif           ase       rep14 wall=0.408s rss=82MB other convention
+  kpath     ZnO.cif           seekpath  rep14 wall=0.437s rss=81MB ok
+  kpath     ZnO.cif           olla-dft  rep14 wall=0.550s rss=97MB ok
+  kpath     ZnO.cif           pymatgen  rep14 wall=0.478s rss=88MB other convention
+  kpath     grafito.cif       olla-dft  warm  wall=0.539s rss=97MB ok
+  kpath     grafito.cif       seekpath  warm  wall=0.407s rss=80MB ok
+  kpath     grafito.cif       ase       warm  wall=0.427s rss=82MB other convention
+  kpath     grafito.cif       pymatgen  warm  wall=0.488s rss=88MB other convention
+  kpath     grafito.cif       seekpath  rep0  wall=0.417s rss=81MB ok
+  kpath     grafito.cif       pymatgen  rep0  wall=0.626s rss=88MB other convention
+  kpath     grafito.cif       olla-dft  rep0  wall=0.588s rss=97MB ok
+  kpath     grafito.cif       ase       rep0  wall=0.417s rss=82MB other convention
+  kpath     grafito.cif       ase       rep1  wall=0.466s rss=82MB other convention
+  kpath     grafito.cif       seekpath  rep1  wall=0.476s rss=81MB ok
+  kpath     grafito.cif       pymatgen  rep1  wall=0.468s rss=88MB other convention
+  kpath     grafito.cif       olla-dft  rep1  wall=0.569s rss=97MB ok
+  kpath     grafito.cif       olla-dft  rep2  wall=0.539s rss=97MB ok
+  kpath     grafito.cif       seekpath  rep2  wall=0.407s rss=81MB ok
+  kpath     grafito.cif       ase       rep2  wall=0.397s rss=82MB other convention
+  kpath     grafito.cif       pymatgen  rep2  wall=0.458s rss=88MB other convention
+  kpath     grafito.cif       seekpath  rep3  wall=0.407s rss=81MB ok
+  kpath     grafito.cif       pymatgen  rep3  wall=0.488s rss=88MB other convention
+  kpath     grafito.cif       olla-dft  rep3  wall=0.540s rss=97MB ok
+  kpath     grafito.cif       ase       rep3  wall=0.408s rss=82MB other convention
+  kpath     grafito.cif       olla-dft  rep4  wall=0.519s rss=97MB ok
+  kpath     grafito.cif       ase       rep4  wall=0.397s rss=82MB other convention
+  kpath     grafito.cif       pymatgen  rep4  wall=0.438s rss=88MB other convention
+  kpath     grafito.cif       seekpath  rep4  wall=0.397s rss=81MB ok
+  kpath     grafito.cif       olla-dft  rep5  wall=0.540s rss=97MB ok
+  kpath     grafito.cif       seekpath  rep5  wall=0.397s rss=81MB ok
+  kpath     grafito.cif       ase       rep5  wall=0.418s rss=82MB other convention
+  kpath     grafito.cif       pymatgen  rep5  wall=0.468s rss=89MB other convention
+  kpath     grafito.cif       pymatgen  rep6  wall=0.458s rss=88MB other convention
+  kpath     grafito.cif       olla-dft  rep6  wall=0.549s rss=97MB ok
+  kpath     grafito.cif       ase       rep6  wall=0.458s rss=82MB other convention
+  kpath     grafito.cif       seekpath  rep6  wall=0.428s rss=81MB ok
+  kpath     grafito.cif       ase       rep7  wall=0.417s rss=82MB other convention
+  kpath     grafito.cif       olla-dft  rep7  wall=0.600s rss=97MB ok
+  kpath     grafito.cif       seekpath  rep7  wall=0.438s rss=81MB ok
+  kpath     grafito.cif       pymatgen  rep7  wall=0.508s rss=88MB other convention
+  kpath     grafito.cif       seekpath  rep8  wall=0.478s rss=81MB ok
+  kpath     grafito.cif       ase       rep8  wall=0.457s rss=82MB other convention
+  kpath     grafito.cif       pymatgen  rep8  wall=0.771s rss=89MB other convention
+  kpath     grafito.cif       olla-dft  rep8  wall=0.782s rss=97MB ok
+  kpath     grafito.cif       pymatgen  rep9  wall=0.670s rss=88MB other convention
+  kpath     grafito.cif       olla-dft  rep9  wall=0.761s rss=97MB ok
+  kpath     grafito.cif       seekpath  rep9  wall=0.579s rss=81MB ok
+  kpath     grafito.cif       ase       rep9  wall=0.539s rss=82MB other convention
+  kpath     grafito.cif       olla-dft  rep10 wall=0.610s rss=97MB ok
+  kpath     grafito.cif       pymatgen  rep10 wall=0.498s rss=89MB other convention
+  kpath     grafito.cif       seekpath  rep10 wall=0.517s rss=81MB ok
+  kpath     grafito.cif       ase       rep10 wall=0.569s rss=82MB other convention
+  kpath     grafito.cif       ase       rep11 wall=0.566s rss=82MB other convention
+  kpath     grafito.cif       pymatgen  rep11 wall=0.549s rss=88MB other convention
+  kpath     grafito.cif       seekpath  rep11 wall=0.478s rss=81MB ok
+  kpath     grafito.cif       olla-dft  rep11 wall=0.589s rss=97MB ok
+  kpath     grafito.cif       seekpath  rep12 wall=0.428s rss=81MB ok
+  kpath     grafito.cif       ase       rep12 wall=0.417s rss=82MB other convention
+  kpath     grafito.cif       olla-dft  rep12 wall=0.559s rss=97MB ok
+  kpath     grafito.cif       pymatgen  rep12 wall=0.458s rss=88MB other convention
+  kpath     grafito.cif       seekpath  rep13 wall=0.417s rss=81MB ok
+  kpath     grafito.cif       ase       rep13 wall=0.407s rss=82MB other convention
+  kpath     grafito.cif       olla-dft  rep13 wall=0.570s rss=97MB ok
+  kpath     grafito.cif       pymatgen  rep13 wall=0.448s rss=89MB other convention
+  kpath     grafito.cif       olla-dft  rep14 wall=0.540s rss=97MB ok
+  kpath     grafito.cif       ase       rep14 wall=0.407s rss=82MB other convention
+  kpath     grafito.cif       pymatgen  rep14 wall=0.458s rss=88MB other convention
+  kpath     grafito.cif       seekpath  rep14 wall=0.417s rss=81MB ok
+  kpath     hbn.cif           olla-dft  warm  wall=0.730s rss=97MB ok
+  kpath     hbn.cif           seekpath  warm  wall=0.437s rss=81MB ok
+  kpath     hbn.cif           ase       warm  wall=0.436s rss=82MB other convention
+  kpath     hbn.cif           pymatgen  warm  wall=0.486s rss=88MB other convention
+  kpath     hbn.cif           seekpath  rep0  wall=0.414s rss=81MB ok
+  kpath     hbn.cif           pymatgen  rep0  wall=0.455s rss=88MB other convention
+  kpath     hbn.cif           ase       rep0  wall=0.434s rss=82MB other convention
+  kpath     hbn.cif           olla-dft  rep0  wall=0.566s rss=97MB ok
+  kpath     hbn.cif           seekpath  rep1  wall=0.426s rss=81MB ok
+  kpath     hbn.cif           pymatgen  rep1  wall=0.478s rss=89MB other convention
+  kpath     hbn.cif           olla-dft  rep1  wall=0.688s rss=97MB ok
+  kpath     hbn.cif           ase       rep1  wall=0.660s rss=82MB other convention
+  kpath     hbn.cif           pymatgen  rep2  wall=0.772s rss=88MB other convention
+  kpath     hbn.cif           ase       rep2  wall=0.802s rss=82MB other convention
+  kpath     hbn.cif           seekpath  rep2  wall=0.995s rss=81MB ok
+  kpath     hbn.cif           olla-dft  rep2  wall=1.057s rss=97MB ok
+  kpath     hbn.cif           pymatgen  rep3  wall=0.619s rss=88MB other convention
+  kpath     hbn.cif           olla-dft  rep3  wall=0.679s rss=97MB ok
+  kpath     hbn.cif           ase       rep3  wall=0.782s rss=82MB other convention
+  kpath     hbn.cif           seekpath  rep3  wall=0.651s rss=81MB ok
+  kpath     hbn.cif           olla-dft  rep4  wall=0.651s rss=97MB ok
+  kpath     hbn.cif           ase       rep4  wall=0.448s rss=82MB other convention
+  kpath     hbn.cif           pymatgen  rep4  wall=0.509s rss=89MB other convention
+  kpath     hbn.cif           seekpath  rep4  wall=0.458s rss=81MB ok
+  kpath     hbn.cif           seekpath  rep5  wall=0.468s rss=81MB ok
+  kpath     hbn.cif           pymatgen  rep5  wall=0.489s rss=88MB other convention
+  kpath     hbn.cif           olla-dft  rep5  wall=0.569s rss=97MB ok
+  kpath     hbn.cif           ase       rep5  wall=0.428s rss=82MB other convention
+  kpath     hbn.cif           ase       rep6  wall=0.457s rss=82MB other convention
+  kpath     hbn.cif           olla-dft  rep6  wall=0.591s rss=97MB ok
+  kpath     hbn.cif           seekpath  rep6  wall=0.468s rss=81MB ok
+  kpath     hbn.cif           pymatgen  rep6  wall=0.509s rss=88MB other convention
+  kpath     hbn.cif           seekpath  rep7  wall=0.437s rss=81MB ok
+  kpath     hbn.cif           ase       rep7  wall=0.417s rss=82MB other convention
+  kpath     hbn.cif           pymatgen  rep7  wall=0.499s rss=88MB other convention
+  kpath     hbn.cif           olla-dft  rep7  wall=0.599s rss=97MB ok
+  kpath     hbn.cif           olla-dft  rep8  wall=0.640s rss=97MB ok
+  kpath     hbn.cif           pymatgen  rep8  wall=0.540s rss=88MB other convention
+  kpath     hbn.cif           ase       rep8  wall=0.458s rss=82MB other convention
+  kpath     hbn.cif           seekpath  rep8  wall=0.417s rss=81MB ok
+  kpath     hbn.cif           olla-dft  rep9  wall=0.629s rss=97MB ok
+  kpath     hbn.cif           seekpath  rep9  wall=0.468s rss=81MB ok
+  kpath     hbn.cif           pymatgen  rep9  wall=0.537s rss=89MB other convention
+  kpath     hbn.cif           ase       rep9  wall=0.465s rss=82MB other convention
+  kpath     hbn.cif           seekpath  rep10 wall=0.475s rss=81MB ok
+  kpath     hbn.cif           ase       rep10 wall=0.466s rss=82MB other convention
+  kpath     hbn.cif           olla-dft  rep10 wall=0.597s rss=97MB ok
+  kpath     hbn.cif           pymatgen  rep10 wall=0.506s rss=88MB other convention
+  kpath     hbn.cif           seekpath  rep11 wall=0.476s rss=81MB ok
+  kpath     hbn.cif           olla-dft  rep11 wall=0.647s rss=97MB ok
+  kpath     hbn.cif           pymatgen  rep11 wall=0.597s rss=88MB other convention
+  kpath     hbn.cif           ase       rep11 wall=0.485s rss=82MB other convention
+  kpath     hbn.cif           olla-dft  rep12 wall=0.636s rss=97MB ok
+  kpath     hbn.cif           seekpath  rep12 wall=0.424s rss=81MB ok
+  kpath     hbn.cif           pymatgen  rep12 wall=0.485s rss=88MB other convention
+  kpath     hbn.cif           ase       rep12 wall=0.445s rss=82MB other convention
+  kpath     hbn.cif           ase       rep13 wall=0.486s rss=82MB other convention
+  kpath     hbn.cif           pymatgen  rep13 wall=0.515s rss=88MB other convention
+  kpath     hbn.cif           seekpath  rep13 wall=0.508s rss=81MB ok
+  kpath     hbn.cif           olla-dft  rep13 wall=0.610s rss=97MB ok
+  kpath     hbn.cif           olla-dft  rep14 wall=0.631s rss=97MB ok
+  kpath     hbn.cif           pymatgen  rep14 wall=0.538s rss=88MB other convention
+  kpath     hbn.cif           ase       rep14 wall=0.458s rss=82MB other convention
+  kpath     hbn.cif           seekpath  rep14 wall=0.457s rss=81MB ok
+  kpath     POSCAR_NaCl       olla-dft  warm  wall=0.580s rss=97MB ok
+  kpath     POSCAR_NaCl       seekpath  warm  wall=0.469s rss=80MB ok
+  kpath     POSCAR_NaCl       ase       warm  wall=0.468s rss=81MB other convention
+  kpath     POSCAR_NaCl       pymatgen  warm  wall=1.128s rss=131MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep0  wall=0.419s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep0  wall=1.028s rss=131MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep0  wall=0.547s rss=97MB ok
+  kpath     POSCAR_NaCl       ase       rep0  wall=0.394s rss=81MB other convention
+  kpath     POSCAR_NaCl       ase       rep1  wall=0.394s rss=81MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep1  wall=0.424s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep1  wall=0.979s rss=131MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep1  wall=0.538s rss=97MB ok
+  kpath     POSCAR_NaCl       seekpath  rep2  wall=0.415s rss=81MB ok
+  kpath     POSCAR_NaCl       ase       rep2  wall=0.394s rss=81MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep2  wall=0.566s rss=97MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep2  wall=1.102s rss=130MB other convention
+  kpath     POSCAR_NaCl       ase       rep3  wall=0.468s rss=81MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep3  wall=0.487s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep3  wall=1.230s rss=130MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep3  wall=0.590s rss=97MB ok
+  kpath     POSCAR_NaCl       seekpath  rep4  wall=0.437s rss=81MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep4  wall=1.066s rss=131MB other convention
+  kpath     POSCAR_NaCl       ase       rep4  wall=0.417s rss=81MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep4  wall=0.549s rss=97MB ok
+  kpath     POSCAR_NaCl       olla-dft  rep5  wall=0.589s rss=97MB ok
+  kpath     POSCAR_NaCl       ase       rep5  wall=0.418s rss=81MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep5  wall=0.447s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep5  wall=1.097s rss=131MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep6  wall=0.691s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep6  wall=1.270s rss=131MB other convention
+  kpath     POSCAR_NaCl       ase       rep6  wall=0.436s rss=82MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep6  wall=0.566s rss=97MB ok
+  kpath     POSCAR_NaCl       seekpath  rep7  wall=0.455s rss=81MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep7  wall=1.061s rss=131MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep7  wall=0.598s rss=97MB ok
+  kpath     POSCAR_NaCl       ase       rep7  wall=0.414s rss=81MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep8  wall=0.607s rss=97MB ok
+  kpath     POSCAR_NaCl       seekpath  rep8  wall=0.455s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep8  wall=0.990s rss=131MB other convention
+  kpath     POSCAR_NaCl       ase       rep8  wall=0.394s rss=81MB other convention
+  kpath     POSCAR_NaCl       ase       rep9  wall=0.395s rss=81MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep9  wall=0.414s rss=80MB ok
+  kpath     POSCAR_NaCl       olla-dft  rep9  wall=0.546s rss=97MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep9  wall=0.968s rss=131MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep10 wall=0.414s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep10 wall=1.010s rss=131MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep10 wall=0.567s rss=97MB ok
+  kpath     POSCAR_NaCl       ase       rep10 wall=0.404s rss=81MB other convention
+  kpath     POSCAR_NaCl       pymatgen  rep11 wall=1.080s rss=131MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep11 wall=0.657s rss=97MB ok
+  kpath     POSCAR_NaCl       ase       rep11 wall=0.457s rss=81MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep11 wall=0.436s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep12 wall=1.145s rss=130MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep12 wall=0.465s rss=80MB ok
+  kpath     POSCAR_NaCl       olla-dft  rep12 wall=0.698s rss=97MB ok
+  kpath     POSCAR_NaCl       ase       rep12 wall=1.019s rss=81MB other convention
+  kpath     POSCAR_NaCl       seekpath  rep13 wall=0.587s rss=81MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep13 wall=1.110s rss=130MB other convention
+  kpath     POSCAR_NaCl       ase       rep13 wall=0.568s rss=81MB other convention
+  kpath     POSCAR_NaCl       olla-dft  rep13 wall=0.953s rss=97MB ok
+  kpath     POSCAR_NaCl       olla-dft  rep14 wall=1.296s rss=97MB ok
+  kpath     POSCAR_NaCl       seekpath  rep14 wall=0.935s rss=80MB ok
+  kpath     POSCAR_NaCl       pymatgen  rep14 wall=1.370s rss=130MB other convention
+  kpath     POSCAR_NaCl       ase       rep14 wall=0.508s rss=81MB other convention
+  eos       EOS.dat           olla-dft  warm  wall=0.711s rss=91MB ok
+  eos       EOS.dat           ase       warm  wall=0.773s rss=78MB ok
+  eos       EOS.dat           pymatgen  warm  wall=0.803s rss=112MB ok
+  eos       EOS.dat           ase       rep0  wall=0.560s rss=78MB ok
+  eos       EOS.dat           olla-dft  rep0  wall=0.549s rss=92MB ok
+  eos       EOS.dat           pymatgen  rep0  wall=0.782s rss=112MB ok
+  eos       EOS.dat           ase       rep1  wall=0.418s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep1  wall=0.763s rss=112MB ok
+  eos       EOS.dat           olla-dft  rep1  wall=0.498s rss=92MB ok
+  eos       EOS.dat           ase       rep2  wall=0.448s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep2  wall=0.823s rss=112MB ok
+  eos       EOS.dat           olla-dft  rep2  wall=0.518s rss=92MB ok
+  eos       EOS.dat           pymatgen  rep3  wall=0.764s rss=112MB ok
+  eos       EOS.dat           olla-dft  rep3  wall=0.468s rss=92MB ok
+  eos       EOS.dat           ase       rep3  wall=0.417s rss=78MB ok
+  eos       EOS.dat           olla-dft  rep4  wall=0.539s rss=92MB ok
+  eos       EOS.dat           ase       rep4  wall=0.425s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep4  wall=0.778s rss=112MB ok
+  eos       EOS.dat           pymatgen  rep5  wall=0.788s rss=112MB ok
+  eos       EOS.dat           ase       rep5  wall=0.466s rss=78MB ok
+  eos       EOS.dat           olla-dft  rep5  wall=0.527s rss=92MB ok
+  eos       EOS.dat           ase       rep6  wall=0.465s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep6  wall=0.828s rss=112MB ok
+  eos       EOS.dat           olla-dft  rep6  wall=0.638s rss=92MB ok
+  eos       EOS.dat           olla-dft  rep7  wall=0.569s rss=91MB ok
+  eos       EOS.dat           ase       rep7  wall=0.559s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep7  wall=1.047s rss=112MB ok
+  eos       EOS.dat           olla-dft  rep8  wall=0.711s rss=92MB ok
+  eos       EOS.dat           pymatgen  rep8  wall=0.931s rss=112MB ok
+  eos       EOS.dat           ase       rep8  wall=0.965s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep9  wall=1.000s rss=112MB ok
+  eos       EOS.dat           ase       rep9  wall=0.454s rss=78MB ok
+  eos       EOS.dat           olla-dft  rep9  wall=0.735s rss=91MB ok
+  eos       EOS.dat           ase       rep10 wall=0.448s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep10 wall=0.792s rss=112MB ok
+  eos       EOS.dat           olla-dft  rep10 wall=0.518s rss=92MB ok
+  eos       EOS.dat           pymatgen  rep11 wall=0.745s rss=112MB ok
+  eos       EOS.dat           ase       rep11 wall=0.457s rss=78MB ok
+  eos       EOS.dat           olla-dft  rep11 wall=0.509s rss=91MB ok
+  eos       EOS.dat           pymatgen  rep12 wall=0.763s rss=112MB ok
+  eos       EOS.dat           ase       rep12 wall=0.428s rss=78MB ok
+  eos       EOS.dat           olla-dft  rep12 wall=0.577s rss=92MB ok
+  eos       EOS.dat           olla-dft  rep13 wall=0.498s rss=91MB ok
+  eos       EOS.dat           ase       rep13 wall=0.397s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep13 wall=0.707s rss=112MB ok
+  eos       EOS.dat           olla-dft  rep14 wall=0.466s rss=92MB ok
+  eos       EOS.dat           ase       rep14 wall=0.384s rss=78MB ok
+  eos       EOS.dat           pymatgen  rep14 wall=0.700s rss=112MB ok
+  bandgap   Si_scf.xml        olla-dft  warm  wall=0.253s rss=52MB ok
+  bandgap   Si_scf.xml        qeschema  warm  wall=0.424s rss=48MB ok
+  bandgap   Si_scf.xml        ase       warm  wall=0.516s rss=78MB n/a
+  bandgap   Si_scf.xml        pymatgen  warm  wall=0.172s rss=40MB n/a
+  bandgap   Si_scf.xml        qeschema  rep0  wall=0.545s rss=48MB ok
+  bandgap   Si_scf.xml        olla-dft  rep0  wall=0.294s rss=51MB ok
+  bandgap   Si_scf.xml        ase       rep0  wall=0.414s rss=78MB n/a
+  bandgap   Si_scf.xml        pymatgen  rep0  wall=0.162s rss=40MB n/a
+  bandgap   Si_scf.xml        pymatgen  rep1  wall=0.172s rss=40MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep1  wall=0.283s rss=52MB ok
+  bandgap   Si_scf.xml        ase       rep1  wall=0.445s rss=78MB n/a
+  bandgap   Si_scf.xml        qeschema  rep1  wall=0.558s rss=48MB ok
+  bandgap   Si_scf.xml        ase       rep2  wall=0.448s rss=78MB n/a
+  bandgap   Si_scf.xml        qeschema  rep2  wall=0.539s rss=48MB ok
+  bandgap   Si_scf.xml        olla-dft  rep2  wall=0.265s rss=51MB ok
+  bandgap   Si_scf.xml        pymatgen  rep2  wall=0.173s rss=40MB n/a
+  bandgap   Si_scf.xml        ase       rep3  wall=0.417s rss=78MB n/a
+  bandgap   Si_scf.xml        pymatgen  rep3  wall=0.153s rss=40MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep3  wall=0.285s rss=52MB ok
+  bandgap   Si_scf.xml        qeschema  rep3  wall=0.559s rss=48MB ok
+  bandgap   Si_scf.xml        olla-dft  rep4  wall=0.295s rss=51MB ok
+  bandgap   Si_scf.xml        pymatgen  rep4  wall=0.173s rss=40MB n/a
+  bandgap   Si_scf.xml        ase       rep4  wall=0.448s rss=78MB n/a
+  bandgap   Si_scf.xml        qeschema  rep4  wall=0.540s rss=48MB ok
+  bandgap   Si_scf.xml        olla-dft  rep5  wall=0.285s rss=51MB ok
+  bandgap   Si_scf.xml        qeschema  rep5  wall=0.548s rss=48MB ok
+  bandgap   Si_scf.xml        ase       rep5  wall=0.457s rss=78MB n/a
+  bandgap   Si_scf.xml        pymatgen  rep5  wall=0.204s rss=40MB n/a
+  bandgap   Si_scf.xml        ase       rep6  wall=0.408s rss=78MB n/a
+  bandgap   Si_scf.xml        pymatgen  rep6  wall=0.163s rss=40MB n/a
+  bandgap   Si_scf.xml        qeschema  rep6  wall=0.508s rss=48MB ok
+  bandgap   Si_scf.xml        olla-dft  rep6  wall=0.285s rss=52MB ok
+  bandgap   Si_scf.xml        pymatgen  rep7  wall=0.224s rss=40MB n/a
+  bandgap   Si_scf.xml        ase       rep7  wall=0.608s rss=78MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep7  wall=0.303s rss=51MB ok
+  bandgap   Si_scf.xml        qeschema  rep7  wall=0.576s rss=48MB ok
+  bandgap   Si_scf.xml        olla-dft  rep8  wall=0.293s rss=51MB ok
+  bandgap   Si_scf.xml        pymatgen  rep8  wall=0.172s rss=40MB n/a
+  bandgap   Si_scf.xml        ase       rep8  wall=0.455s rss=78MB n/a
+  bandgap   Si_scf.xml        qeschema  rep8  wall=0.535s rss=48MB ok
+  bandgap   Si_scf.xml        qeschema  rep9  wall=0.507s rss=48MB ok
+  bandgap   Si_scf.xml        pymatgen  rep9  wall=0.183s rss=40MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep9  wall=0.295s rss=51MB ok
+  bandgap   Si_scf.xml        ase       rep9  wall=0.487s rss=78MB n/a
+  bandgap   Si_scf.xml        qeschema  rep10 wall=0.617s rss=48MB ok
+  bandgap   Si_scf.xml        pymatgen  rep10 wall=0.193s rss=40MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep10 wall=0.356s rss=52MB ok
+  bandgap   Si_scf.xml        ase       rep10 wall=0.577s rss=78MB n/a
+  bandgap   Si_scf.xml        qeschema  rep11 wall=0.570s rss=48MB ok
+  bandgap   Si_scf.xml        ase       rep11 wall=0.447s rss=78MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep11 wall=0.275s rss=51MB ok
+  bandgap   Si_scf.xml        pymatgen  rep11 wall=0.163s rss=40MB n/a
+  bandgap   Si_scf.xml        pymatgen  rep12 wall=0.193s rss=40MB n/a
+  bandgap   Si_scf.xml        ase       rep12 wall=0.549s rss=78MB n/a
+  bandgap   Si_scf.xml        qeschema  rep12 wall=0.967s rss=48MB ok
+  bandgap   Si_scf.xml        olla-dft  rep12 wall=0.376s rss=52MB ok
+  bandgap   Si_scf.xml        pymatgen  rep13 wall=0.204s rss=40MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep13 wall=0.295s rss=51MB ok
+  bandgap   Si_scf.xml        qeschema  rep13 wall=0.609s rss=48MB ok
+  bandgap   Si_scf.xml        ase       rep13 wall=0.447s rss=78MB n/a
+  bandgap   Si_scf.xml        pymatgen  rep14 wall=0.163s rss=40MB n/a
+  bandgap   Si_scf.xml        olla-dft  rep14 wall=0.274s rss=51MB ok
+  bandgap   Si_scf.xml        qeschema  rep14 wall=0.548s rss=48MB ok
+  bandgap   Si_scf.xml        ase       rep14 wall=0.447s rss=78MB n/a
+  bandgap   Si_scf.out        olla-dft  warm  wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        qeschema  warm  wall=0.092s rss=25MB n/a
+  bandgap   Si_scf.out        ase       warm  wall=0.508s rss=78MB ok
+  bandgap   Si_scf.out        pymatgen  warm  wall=0.204s rss=40MB n/a
+  bandgap   Si_scf.out        ase       rep0  wall=0.589s rss=78MB ok
+  bandgap   Si_scf.out        pymatgen  rep0  wall=0.296s rss=40MB n/a
+  bandgap   Si_scf.out        qeschema  rep0  wall=0.143s rss=25MB n/a
+  bandgap   Si_scf.out        olla-dft  rep0  wall=0.051s rss=20MB n/a
+  bandgap   Si_scf.out        qeschema  rep1  wall=0.143s rss=25MB n/a
+  bandgap   Si_scf.out        pymatgen  rep1  wall=0.325s rss=40MB n/a
+  bandgap   Si_scf.out        ase       rep1  wall=0.742s rss=78MB ok
+  bandgap   Si_scf.out        olla-dft  rep1  wall=0.041s rss=20MB n/a
+  bandgap   Si_scf.out        olla-dft  rep2  wall=0.041s rss=20MB n/a
+  bandgap   Si_scf.out        pymatgen  rep2  wall=0.184s rss=40MB n/a
+  bandgap   Si_scf.out        qeschema  rep2  wall=0.092s rss=25MB n/a
+  bandgap   Si_scf.out        ase       rep2  wall=0.477s rss=78MB ok
+  bandgap   Si_scf.out        pymatgen  rep3  wall=0.172s rss=40MB n/a
+  bandgap   Si_scf.out        ase       rep3  wall=0.475s rss=78MB ok
+  bandgap   Si_scf.out        qeschema  rep3  wall=0.092s rss=25MB n/a
+  bandgap   Si_scf.out        olla-dft  rep3  wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        olla-dft  rep4  wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        qeschema  rep4  wall=0.081s rss=25MB n/a
+  bandgap   Si_scf.out        pymatgen  rep4  wall=0.183s rss=40MB n/a
+  bandgap   Si_scf.out        ase       rep4  wall=0.496s rss=78MB ok
+  bandgap   Si_scf.out        ase       rep5  wall=0.771s rss=78MB ok
+  bandgap   Si_scf.out        olla-dft  rep5  wall=0.041s rss=20MB n/a
+  bandgap   Si_scf.out        pymatgen  rep5  wall=0.224s rss=40MB n/a
+  bandgap   Si_scf.out        qeschema  rep5  wall=0.102s rss=25MB n/a
+  bandgap   Si_scf.out        pymatgen  rep6  wall=0.193s rss=40MB n/a
+  bandgap   Si_scf.out        qeschema  rep6  wall=0.092s rss=25MB n/a
+  bandgap   Si_scf.out        olla-dft  rep6  wall=0.041s rss=20MB n/a
+  bandgap   Si_scf.out        ase       rep6  wall=0.498s rss=78MB ok
+  bandgap   Si_scf.out        olla-dft  rep7  wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        pymatgen  rep7  wall=0.163s rss=40MB n/a
+  bandgap   Si_scf.out        ase       rep7  wall=0.468s rss=78MB ok
+  bandgap   Si_scf.out        qeschema  rep7  wall=0.122s rss=25MB n/a
+  bandgap   Si_scf.out        qeschema  rep8  wall=0.102s rss=25MB n/a
+  bandgap   Si_scf.out        olla-dft  rep8  wall=0.041s rss=20MB n/a
+  bandgap   Si_scf.out        pymatgen  rep8  wall=0.194s rss=40MB n/a
+  bandgap   Si_scf.out        ase       rep8  wall=0.457s rss=78MB ok
+  bandgap   Si_scf.out        ase       rep9  wall=0.437s rss=78MB ok
+  bandgap   Si_scf.out        qeschema  rep9  wall=0.082s rss=25MB n/a
+  bandgap   Si_scf.out        pymatgen  rep9  wall=0.163s rss=40MB n/a
+  bandgap   Si_scf.out        olla-dft  rep9  wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        olla-dft  rep10 wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        qeschema  rep10 wall=0.082s rss=25MB n/a
+  bandgap   Si_scf.out        pymatgen  rep10 wall=0.153s rss=40MB n/a
+  bandgap   Si_scf.out        ase       rep10 wall=0.417s rss=78MB ok
+  bandgap   Si_scf.out        pymatgen  rep11 wall=0.153s rss=40MB n/a
+  bandgap   Si_scf.out        qeschema  rep11 wall=0.082s rss=25MB n/a
+  bandgap   Si_scf.out        ase       rep11 wall=0.417s rss=78MB ok
+  bandgap   Si_scf.out        olla-dft  rep11 wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        ase       rep12 wall=0.407s rss=78MB ok
+  bandgap   Si_scf.out        olla-dft  rep12 wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        pymatgen  rep12 wall=0.153s rss=40MB n/a
+  bandgap   Si_scf.out        qeschema  rep12 wall=0.082s rss=25MB n/a
+  bandgap   Si_scf.out        ase       rep13 wall=0.427s rss=78MB ok
+  bandgap   Si_scf.out        olla-dft  rep13 wall=0.031s rss=20MB n/a
+  bandgap   Si_scf.out        pymatgen  rep13 wall=0.173s rss=40MB n/a
+  bandgap   Si_scf.out        qeschema  rep13 wall=0.082s rss=25MB n/a
+  bandgap   Si_scf.out        qeschema  rep14 wall=0.081s rss=25MB n/a
+  bandgap   Si_scf.out        ase       rep14 wall=0.590s rss=78MB ok
+  bandgap   Si_scf.out        olla-dft  rep14 wall=0.041s rss=20MB n/a
+  bandgap   Si_scf.out        pymatgen  rep14 wall=0.234s rss=40MB n/a
+  inputgen  Si_relajado.cif   olla-dft  warm  wall=0.620s rss=99MB ok
+  inputgen  Si_relajado.cif   ase       warm  wall=0.672s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  warm  wall=0.559s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep0  wall=0.488s rss=79MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep0  wall=0.954s rss=99MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep0  wall=0.417s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep1  wall=0.468s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep1  wall=0.387s rss=77MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep1  wall=0.660s rss=99MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep2  wall=0.539s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep2  wall=0.479s rss=79MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep2  wall=0.569s rss=99MB ok
+  inputgen  Si_relajado.cif   ase       rep3  wall=0.437s rss=79MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep3  wall=0.712s rss=98MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep3  wall=0.407s rss=77MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep4  wall=0.550s rss=98MB ok
+  inputgen  Si_relajado.cif   ase       rep4  wall=0.408s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep4  wall=0.376s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep5  wall=0.407s rss=79MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep5  wall=0.550s rss=99MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep5  wall=0.366s rss=77MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep6  wall=0.367s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep6  wall=0.664s rss=79MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep6  wall=0.670s rss=98MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep7  wall=0.600s rss=99MB ok
+  inputgen  Si_relajado.cif   ase       rep7  wall=0.417s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep7  wall=0.417s rss=77MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep8  wall=0.449s rss=77MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep8  wall=0.971s rss=98MB ok
+  inputgen  Si_relajado.cif   ase       rep8  wall=0.448s rss=79MB ok
+  inputgen  Si_relajado.cif   ase       rep9  wall=0.407s rss=79MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep9  wall=0.661s rss=99MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep9  wall=0.448s rss=77MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep10 wall=0.728s rss=99MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep10 wall=0.407s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep10 wall=0.407s rss=79MB ok
+  inputgen  Si_relajado.cif   ase       rep11 wall=0.397s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep11 wall=0.427s rss=77MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep11 wall=0.599s rss=98MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep12 wall=0.560s rss=99MB ok
+  inputgen  Si_relajado.cif   ase       rep12 wall=0.407s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep12 wall=0.407s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep13 wall=0.437s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep13 wall=0.488s rss=77MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep13 wall=0.620s rss=98MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep14 wall=0.428s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep14 wall=0.654s rss=79MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep14 wall=0.579s rss=99MB ok
+  inputgen  ZnO.cif           olla-dft  warm  wall=0.579s rss=98MB ok
+  inputgen  ZnO.cif           ase       warm  wall=0.489s rss=79MB ok
+  inputgen  ZnO.cif           pymatgen  warm  wall=0.407s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep0  wall=0.427s rss=79MB ok
+  inputgen  ZnO.cif           olla-dft  rep0  wall=0.601s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep0  wall=0.387s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep1  wall=0.681s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep1  wall=0.417s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep1  wall=0.600s rss=79MB ok
+  inputgen  ZnO.cif           ase       rep2  wall=0.560s rss=79MB ok
+  inputgen  ZnO.cif           pymatgen  rep2  wall=0.427s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep2  wall=0.671s rss=98MB ok
+  inputgen  ZnO.cif           ase       rep3  wall=0.437s rss=79MB ok
+  inputgen  ZnO.cif           olla-dft  rep3  wall=0.671s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep3  wall=0.418s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep4  wall=0.407s rss=79MB ok
+  inputgen  ZnO.cif           pymatgen  rep4  wall=0.438s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep4  wall=0.691s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep5  wall=0.406s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep5  wall=0.659s rss=98MB ok
+  inputgen  ZnO.cif           ase       rep5  wall=0.445s rss=79MB ok
+  inputgen  ZnO.cif           ase       rep6  wall=0.446s rss=80MB ok
+  inputgen  ZnO.cif           pymatgen  rep6  wall=0.374s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep6  wall=0.638s rss=98MB ok
+  inputgen  ZnO.cif           olla-dft  rep7  wall=0.568s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep7  wall=0.404s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep7  wall=0.424s rss=79MB ok
+  inputgen  ZnO.cif           ase       rep8  wall=0.427s rss=79MB ok
+  inputgen  ZnO.cif           pymatgen  rep8  wall=0.405s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep8  wall=0.647s rss=98MB ok
+  inputgen  ZnO.cif           ase       rep9  wall=0.642s rss=79MB ok
+  inputgen  ZnO.cif           olla-dft  rep9  wall=0.650s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep9  wall=0.457s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep10 wall=0.427s rss=79MB ok
+  inputgen  ZnO.cif           olla-dft  rep10 wall=0.660s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep10 wall=0.387s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep11 wall=0.437s rss=80MB ok
+  inputgen  ZnO.cif           pymatgen  rep11 wall=0.367s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep11 wall=0.560s rss=98MB ok
+  inputgen  ZnO.cif           ase       rep12 wall=0.498s rss=79MB ok
+  inputgen  ZnO.cif           olla-dft  rep12 wall=0.791s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep12 wall=0.457s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep13 wall=0.447s rss=79MB ok
+  inputgen  ZnO.cif           pymatgen  rep13 wall=0.417s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep13 wall=0.700s rss=98MB ok
+  inputgen  ZnO.cif           olla-dft  rep14 wall=0.612s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep14 wall=0.427s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep14 wall=0.458s rss=79MB ok
+end-to-end: running pw.x 5x on each tool's Si input
+  pymatgen  rep0 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.67s
+  olla-dft  rep0 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.37s
+  ase       rep0 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.12s
+  ase       rep1 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.22s
+  pymatgen  rep1 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.52s
+  olla-dft  rep1 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.48s
+  pymatgen  rep2 E=-22.82476712 Ry  iters=7  nk=24  pw.x 4.13s
+  ase       rep2 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.77s
+  olla-dft  rep2 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.07s
+  olla-dft  rep3 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.78s
+  pymatgen  rep3 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.17s
+  ase       rep3 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.17s
+  ase       rep4 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.12s
+  olla-dft  rep4 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.47s
+  pymatgen  rep4 E=-22.82476712 Ry  iters=7  nk=24  pw.x 5.28s
+
+written /home/jorge/GITHUB/olla-dft-bench/results/20260904-180702/results.json, report.md; dashboard docs/index.html

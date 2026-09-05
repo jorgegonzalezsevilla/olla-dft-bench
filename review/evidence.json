@@ -1,0 +1,165 @@
+{
+  "installation": {
+    "version": "1.1.0",
+    "source": {
+      "url": "https://github.com/jorgegonzalezsevilla/olla-dft",
+      "vcs_info": {
+        "commit_id": "caf08257293e1fe1ef2ebf9db051b3ec827a7f45",
+        "requested_revision": "v1.1.0",
+        "vcs": "git"
+      }
+    },
+    "modified_python_files_against_RECORD": []
+  },
+  "timeout_ignored": {
+    "requested_s": 0.01,
+    "wall_s": 0.27691152000011243,
+    "rc": 0
+  },
+  "wrong_band_edges_pass": [
+    true,
+    "gap 1.0 eV vs ref 1.0000 eV"
+  ],
+  "wrong_structure_and_ecutrho_pass": [
+    true,
+    "parsed back: 2 atoms, V=39.4 Å³ (ref 2, 39.4000); k-grid [4, 4, 4] (expected [4, 4, 4]), ecutwfc 30.0 (expected 30)"
+  ],
+  "wrong_kpoint_coordinates_pass": [
+    true,
+    "segments identical to HPKOT reference"
+  ],
+  "fourteen_failures_hidden_from_correct": {
+    "summary": {
+      "unsupported": false,
+      "reason": null,
+      "failed": 14,
+      "wall_s": {
+        "n": 1,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "iqr": 0.0,
+        "mean": 1.0,
+        "stdev": 0.0
+      },
+      "cpu_s": {
+        "n": 1,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "iqr": 0.0,
+        "mean": 1.0,
+        "stdev": 0.0
+      },
+      "max_rss_mb": {
+        "n": 1,
+        "median": 0.9765625,
+        "min": 0.9765625,
+        "max": 0.9765625,
+        "iqr": 0.0,
+        "mean": 0.9765625,
+        "stdev": 0.0
+      },
+      "correct": [
+        true
+      ],
+      "detail": "synthetic",
+      "via": "synthetic"
+    },
+    "ratios": [
+      {
+        "task": "symmetry",
+        "input": "Si_relajado.cif",
+        "vs": "ase",
+        "wall_ratio": 0.5,
+        "ci": [
+          0.5,
+          0.5
+        ],
+        "min_ratio": 0.5,
+        "rss_ratio": 1.0,
+        "correct": true
+      }
+    ]
+  },
+  "failed_e2e_and_later_energy_ignored": {
+    "olla-dft": {
+      "n": 2,
+      "energy": -22.0,
+      "iters": null,
+      "nk": null,
+      "wall": {
+        "n": 2,
+        "median": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "iqr": 0.0,
+        "mean": 1.0,
+        "stdev": 0.0
+      },
+      "kgrid": null,
+      "ecutwfc": null,
+      "via": ""
+    }
+  },
+  "verify_accepts_zero_records_with_15_reps_configured": {
+    "rc": 0,
+    "stdout": "inputs: hashes match run and manifest\nsummary: 0 cells recomputed from 0 raw samples, identical\ngrades: all records re-graded identically\nreport.md: identical to regeneration\nVERIFY PASS\n"
+  },
+  "config_is_not_isolated": {
+    "user_config": "/home/jorge/GITHUB/olla-dft-bench/review/synthetic-user-config",
+    "clean_env_config": "/home/jorge/GITHUB/olla-dft-bench/review/synthetic-user-config"
+  },
+  "explicit_kgrid_is_supported": {
+    "rc": 0,
+    "found": true
+  },
+  "invalid_kgrid": {
+    "rc": 0,
+    "stdout": "Estructura: Si2 (2 átomos)  |  prefix = 'Si'\nPseudopotenciales en: /home/jorge/GITHUB/olla-dft-bench/inputs\n  Si  -> Si.pbe-n-rrkjus_psl.1.0.0.UPF  (cutoff sugerido: 44 Ry)\nCutoffs: ecutwfc = 30.0 Ry, ecutrho = 240.0 Ry\nMalla k (scf):  0 x -2 x 4\n\nArchivos escritos en '/home/jorge/GITHUB/olla-dft-bench/review/invalid_kgrid':\n  scf.in  run.sh  run.py\n\nOrden de ejecución (o simplemente ./run.sh):\n  pw.x -in scf.in\n",
+    "stderr": "",
+    "generated_input": "&CONTROL\n  calculation      = 'scf'\n  prefix           = 'Si'\n  outdir           = './out'\n  pseudo_dir       = '/home/jorge/GITHUB/olla-dft-bench/inputs'\n  tprnfor          = .true.\n  tstress          = .true.\n/\n&SYSTEM\n  ibrav            = 0\n  nat              = 2\n  ntyp             = 1\n  ecutwfc          = 30\n  ecutrho          = 240\n  occupations      = 'fixed'\n/\n&ELECTRONS\n  conv_thr         = 1e-08\n  mixing_beta      = 0.7\n  electron_maxstep = 200\n/\n\nATOMIC_SPECIES\n  Si     28.0850  Si.pbe-n-rrkjus_psl.1.0.0.UPF\n\nATOMIC_POSITIONS crystal\n  Si    0.0000000000   0.0000000000   0.0000000000\n  Si    0.2500000000   0.2500000000   0.2500000000\n\nCELL_PARAMETERS angstrom\n    3.8195362735   0.0000000000   0.0000000000\n    1.9097681368   3.3078154436   0.0000000000\n    1.9097681368   1.1026051479   3.1186383081\n\nK_POINTS automatic\n  0 -2 4 0 0 0\n"
+  },
+  "negative_cutoffs": {
+    "rc": 0,
+    "stdout": "Estructura: Si2 (2 átomos)  |  prefix = 'Si'\nPseudopotenciales en: /home/jorge/GITHUB/olla-dft-bench/inputs\n  Si  -> Si.pbe-n-rrkjus_psl.1.0.0.UPF  (cutoff sugerido: 44 Ry)\nCutoffs: ecutwfc = -30.0 Ry, ecutrho = -240.0 Ry\nMalla k (scf):  4 x 4 x 4\n\nArchivos escritos en '/home/jorge/GITHUB/olla-dft-bench/review/negative_cutoffs':\n  scf.in  run.sh  run.py\n\nOrden de ejecución (o simplemente ./run.sh):\n  pw.x -in scf.in\n",
+    "stderr": "",
+    "generated_input": "&CONTROL\n  calculation      = 'scf'\n  prefix           = 'Si'\n  outdir           = './out'\n  pseudo_dir       = '/home/jorge/GITHUB/olla-dft-bench/inputs'\n  tprnfor          = .true.\n  tstress          = .true.\n/\n&SYSTEM\n  ibrav            = 0\n  nat              = 2\n  ntyp             = 1\n  ecutwfc          = -30\n  ecutrho          = -240\n  occupations      = 'fixed'\n/\n&ELECTRONS\n  conv_thr         = 1e-08\n  mixing_beta      = 0.7\n  electron_maxstep = 200\n/\n\nATOMIC_SPECIES\n  Si     28.0850  Si.pbe-n-rrkjus_psl.1.0.0.UPF\n\nATOMIC_POSITIONS crystal\n  Si    0.0000000000   0.0000000000   0.0000000000\n  Si    0.2500000000   0.2500000000   0.2500000000\n\nCELL_PARAMETERS angstrom\n    3.8195362735   0.0000000000   0.0000000000\n    1.9097681368   3.3078154436   0.0000000000\n    1.9097681368   1.1026051479   3.1186383081\n\nK_POINTS automatic\n  4 4 4 0 0 0\n"
+  },
+  "wrong_geometry_actual_roundtrip": {
+    "roundtrip": {
+      "bytes": 843,
+      "ecutwfc": 30.0,
+      "kgrid": [
+        4,
+        4,
+        4
+      ],
+      "natoms": 2,
+      "volume_A3": 39.40187769469898
+    },
+    "grade": [
+      true,
+      "parsed back: 2 atoms, V=39.40187769469898 Å³ (ref 2, 39.4019); k-grid [4, 4, 4] (expected [4, 4, 4]), ecutwfc 30.0 (expected 30)"
+    ]
+  },
+  "occupied_only_gap_cli": {
+    "rc": 0,
+    "stdout": "--- Análisis de band gap ---\nArchivo XML: /home/jorge/GITHUB/olla-dft-bench/review/Si_occupied_only.xml\nCálculo: scf  |  bandas: 4  |  puntos k: 29  |  electrones: 8\nEnergía de Fermi: 6.2120 eV\n\n  Sistema METÁLICO: hay bandas que cruzan el nivel de Fermi.\n",
+    "stderr": ""
+  },
+  "unconverged_gap_cli": {
+    "rc": 0,
+    "stdout": "--- Análisis de band gap ---\nArchivo XML: /home/jorge/GITHUB/olla-dft-bench/review/Si_unconverged.xml\nCálculo: scf  |  bandas: 8  |  puntos k: 29  |  electrones: 8\nEnergía de Fermi: 6.2120 eV\n\n  Band gap fundamental: 0.6155 eV  (INDIRECTO)\n    VBM = 6.2120 eV  en  (0.000, 0.000, 0.000)\n    CBM = 6.8275 eV  en  (0.000, 0.375, 0.375)\n  Gap directo mínimo: 2.5627 eV  en  (0.000, 0.000, 0.000)\n\nRecuerda: los funcionales GGA/LDA subestiman el gap sistemáticamente (típicamente 30–50 %).\n",
+    "stderr": ""
+  },
+  "occupied_only_details": {
+    "nbnd": 4,
+    "nelec": 8.0,
+    "occupation_min": 1.0,
+    "occupation_max": 1.0,
+    "any_band_crosses_fermi": false,
+    "reported_is_metal": true
+  },
+  "unconverged_parsed_flag": false
+}
