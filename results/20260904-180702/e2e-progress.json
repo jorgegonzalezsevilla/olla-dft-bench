@@ -1,0 +1,185 @@
+{
+ "ase": {
+  "samples": [
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.122353619000023,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.222668691999388,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.77436250700066,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.1717617949998385,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.1218649029997323,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   }
+  ],
+  "kgrid": [
+   4,
+   4,
+   4
+  ],
+  "ecutwfc": 30,
+  "via": "ase.io.write(format='espresso-in')"
+ },
+ "olla-dft": {
+  "samples": [
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.372852266999871,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.4755503619999217,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.07283758199992,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.77518881999913,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 13,
+    "pw_wall_s": 3.4741423039995425,
+    "rc": 0,
+    "scf_iterations": 8,
+    "tail": "",
+    "total_energy_Ry": -22.82476715
+   }
+  ],
+  "kgrid": [
+   4,
+   4,
+   4
+  ],
+  "ecutwfc": 30,
+  "via": "cli gen --kgrid 4 4 4"
+ },
+ "pymatgen": {
+  "samples": [
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 24,
+    "pw_wall_s": 3.6744672210006684,
+    "rc": 0,
+    "scf_iterations": 7,
+    "tail": "",
+    "total_energy_Ry": -22.82476712
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 24,
+    "pw_wall_s": 3.5231532020006853,
+    "rc": 0,
+    "scf_iterations": 7,
+    "tail": "",
+    "total_energy_Ry": -22.82476712
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 24,
+    "pw_wall_s": 4.125141487000292,
+    "rc": 0,
+    "scf_iterations": 7,
+    "tail": "",
+    "total_energy_Ry": -22.82476712
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 24,
+    "pw_wall_s": 3.1712910739997824,
+    "rc": 0,
+    "scf_iterations": 7,
+    "tail": "",
+    "total_energy_Ry": -22.82476712
+   },
+   {
+    "converged": true,
+    "job_done": true,
+    "nkpoints": 24,
+    "pw_wall_s": 5.280642016999991,
+    "rc": 0,
+    "scf_iterations": 7,
+    "tail": "",
+    "total_energy_Ry": -22.82476712
+   }
+  ],
+  "kgrid": [
+   4,
+   4,
+   4
+  ],
+  "ecutwfc": 30,
+  "via": "pymatgen.io.pwscf.PWInput"
+ }
+}

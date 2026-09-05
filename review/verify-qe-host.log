@@ -1,0 +1,5 @@
+inputs: hashes match run and manifest
+summary: 2 cells recomputed from 12 raw samples, identical
+grades: all records re-graded identically
+report.md: identical to regeneration
+VERIFY PASS

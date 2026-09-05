@@ -1,0 +1,10 @@
+{
+  "generation_rc": 0,
+  "qe_rc": 0,
+  "qe_converged": true,
+  "qe_job_done": true,
+  "total_energy_Ry": -22.82476715,
+  "gap_rc": 0,
+  "gap_stdout": "--- Análisis de band gap ---\nArchivo XML: /home/jorge/GITHUB/olla-dft-bench/review/qe-default-scf/out/Si.xml\nCálculo: scf  |  bandas: 4  |  puntos k: 13  |  electrones: 8\nEnergía de Fermi: 6.4162 eV\n\n  Sistema METÁLICO: hay bandas que cruzan el nivel de Fermi.\n",
+  "gap_stderr": ""
+}

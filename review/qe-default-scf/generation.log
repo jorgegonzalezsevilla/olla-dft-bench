@@ -1,0 +1,11 @@
+Estructura: Si2 (2 átomos)  |  prefix = 'Si'
+Pseudopotenciales en: /home/jorge/GITHUB/olla-dft-bench/inputs
+  Si  -> Si.pbe-n-rrkjus_psl.1.0.0.UPF  (cutoff sugerido: 44 Ry)
+Cutoffs: ecutwfc = 30.0 Ry, ecutrho = 240.0 Ry
+Malla k (scf):  4 x 4 x 4
+
+Archivos escritos en '/home/jorge/GITHUB/olla-dft-bench/review/qe-default-scf':
+  scf.in  run.sh  run.py
+
+Orden de ejecución (o simplemente ./run.sh):
+  pw.x -in scf.in

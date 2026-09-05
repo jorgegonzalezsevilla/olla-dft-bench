@@ -1,0 +1,6 @@
+--- Análisis de band gap ---
+Archivo XML: /home/jorge/GITHUB/olla-dft-bench/review/qe-default-scf/out/Si.xml
+Cálculo: scf  |  bandas: 4  |  puntos k: 13  |  electrones: 8
+Energía de Fermi: 6.4162 eV
+
+  Sistema METÁLICO: hay bandas que cruzan el nivel de Fermi.

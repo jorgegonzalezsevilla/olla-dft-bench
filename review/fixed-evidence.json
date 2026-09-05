@@ -1,0 +1,27 @@
+{
+  "olla_dft_version": "1.1.1",
+  "cases": {
+    "occupied_only_real": {
+      "returncode": 2,
+      "stdout": "--- Análisis de band gap ---\nArchivo XML: /home/jorge/GITHUB/olla-dft-bench/review/qe-default-scf/out/Si.xml\nCálculo: scf  |  bandas: 4  |  puntos k: 13  |  electrones: 8\nEnergía de Fermi: 6.4162 eV\n\n  No hay bandas de conducción en el cálculo (aumenta nbnd para obtener el gap).\n",
+      "stderr": ""
+    },
+    "unconverged_xml": {
+      "returncode": 2,
+      "stdout": "--- Análisis de band gap ---\nArchivo XML: /home/jorge/GITHUB/olla-dft-bench/review/Si_unconverged.xml\nCálculo: scf  |  bandas: 8  |  puntos k: 29  |  electrones: 8\nEnergía de Fermi: 6.2120 eV\nADVERTENCIA: el cálculo no convergió; el gap no está validado.\n\n  Band gap fundamental: 0.6155 eV  (INDIRECTO)\n    VBM = 6.2120 eV  en  (0.000, 0.000, 0.000)\n    CBM = 6.8275 eV  en  (0.000, 0.375, 0.375)\n  Gap directo mínimo: 2.5627 eV  en  (0.000, 0.000, 0.000)\n\nRecuerda: los funcionales GGA/LDA subestiman el gap sistemáticamente (típicamente 30–50 %).\n",
+      "stderr": ""
+    },
+    "invalid_grid": {
+      "returncode": 2,
+      "output_created": false,
+      "stdout": "",
+      "stderr": "Error: --kgrid necesita tres enteros positivos\n"
+    },
+    "negative_cutoffs": {
+      "returncode": 2,
+      "output_created": false,
+      "stdout": "",
+      "stderr": "Error: --ecutwfc tiene que ser positivo y finito\n"
+    }
+  }
+}

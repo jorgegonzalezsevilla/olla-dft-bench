@@ -8,7 +8,7 @@
       "name": "González Sevilla, Jorge Enrique"
     }
   ],
-  "description": "Benchmark harness and published results comparing Olla-DFT with ASE, pymatgen, seekpath and qeschema on Quantum ESPRESSO workflows: same inputs, independent references, recomputable statistics, independent verdicts. GPL-3.0. Version 0.2.0 validates complete runs, failed processes, geometry and all QE repetitions; historical results retain their original protocol.",
+  "description": "Benchmark harness and published results comparing Olla-DFT with ASE, pymatgen, seekpath and qeschema on Quantum ESPRESSO workflows: same inputs, explicit reference implementations with shared-backend limitations, recomputable statistics, independent verdicts. GPL-3.0. Version 0.2.0 validates complete runs, failed processes, geometry and all QE repetitions; historical results retain their original protocol.",
   "keywords": [
     "Quantum ESPRESSO",
     "benchmark",

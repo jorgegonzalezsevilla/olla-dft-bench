@@ -123,3 +123,12 @@ def test_strict_run_rejects_qe_energy_outlier_and_missing_artifact():
     assert validation.check_run(run) == []
     run['e2e']['olla-dft']['samples'][1]['total_energy_Ry'] = -21.
     assert any('energies disagree' in e for e in validation.check_run(run))
+
+
+def test_environment_never_executes_qe_path_as_shell(tmp_path):
+    marker = tmp_path / 'injected'
+    env = dict(os.environ, BENCH_PW_X=f'/missing/pw.x; touch {marker}; true')
+    r = subprocess.run([PY, str(ROOT / 'bench.py'), 'env'], env=env, text=True, capture_output=True)
+    assert r.returncode == 0
+    assert not marker.exists()
+    assert json.loads(r.stdout)['pw_x'] == env['BENCH_PW_X']

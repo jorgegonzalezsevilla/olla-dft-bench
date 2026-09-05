@@ -107,7 +107,7 @@ def collect(python=sys.executable, input_files=()):
         "packages": keep,
         "olla_dft_source": src,
         "pw_x": os.environ.get("BENCH_PW_X") or _cmd("bash", "-c", "command -v pw.x"),
-        "pw_x_version": (_cmd("bash", "-c", f"echo | {os.environ.get('BENCH_PW_X', 'pw.x')} 2>/dev/null | grep -m1 'Program PWSCF'") or "").strip(),
+        "pw_x_version": "see retained QE output artifacts",
         "bench_git_sha": git_sha(ROOT),
         "bench_dirty": bool(_cmd("git", "-C", str(ROOT), "status", "--porcelain")),
         "source_sha256": {str(p.relative_to(ROOT)): sha256(p) for p in sorted([ROOT / "bench.py", *ROOT.glob("benchlib/*.py"), *ROOT.glob("tools/*.py")])},

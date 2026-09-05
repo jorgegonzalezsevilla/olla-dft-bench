@@ -1,0 +1,34 @@
+WARNING: CPU governor is 'powersave', not 'performance': timings are noisier. Fix: sudo cpupower frequency-set -g performance
+WARNING: Turbo boost enabled: single-thread timings drift with temperature. Fix: echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo
+WARNING: 1-min load average 1.52 > 1.0: other processes were competing for CPU.
+run 20260904-144439: tasks=['inputgen'] tools=['olla-dft', 'ase', 'pymatgen'] reps=1 cpu=0 isolate=False
+  inputgen  Si_relajado.cif   olla-dft  warm  wall=0.548s rss=98MB ok
+  inputgen  Si_relajado.cif   ase       warm  wall=0.382s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  warm  wall=0.486s rss=77MB ok
+  inputgen  Si_relajado.cif   ase       rep0  wall=0.526s rss=79MB ok
+  inputgen  Si_relajado.cif   pymatgen  rep0  wall=0.475s rss=77MB ok
+  inputgen  Si_relajado.cif   olla-dft  rep0  wall=0.659s rss=98MB ok
+  inputgen  ZnO.cif           olla-dft  warm  wall=0.673s rss=98MB ok
+  inputgen  ZnO.cif           ase       warm  wall=0.475s rss=79MB ok
+  inputgen  ZnO.cif           pymatgen  warm  wall=0.456s rss=77MB ok
+  inputgen  ZnO.cif           olla-dft  rep0  wall=0.772s rss=98MB ok
+  inputgen  ZnO.cif           pymatgen  rep0  wall=0.448s rss=77MB ok
+  inputgen  ZnO.cif           ase       rep0  wall=0.485s rss=79MB ok
+end-to-end: running pw.x 5x on each tool's Si input
+  olla-dft  rep0 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.24s
+  ase       rep0 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.16s
+  pymatgen  rep0 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.45s
+  pymatgen  rep1 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.48s
+  olla-dft  rep1 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.54s
+  ase       rep1 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.52s
+  olla-dft  rep2 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.31s
+  pymatgen  rep2 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.49s
+  ase       rep2 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.16s
+  ase       rep3 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.40s
+  pymatgen  rep3 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.60s
+  olla-dft  rep3 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.16s
+  ase       rep4 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.17s
+  olla-dft  rep4 E=-22.82476715 Ry  iters=8  nk=13  pw.x 3.11s
+  pymatgen  rep4 E=-22.82476712 Ry  iters=7  nk=24  pw.x 3.49s
+
+written /home/jorge/GITHUB/olla-dft-bench/results/20260904-144439/results.json, report.md; dashboard docs/index.html
