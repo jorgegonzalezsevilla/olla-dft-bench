@@ -47,3 +47,7 @@ From the benchmark checkout with its normal plotting dependencies:
 This verifies six public XML hashes, checks all stored observables and 15 differences,
 and rebuilds PNG/SVG/PDF in Spanish and English. It never launches QE or accesses a
 cloud provider. The preceding benchmark 0.2.0 measurements remain unchanged.
+
+## Public introduction
+
+The ES/EN landing pages introduce the examples and recovery checks in plain language. Technical figures, conditions and numerical tables remain available in expandable sections. Regenerate the pages with `python tools/build_public_page.py`; this reads the existing manifests and evidence without changing figures, PDFs or numerical results. Styling is in `public-page.css`. The showcase packager also calls this page builder.

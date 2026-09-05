@@ -2,7 +2,6 @@
 """Package existing public example figures; no simulation or numerical editing."""
 import argparse
 import hashlib
-import html
 import json
 from pathlib import Path
 import textwrap
@@ -52,17 +51,9 @@ def build(source, output):
             fig=plt.figure(figsize=(8.3,11.7),facecolor='white')
             ax=fig.add_axes((0,0,1,1));ax.imshow(plt.imread(output/f'recovery-{lang}.png'));ax.axis('off')
             pdf.savefig(fig);plt.close(fig)
-        filename='index.html' if es else 'index-en.html'
-        page=(output/filename).read_text()
-        start='<!-- SHOWCASE START -->';end='<!-- SHOWCASE END -->'
-        if start in page:
-            page=page[:page.index(start)]+page[page.index(end)+len(end):]
-        section=start+'<section><h2>'+('Del material a sus propiedades' if es else 'From materials to their properties')+'</h2><p>'+('Cinco ejemplos existentes de Olla-DFT. Cada figura enlaza sus condiciones; no son nuevos cálculos de esta versión.' if es else 'Five existing Olla-DFT examples. Each figure links to its conditions; these are not new calculations for this release.')+'</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:24px">'
-        for item in manifest:
-            section+=f'<figure style="margin:0"><a href="{item["conditions"]}"><img loading="lazy" src="gallery/{item["file"]}" alt="{html.escape(item[f"caption_{lang}"],quote=True)}"></a><figcaption><b>{item[f"caption_{lang}"]}</b><br>{item[f"scope_{lang}"]}</figcaption></figure>'
-        section+=f'</div><p><a class="button" href="gallery/olla-dft-gallery-{lang}.pdf">'+('Descargar galería PDF' if es else 'Download PDF gallery')+'</a> <a href="gallery/manifest.json">'+('Fuentes y hashes' if es else 'Sources and hashes')+'</a></p></section>'+end
-        page=page.replace('<section>',section+'<section>',1)
-        (output/filename).write_text(page)
+    # Keep the public introduction in sync without restoring the old technical landing.
+    from build_public_page import render
+    render(output)
     (assets/'README.md').write_text('''# Olla-DFT visual guide / Guía visual
 
 Five original example images and a six-page PDF in each language. The final page shows local recovery validation from the benchmark. No new calculations were run and no numerical figure content was changed.
