@@ -47,4 +47,4 @@ Olla-DFT sigue siendo más lento en **13/14** casos comparables (media geométri
 
 Permanecen avisos de gobernador powersave, turbo y carga de fondo. Es una sesión interactiva con otras tareas del sistema y comprobaciones breves, no una medición en una máquina inactiva. No comparar tiempos absolutos entre las corridas antigua y nueva. El coste incluye wrappers, importaciones y muestreo del proceso.
 
-**29 pruebas del benchmark correctas** y pyflakes sin errores. Además, `recheck_fixes.py` ejecuta cuatro casos reales de CLI y confirma los códigos de salida, la advertencia de no convergencia y la ausencia de archivos ante parámetros inválidos; evidencia en `fixed-evidence.json`.
+**30 pruebas del benchmark correctas** y pyflakes sin errores. Además, `recheck_fixes.py` ejecuta cuatro casos reales de CLI y confirma los códigos de salida, la advertencia de no convergencia y la ausencia de archivos ante parámetros inválidos; evidencia en `fixed-evidence.json`.
