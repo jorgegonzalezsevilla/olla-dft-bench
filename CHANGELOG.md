@@ -4,7 +4,7 @@
 
 - Publish matched continuous/recovered QE figures, raw observables and recomputation checks.
 - Add an offline interactive result explorer demonstration and bilingual publication pages.
-- Preserve the existing benchmark protocol/results; no new QE or cloud measurements.
+- Preserve the existing benchmark protocol/results; no new QE measurements.
 
 ## 0.2.0 — 2026-09-04
 

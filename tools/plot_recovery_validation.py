@@ -72,10 +72,10 @@ def plot(folder, language='es'):
     fig.text(.25, .101, 'Diferencia máxima / tolerancia (%) · menor es mejor' if es else 'Maximum difference / tolerance (%) · lower is better', fontsize=12)
     note = ('Las etiquetas muestran diferencias absolutas, no incertidumbres. 100% = límite de aceptación.\n'
             '0 significa coincidencia a la precisión del XML. Una pareja por caso, sin inferencia estadística.\n'
-            'Interrupciones locales simuladas; no se midieron apagones físicos, reemplazo de VM ni ahorro cloud.') if es else (
+            'Interrupciones locales simuladas; no se midió recuperación tras apagones físicos o pérdida del disco.') if es else (
             'Labels show absolute differences, not uncertainties. 100% = acceptance limit.\n'
             '0 means identical at XML precision. One pair per case; no statistical inference.\n'
-            'Simulated local interruptions; physical power loss, VM replacement and cloud savings were not measured.')
+            'Simulated local interruptions; recovery after physical power loss or disk loss was not measured.')
     fig.text(.065, .032, note, fontsize=10, linespacing=1.5, color='#4f646a')
     for ext in ['png', 'svg', 'pdf']:
         target = folder/f'recovery-{language}.{ext}'

@@ -16,8 +16,7 @@ Three small serial Quantum ESPRESSO 7.4 cases: displaced Si SCF, relax and vc-re
 One continuous/recovered pair per case; no repeatability estimate or uncertainty bars.
 The recovery exercises included clean checkpoints, SIGKILL of supervisor/QE, simulated
 incomplete scratch writes and restoration from an earlier verified checkpoint. The host
-remained running. Physical power loss, disk loss, VM replacement and cloud savings were
-not measured. These are software recovery checks, not convergence studies of the material.
+remained running. Recovery after physical power loss or disk loss was not measured. These are software recovery checks, not convergence studies of the material.
 
 Input/UPF hashes, executable/library records, architecture, threads, environment and
 runtime identifier matched within each pair. The original `si-scf` pair is excluded
@@ -45,8 +44,7 @@ From the benchmark checkout with its normal plotting dependencies:
 ```
 
 This verifies six public XML hashes, checks all stored observables and 15 differences,
-and rebuilds PNG/SVG/PDF in Spanish and English. It never launches QE or accesses a
-cloud provider. The preceding benchmark 0.2.0 measurements remain unchanged.
+and rebuilds PNG/SVG/PDF in Spanish and English. It never launches QE. The preceding benchmark 0.2.0 measurements remain unchanged.
 
 ## Public introduction
 
