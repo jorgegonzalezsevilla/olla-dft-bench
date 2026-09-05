@@ -8,6 +8,12 @@ machine, with the same rules for everyone.
 and the raw `results.json`. Dashboard: [docs/index.html](docs/index.html) (open locally or via
 GitHub Pages). Independent verdicts: [judge/verdicts](judge/verdicts); what changed because of them: [judge/RESPONSES.md](judge/RESPONSES.md).
 
+## Reliability update (0.2.0)
+
+New runs fail explicitly when a process, grade, expected repetition, retained artifact, or QE convergence/energy check fails. `verify` checks both completeness and successful execution. Old runs remain historical evidence: their output is labelled `LEGACY CONSISTENCY ONLY`, and cannot inherit the stricter guarantees retroactively. In particular, the audit run `20260904-143453` failed all QE launches because MPI sockets were blocked; it is not a successful end-to-end result.
+
+The September audit and its correction record are in [review/](review/). A valid geometry grade now checks species, positions, cell metric, pseudopotentials, grid shifts, occupations, and both cutoffs. Gap grading includes VBM and CBM. HPKOT comparisons check coordinates as well as segments; other conventions are displayed separately and excluded from performance rankings.
+
 ## Why this exists
 
 Olla-DFT is a one-person project. Its author wants to know where it is slow, heavy or wrong, not
@@ -15,8 +21,9 @@ only where it shines. So the benchmark is built to be hard to game:
 
 - **Same input, same machine, same process model** for every tool. Each measurement is a fresh
   process, so import cost counts, as it does on the command line.
-- **Correctness is graded against independent code** (`tools/reference.py`) that shares nothing
-  with any contestant, with fixed numeric tolerances.
+- **Correctness uses fixed tolerances and explicit references** (`tools/reference.py`).
+  Structure parsing uses ASE; symmetry and HPKOT use spglib/seekpath. These shared dependencies
+  limit independence and are disclosed in the protocol.
 - **Every aggregate is recomputable.** `python bench.py verify results/<run>` recomputes medians,
   dispersion and grades from the raw samples, checks the SHA-256 of every input and regenerates
   the report byte for byte. If a sentence in a report disagrees with the raw data, the data wins.
@@ -56,8 +63,7 @@ python bench.py judge-pack results/<run_id>      # packet for an independent eva
 ```
 
 `--isolate` pins the process to the fastest core and, on Linux with systemd, runs it in a
-transient scope with `MemoryMax=3G` and `CPUQuota=100%`. A `Dockerfile` is provided for a fully
-pinned userland. To compare **other software**, add a wrapper in `tools/` that prints one
+transient scope with `MemoryMax=3G` and `CPUQuota=100%`. A `Dockerfile` pins Python packages; its base image and OS packages are not immutable. To compare **other software**, add a wrapper in `tools/` that prints one
 `@@RESULT {json}` line and list it in `benchlib/tasks.py`; the grading is applied unchanged.
 
 ## Periodic runs

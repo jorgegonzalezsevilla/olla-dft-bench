@@ -15,7 +15,7 @@ if task == "symmetry":
 elif task == "kpath":
     a = read(args[0])
     bp = a.cell.bandpath()   # ASE's own special-point tables (Setyawan-Curtarolo style)
-    emit({"via": "ase Cell.bandpath()", "labels": sorted(set(bp.special_points)), "path": [bp.path]})
+    emit({"convention": "Setyawan-Curtarolo", "via": "ase Cell.bandpath()", "labels": sorted(set(bp.special_points)), "path": [bp.path]})
 elif task == "eos":
     from ase.eos import EquationOfState
     from ase.units import kJ

@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: "If you use this benchmark, please cite it as below."
 type: software
 title: "olla-dft-bench: reproducible benchmarks of Olla-DFT against ASE, pymatgen, seekpath and qeschema"
-version: 0.1.0
-date-released: 2026-09-03
+version: 0.2.0
+date-released: 2026-09-04
 license: GPL-3.0-or-later
 repository-code: "https://github.com/jorgegonzalezsevilla/olla-dft-bench"
 authors:

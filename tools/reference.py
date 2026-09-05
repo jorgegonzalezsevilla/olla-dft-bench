@@ -19,7 +19,7 @@ elif task == "kpath":
     from ase.io import read
     a = read(args[0])
     r = seekpath.get_path((a.cell[:], a.get_scaled_positions(), a.numbers), symprec=1e-4)
-    emit({"via": "seekpath direct (HPKOT convention)", "labels": sorted(set(r["point_coords"])),
+    emit({"via": "seekpath direct (HPKOT convention)", "convention": "HPKOT", "point_coords": r["point_coords"], "labels": sorted(set(r["point_coords"])),
           "path": ["-".join(seg) for seg in r["path"]]})
 elif task == "eos":
     # Third-order Birch-Murnaghan is a cubic polynomial in x = V^(-2/3): E = a + b x + c x^2 + d x^3.
@@ -57,30 +57,31 @@ elif task == "bandgap":
         emit({"via": "ElementTree parse of data-file-schema; VBM=max band nelec/2, CBM=min band nelec/2+1",
               "gap_eV": float(cbm - vbm), "vbm_eV": float(vbm), "cbm_eV": float(cbm)})
 elif task == "inputgen":
-    # the reference for input generation is the structure itself: natoms and volume from the CIF
     from ase.io import read
+    from pathlib import Path
     a = read(args[0])
-    emit({"via": "ase.io.read of the source structure", "natoms": len(a), "volume_A3": float(a.get_volume())})
-elif task == "kspacing":
-    # untimed helper: which --kspacing makes olla-dft's own grid rule return the requested grid
-    from qekit.core.structure import load
-    from qekit.core.kpoints import kgrid_from_spacing
-    want = tuple(int(x) for x in args[1].split("x")); atoms = load(args[0]); lo, hi = 0.05, 1.0; ks = None
-    for _ in range(60):
-        mid = 0.5 * (lo + hi); g = tuple(kgrid_from_spacing(atoms, mid))
-        if g == want: ks = mid; break
-        if g < want: hi = mid
-        else: lo = mid
-    emit({"kspacing": ks, "grid": list(want)})
+    pp = {s: f.name for s in set(a.get_chemical_symbols()) for f in Path(args[0]).parent.glob("*.UPF")
+          if re.match(rf"{s}[._-]", f.name, re.I)}
+    emit({"via": "source structure and prescribed parameters", "natoms": len(a),
+          "volume_A3": float(a.get_volume()), "symbols": a.get_chemical_symbols(),
+          "cell": a.cell.array.tolist(), "scaled_positions": a.get_scaled_positions().tolist(),
+          "pseudopotentials": pp})
 elif task == "roundtrip":
-    # parse a generated pw.x input back and report natoms, volume, k-grid, ecut (used to grade inputgen)
     from ase.io import read
+    from ase.io.espresso import read_fortran_namelist
     a = read(args[0], format="espresso-in")
+    with open(args[0]) as f:
+        namelists, cards = read_fortran_namelist(f)
+    system = namelists.get("system", {})
     txt = open(args[0]).read()
-    k = re.search(r"K_POINTS\s+automatic\s*\n\s*(\d+)\s+(\d+)\s+(\d+)", txt, re.I)
-    ec = re.search(r"ecutwfc\s*=\s*([\d.]+)", txt)
+    k = re.search(r"K_POINTS\s+automatic\s*\n\s*((?:[+-]?\d+\s+){5}[+-]?\d+)", txt, re.I)
+    grid = [int(x) for x in k.group(1).split()] if k else []
+    start = next(i for i, line in enumerate(cards) if line.upper().startswith("ATOMIC_SPECIES")) + 1
+    pp = {line.split()[0]: line.split()[2] for line in cards[start:start + int(system["ntyp"])]}
     emit({"natoms": len(a), "volume_A3": float(a.get_volume()),
-          "kgrid": [int(g) for g in k.groups()] if k else None, "ecutwfc": float(ec.group(1)) if ec else None,
-          "bytes": len(txt)})
+          "symbols": a.get_chemical_symbols(), "cell": a.cell.array.tolist(),
+          "scaled_positions": a.get_scaled_positions().tolist(), "pseudopotentials": pp,
+          "kgrid": grid[:3], "kshift": grid[3:], "ecutwfc": system.get("ecutwfc"),
+          "ecutrho": system.get("ecutrho"), "occupations": system.get("occupations"), "bytes": len(txt)})
 else:
     unsupported(task)

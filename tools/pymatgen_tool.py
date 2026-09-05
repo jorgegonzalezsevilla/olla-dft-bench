@@ -16,7 +16,7 @@ elif task == "kpath":
     s = Structure.from_file(args[0])
     prim = SpacegroupAnalyzer(s, symprec=1e-4).get_primitive_standard_structure()
     kp = HighSymmKpath(prim, path_type="setyawan_curtarolo")
-    emit({"via": "pymatgen HighSymmKpath(setyawan_curtarolo)",
+    emit({"convention": "Setyawan-Curtarolo", "via": "pymatgen HighSymmKpath(setyawan_curtarolo)",
           "labels": sorted(set(kp.kpath["kpoints"])), "path": ["-".join(seg) for seg in kp.kpath["path"]]})
 elif task == "eos":
     from pymatgen.analysis.eos import EOS

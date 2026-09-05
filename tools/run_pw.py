@@ -3,15 +3,23 @@ Used by the optional end-to-end stage. pw.x itself is the same binary for every 
 only thing that can differ is the input each tool produced."""
 import sys, re, subprocess, time, os
 from _common import emit
+from pathlib import Path
 inp, cwd = sys.argv[1], sys.argv[2]
 env = dict(os.environ, OMP_NUM_THREADS="1")
 t0 = time.perf_counter()
-p = subprocess.run([os.environ.get("BENCH_PW_X", "pw.x"), "-in", os.path.basename(inp)], cwd=cwd, capture_output=True, text=True, env=env, timeout=1800)
+with (Path(cwd) / "pw.out").open("w") as stdout, (Path(cwd) / "pw.stderr").open("w") as stderr:
+    p = subprocess.run([os.environ.get("BENCH_PW_X", "pw.x"), "-in", os.path.basename(inp)],
+                       cwd=cwd, stdout=stdout, stderr=stderr, text=True, env=env, timeout=1800)
 wall = time.perf_counter() - t0
-out = p.stdout
-e = re.search(r"!\s+total energy\s+=\s+(-?[\d.]+)\s+Ry", out)
+out = (Path(cwd) / "pw.out").read_text(errors="replace")
+err = (Path(cwd) / "pw.stderr").read_text(errors="replace")
+energies = re.findall(r"!\s+total energy\s+=\s+(-?[\d.]+)\s+Ry", out)
+e = energies[-1] if energies else None
 it = re.search(r"convergence has been achieved in\s+(\d+) iterations", out)
 kp = re.search(r"number of k points=\s*(\d+)", out)
-emit({"total_energy_Ry": float(e.group(1)) if e else None, "scf_iterations": int(it.group(1)) if it else None,
+emit({"total_energy_Ry": float(e) if e else None, "scf_iterations": int(it.group(1)) if it else None,
+      "converged": bool(it), "job_done": "JOB DONE." in out,
       "nkpoints": int(kp.group(1)) if kp else None, "pw_wall_s": wall, "rc": p.returncode,
-      "tail": (out[-600:] + "\nSTDERR: " + p.stderr[-600:]) if not e else ""})
+      "tail": (out[-600:] + "\nSTDERR: " + err[-600:]) if not e else ""})
+
+sys.exit(0 if p.returncode == 0 and e and it and "JOB DONE." in out else 1)

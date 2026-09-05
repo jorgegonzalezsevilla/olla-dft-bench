@@ -24,9 +24,10 @@ if task == "symmetry":
           "natoms_primitive": int([g for g in n.groups() if g][0]) if n else None, "rc": rc})
 elif task == "kpath":
     rc, out = cli(["kpath", args[0]])
+    coords = {m[0]: [float(x) for x in m[1:]] for m in re.findall(r"^\s{2}(\S+)\s+(-?\d+\.\d{6})\s+(-?\d+\.\d{6})\s+(-?\d+\.\d{6})", out, re.M)}
     labels = re.findall(r"^\s{2}(\S+)\s+-?\d\.\d{6}\s+-?\d\.\d{6}\s+-?\d\.\d{6}", out, re.M)
     path = re.findall(r"^\s{2}(\S+(?:\s+—\s+\S+)+)\s*$", out, re.M)
-    emit({"via": "cli kpath", "labels": sorted(set(labels)), "path": [p.replace(" — ", "-") for p in path], "rc": rc})
+    emit({"via": "cli kpath", "convention": "HPKOT", "point_coords": coords, "labels": sorted(set(labels)), "path": [p.replace(" — ", "-") for p in path], "rc": rc})
 elif task == "eos":
     from qekit.modules.eos import EOSRun, fit
     V, E = read_ev(args[0])
@@ -53,15 +54,10 @@ elif task == "bandgap":
           "rc": rc, "raw": out[:600]})
 elif task == "inputgen":
     cif, outdir, pseudo_dir = args[0], args[1], args[2]
-    want = args[3]
-    # the --kspacing that reproduces the requested grid is computed once, untimed, by the harness
-    # (tools/reference.py kspacing) because olla-dft has no explicit k-grid option; it arrives as args[4]
-    ks = float(args[4]) if len(args) > 4 else None
-    if ks is None:
-        unsupported("no --kspacing supplied for the requested grid (olla-dft has no explicit k-grid option)")
+    grid = args[3].split("x")
     rc, out = cli(["gen", cif, "-p", "scf", "-o", outdir, "--pseudo-dir", pseudo_dir,
-                   "--kspacing", f"{ks:.6f}", "--ecutwfc", "30", "--ecutrho", "240", "--insulator"])
-    emit({"via": f"cli gen -p scf --kspacing {ks:.4f} --ecutwfc 30 --ecutrho 240 --insulator (no explicit k-grid option; spacing precomputed untimed by the harness)",
-          "file": os.path.join(outdir, "scf.in"), "rc": rc})
+                   "--kgrid", *grid, "--ecutwfc", "30", "--ecutrho", "240", "--insulator"])
+    emit({"via": "cli gen --kgrid " + " ".join(grid), "file": os.path.join(outdir, "scf.in"), "rc": rc})
+
 else:
     unsupported(f"task {task} not wired for olla-dft")

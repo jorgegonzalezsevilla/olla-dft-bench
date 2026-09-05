@@ -1,0 +1,5370 @@
+{
+ "run_id": "20260904-154049",
+ "harness_version": "0.2.0",
+ "env": {
+  "timestamp_utc": "2026-09-04T21:40:49Z",
+  "hostname_hash": "5c7c54798401",
+  "os": "Linux-7.1.5-76070105-generic-x86_64-with-glibc2.39",
+  "kernel": "7.1.5-76070105-generic",
+  "cpu_model": "12th Gen Intel(R) Core(TM) i5-12450H",
+  "cpu_count": 12,
+  "cpu_topology": [
+   [
+    0,
+    0,
+    4400.0
+   ],
+   [
+    1,
+    0,
+    4400.0
+   ],
+   [
+    2,
+    1,
+    4400.0
+   ],
+   [
+    3,
+    1,
+    4400.0
+   ],
+   [
+    4,
+    2,
+    4400.0
+   ],
+   [
+    5,
+    2,
+    4400.0
+   ],
+   [
+    6,
+    3,
+    4400.0
+   ],
+   [
+    7,
+    3,
+    4400.0
+   ],
+   [
+    8,
+    4,
+    3300.0
+   ],
+   [
+    9,
+    5,
+    3300.0
+   ],
+   [
+    10,
+    6,
+    3300.0
+   ],
+   [
+    11,
+    7,
+    3300.0
+   ]
+  ],
+  "mem_total_kb": 7810836,
+  "governor": "powersave",
+  "intel_no_turbo": "0",
+  "load_avg_start": [
+   2.46923828125,
+   2.01904296875,
+   1.6416015625
+  ],
+  "python": "Python 3.12.3",
+  "python_path": "/home/jorge/GITHUB/olla-dft-bench/.venv/bin/python",
+  "packages": {
+   "Pygments": "2.21.0",
+   "ase": "3.29.0",
+   "bibtexparser": "1.4.4",
+   "certifi": "2026.7.22",
+   "charset-normalizer": "3.5.1",
+   "cloudpickle": "3.1.2",
+   "contourpy": "1.3.3",
+   "cycler": "0.12.1",
+   "elementpath": "4.8.0",
+   "fonttools": "4.64.0",
+   "idna": "3.19",
+   "iniconfig": "2.3.0",
+   "joblib": "1.6.0",
+   "kiwisolver": "1.5.1",
+   "lxml": "6.1.3",
+   "matplotlib": "3.11.1",
+   "monty": "2026.7.16",
+   "mpmath": "1.3.0",
+   "narwhals": "2.25.0",
+   "networkx": "3.6.1",
+   "numpy": "2.2.6",
+   "olla-dft": "1.1.0",
+   "orjson": "3.12.0",
+   "packaging": "26.3",
+   "palettable": "3.3.3",
+   "pandas": "3.0.5",
+   "pillow": "12.3.0",
+   "pip": "26.2.1",
+   "plotly": "7.0.0",
+   "pluggy": "1.6.0",
+   "pyflakes": "3.4.0",
+   "pymatgen": "2026.5.4",
+   "pymatgen-core": "2026.8.30",
+   "pyparsing": "3.3.2",
+   "pytest": "9.1.1",
+   "python-dateutil": "2.9.0.post0",
+   "qeschema": "1.5.1",
+   "requests": "2.34.2",
+   "ruamel.yaml": "0.19.1",
+   "scipy": "1.18.1",
+   "seekpath": "2.2.1",
+   "six": "1.17.0",
+   "spglib": "2.7.0",
+   "sympy": "1.14.0",
+   "tabulate": "0.10.0",
+   "tqdm": "4.70.0",
+   "typing_extensions": "4.16.0",
+   "uncertainties": "3.2.3",
+   "urllib3": "2.7.0",
+   "xmlschema": "2.3.1"
+  },
+  "olla_dft_source": {
+   "url": "https://github.com/jorgegonzalezsevilla/olla-dft",
+   "vcs_info": {
+    "commit_id": "caf08257293e1fe1ef2ebf9db051b3ec827a7f45",
+    "requested_revision": "v1.1.0",
+    "vcs": "git"
+   }
+  },
+  "pw_x": "/home/jorge/GITHUB/olla-dft-bench/.qe/bin/pw.x",
+  "pw_x_version": "",
+  "bench_git_sha": "b54d88235d5a1dfdc57bf68d47a04b015087b877",
+  "bench_dirty": true,
+  "source_sha256": {
+   "bench.py": "e35b69e83baf14a6943d096656b4287e7edac51965b2988d87f0dfe2b46dfbbd",
+   "benchlib/__init__.py": "1e5a0281ab9100ff3afb76c97ab4b52d9b027e604a14f2157c781dbf745347f8",
+   "benchlib/envinfo.py": "91d112a76757d2d4312e1ac6d92a8662c147314666774d9b52a3875b693bb6da",
+   "benchlib/measure.py": "5642ca59c51fb41f44c335e76279ddb84e1110a1cd04cb09be8006b2c9886fac",
+   "benchlib/report.py": "ddfeae43cd779354230379899ab2cd7cb5b9a3e50ad20ef480cf6202bbc11960",
+   "benchlib/tasks.py": "d06d2fb23422203722323850b597e274f8173355d571a3382142e908b2ed78d8",
+   "benchlib/validation.py": "d5724ac4f506d75c28274d1c4d4499fb00dedf3b6b34d7a953dc4d846fbb4cdb",
+   "tools/_common.py": "e14c76b8b7e6347ccdfcb89396d17b2b0abf5a3c8a038448d26e1dedef3cc76e",
+   "tools/ase_tool.py": "5ee311da04b0f087e3e7acd7cbc891d083aaf649701e9d26684bcba3b03d3e25",
+   "tools/ollad.py": "baa44f1986f188a8534fc14b44c7d1ef58e2e49aa08e23c19961c9c2fdf2559c",
+   "tools/pymatgen_tool.py": "9118b51f5c3dd54c877bc886c3d8c7f4b12332d2f3500e9feb423ac2f6763937",
+   "tools/qeschema_tool.py": "091566ae45660752999ebcaa28905f4928045c1ab62d0f6b4b23e790e5935203",
+   "tools/reference.py": "765fd37f708c5811d1e8010951b7c31c48fc7ea7dc24a0b23105b8682e36f879",
+   "tools/run_pw.py": "e23fbca55e79214272535ab16d929afece16f4b15fc170889b1ad5d04eec3e90",
+   "tools/seekpath_tool.py": "1fdb798de5fa46481d40f3393ded67fef1e03f4f3a1d23461c252aa7de803523"
+  },
+  "inputs_sha256": {
+   "inputs/EOS.dat": "b7c78575910855a705465d03a28f577f092bd0c0ff1cac70cb2716bceba544d1",
+   "inputs/O.pbe-kjpaw.UPF": "2b6ba2a535fad72e0dd8046da3f14876a13829f33e398447fc366012bd7b8999",
+   "inputs/POSCAR_NaCl": "33c04014dec7d3c9749793448a1387370792a8f90739dc780b9b84c804261123",
+   "inputs/Si.pbe-n-rrkjus_psl.1.0.0.UPF": "ae3aefd0811f9499dbc4a72f1f9ae02ef4fc7f3568bf6f559b68668719c69e2b",
+   "inputs/Si.xml.gz": "feeb2c99bf600cdc864216a23da237742ae0ad5f50de017756252f93e6b97e26",
+   "inputs/Si_relajado.cif": "3fd84926808ca05bbfb07fb6b6748bf9af73a9eedc589e17c06624e33aab069f",
+   "inputs/Si_scf.in": "a534731e9ce3aaf02d7172c196011e1adb3c324d27f76ad5b937d5f3778aa23b",
+   "inputs/Si_scf.out": "7cdc6b93691eac2d23aff6b894b4c58ef5075a3ea336f92677cbcfd0d2b65340",
+   "inputs/Si_scf.xml": "68a80dc0835123f8df13999f5ceeb9a821b39059ce03cdf95723ed0fc8bae9ef",
+   "inputs/ZnO.cif": "7725ef4358963c39544c13b5d1b1bedd51f7d3af56fb2060acfc71e612f1c9c7",
+   "inputs/Zn_pbe_v1.uspp.F.UPF": "7710c776159022cdfa14188f04942712811d9a24ad0e74db5ce7c3bdfb95dbbf",
+   "inputs/grafito.cif": "320e40c71c7b971439c072e46793192117aa2c852aed3ea2757f4b198e02bf9b",
+   "inputs/hbn.cif": "b57c0cab041053fecdaa4b4af226f8bf0b123922bfe24e7147e91b030fa06621"
+  },
+  "load_avg_end": [
+   3.13818359375,
+   2.255859375,
+   1.7470703125
+  ]
+ },
+ "warnings": [
+  "CPU governor is 'powersave', not 'performance': timings are noisier. Fix: sudo cpupower frequency-set -g performance",
+  "Turbo boost enabled: single-thread timings drift with temperature. Fix: echo 1 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo",
+  "1-min load average 2.47 > 1.0: other processes were competing for CPU."
+ ],
+ "config": {
+  "reps": 1,
+  "cpu": 0,
+  "isolate": false,
+  "mem_max": "3G",
+  "label": "candidate-smoke",
+  "tasks": [
+   "inputgen",
+   "kpath",
+   "bandgap"
+  ],
+  "tools": [
+   "olla-dft",
+   "ase",
+   "pymatgen",
+   "qeschema",
+   "seekpath"
+  ],
+  "with_qe": false,
+  "seed": 20260904,
+  "e2e_reps": 5,
+  "opp_threshold": 1.15
+ },
+ "tasks_meta": {
+  "inputgen": {
+   "title": "pw.x scf input from a structure (Si 4×4×4, ZnO 6×6×4, fixed cutoffs)",
+   "note": "Each generated file is parsed back by ASE to check species, positions, cell metric, pseudopotentials, grid/shift, occupations and both cutoffs. Cutoffs and grid are forced equal so the comparison is about correctness and cost, not defaults; other defaults (mixing, smearing) remain each tool's own and show up in the end-to-end stage.",
+   "inputs": [
+    "Si_relajado.cif",
+    "ZnO.cif"
+   ],
+   "tools": [
+    "olla-dft",
+    "ase",
+    "pymatgen"
+   ]
+  },
+  "kpath": {
+   "title": "High-symmetry k-path from a structure",
+   "note": "Reference is the HPKOT convention (seekpath). Olla-DFT and the seekpath contestant call the same library, so their agreement is expected and only shows the path is passed through intact. ASE and pymatgen implement Setyawan–Curtarolo; a mismatch there is a convention difference, not an error.",
+   "inputs": [
+    "Si_relajado.cif",
+    "ZnO.cif",
+    "grafito.cif",
+    "hbn.cif",
+    "POSCAR_NaCl"
+   ],
+   "tools": [
+    "olla-dft",
+    "seekpath",
+    "ase",
+    "pymatgen"
+   ]
+  },
+  "bandgap": {
+   "title": "Band gap from pw.x output (XML and text)",
+   "note": "The XML and the text output of the same scf run, generated with the shipped inputs/Si_scf.in (QE 7.4), so that each format counts once and no tool is judged only on the format it prefers. Olla-DFT and qeschema read the XML; ASE reads the text output; pymatgen reads neither for eigenvalues.",
+   "inputs": [
+    "Si_scf.xml",
+    "Si_scf.out"
+   ],
+   "tools": [
+    "olla-dft",
+    "qeschema",
+    "ase",
+    "pymatgen"
+   ]
+  }
+ },
+ "references": {
+  "inputgen/Si_relajado.cif": {
+   "cell": [
+    [
+     3.819536273528503,
+     0.0,
+     0.0
+    ],
+    [
+     1.9097681367642518,
+     3.3078154435518314,
+     0.0
+    ],
+    [
+     1.9097681367642518,
+     1.1026051478506107,
+     3.11863830806545
+    ]
+   ],
+   "natoms": 2,
+   "pseudopotentials": {
+    "Si": "Si.pbe-n-rrkjus_psl.1.0.0.UPF"
+   },
+   "scaled_positions": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.2499999999999999,
+     0.25,
+     0.25
+    ]
+   ],
+   "symbols": [
+    "Si",
+    "Si"
+   ],
+   "via": "source structure and prescribed parameters",
+   "volume_A3": 39.40187769398274,
+   "kgrid_expected": [
+    4,
+    4,
+    4
+   ]
+  },
+  "inputgen/ZnO.cif": {
+   "cell": [
+    [
+     3.2495,
+     0.0,
+     0.0
+    ],
+    [
+     -1.6247500000000006,
+     2.814149549597533,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     5.2069
+    ]
+   ],
+   "natoms": 4,
+   "pseudopotentials": {
+    "O": "O.pbe-kjpaw.UPF",
+    "Zn": "Zn_pbe_v1.uspp.F.UPF"
+   },
+   "scaled_positions": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.3333333333333334,
+     0.6666666666666667,
+     0.1201764878991286
+    ],
+    [
+     0.3333333333333334,
+     0.6666666666666667,
+     0.5
+    ],
+    [
+     0.0,
+     0.0,
+     0.6201764878991286
+    ]
+   ],
+   "symbols": [
+    "Zn",
+    "O",
+    "Zn",
+    "O"
+   ],
+   "via": "source structure and prescribed parameters",
+   "volume_A3": 47.61490819420314,
+   "kgrid_expected": [
+    6,
+    6,
+    4
+   ]
+  },
+  "kpath/Si_relajado.cif": {
+   "convention": "HPKOT",
+   "labels": [
+    "GAMMA",
+    "K",
+    "L",
+    "U",
+    "W",
+    "W_2",
+    "X"
+   ],
+   "path": [
+    "GAMMA-X",
+    "X-U",
+    "K-GAMMA",
+    "GAMMA-L",
+    "L-W",
+    "W-X"
+   ],
+   "point_coords": {
+    "GAMMA": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "K": [
+     0.375,
+     0.375,
+     0.75
+    ],
+    "L": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "U": [
+     0.625,
+     0.25,
+     0.625
+    ],
+    "W": [
+     0.5,
+     0.25,
+     0.75
+    ],
+    "W_2": [
+     0.75,
+     0.25,
+     0.5
+    ],
+    "X": [
+     0.5,
+     0.0,
+     0.5
+    ]
+   },
+   "via": "seekpath direct (HPKOT convention)"
+  },
+  "kpath/ZnO.cif": {
+   "convention": "HPKOT",
+   "labels": [
+    "A",
+    "GAMMA",
+    "H",
+    "H_2",
+    "K",
+    "L",
+    "M"
+   ],
+   "path": [
+    "GAMMA-M",
+    "M-K",
+    "K-GAMMA",
+    "GAMMA-A",
+    "A-L",
+    "L-H",
+    "H-A",
+    "L-M",
+    "H-K"
+   ],
+   "point_coords": {
+    "A": [
+     0.0,
+     0.0,
+     0.5
+    ],
+    "GAMMA": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "H": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.5
+    ],
+    "H_2": [
+     0.3333333333333333,
+     0.3333333333333333,
+     -0.5
+    ],
+    "K": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.0
+    ],
+    "L": [
+     0.5,
+     0.0,
+     0.5
+    ],
+    "M": [
+     0.5,
+     0.0,
+     0.0
+    ]
+   },
+   "via": "seekpath direct (HPKOT convention)"
+  },
+  "kpath/grafito.cif": {
+   "convention": "HPKOT",
+   "labels": [
+    "A",
+    "GAMMA",
+    "H",
+    "H_2",
+    "K",
+    "L",
+    "M"
+   ],
+   "path": [
+    "GAMMA-M",
+    "M-K",
+    "K-GAMMA",
+    "GAMMA-A",
+    "A-L",
+    "L-H",
+    "H-A",
+    "L-M",
+    "H-K"
+   ],
+   "point_coords": {
+    "A": [
+     0.0,
+     0.0,
+     0.5
+    ],
+    "GAMMA": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "H": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.5
+    ],
+    "H_2": [
+     0.3333333333333333,
+     0.3333333333333333,
+     -0.5
+    ],
+    "K": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.0
+    ],
+    "L": [
+     0.5,
+     0.0,
+     0.5
+    ],
+    "M": [
+     0.5,
+     0.0,
+     0.0
+    ]
+   },
+   "via": "seekpath direct (HPKOT convention)"
+  },
+  "kpath/hbn.cif": {
+   "convention": "HPKOT",
+   "labels": [
+    "A",
+    "GAMMA",
+    "H",
+    "H_2",
+    "K",
+    "L",
+    "M"
+   ],
+   "path": [
+    "GAMMA-M",
+    "M-K",
+    "K-GAMMA",
+    "GAMMA-A",
+    "A-L",
+    "L-H",
+    "H-A",
+    "L-M",
+    "H-K"
+   ],
+   "point_coords": {
+    "A": [
+     0.0,
+     0.0,
+     0.5
+    ],
+    "GAMMA": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "H": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.5
+    ],
+    "H_2": [
+     0.3333333333333333,
+     0.3333333333333333,
+     -0.5
+    ],
+    "K": [
+     0.3333333333333333,
+     0.3333333333333333,
+     0.0
+    ],
+    "L": [
+     0.5,
+     0.0,
+     0.5
+    ],
+    "M": [
+     0.5,
+     0.0,
+     0.0
+    ]
+   },
+   "via": "seekpath direct (HPKOT convention)"
+  },
+  "kpath/POSCAR_NaCl": {
+   "convention": "HPKOT",
+   "labels": [
+    "GAMMA",
+    "K",
+    "L",
+    "U",
+    "W",
+    "W_2",
+    "X"
+   ],
+   "path": [
+    "GAMMA-X",
+    "X-U",
+    "K-GAMMA",
+    "GAMMA-L",
+    "L-W",
+    "W-X"
+   ],
+   "point_coords": {
+    "GAMMA": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "K": [
+     0.375,
+     0.375,
+     0.75
+    ],
+    "L": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "U": [
+     0.625,
+     0.25,
+     0.625
+    ],
+    "W": [
+     0.5,
+     0.25,
+     0.75
+    ],
+    "W_2": [
+     0.75,
+     0.25,
+     0.5
+    ],
+    "X": [
+     0.5,
+     0.0,
+     0.5
+    ]
+   },
+   "via": "seekpath direct (HPKOT convention)"
+  },
+  "bandgap/Si_scf.xml": {
+   "cbm_eV": 6.82752906628028,
+   "gap_eV": 0.6155421137080532,
+   "vbm_eV": 6.211986952572227,
+   "via": "ElementTree parse of data-file-schema; VBM=max band nelec/2, CBM=min band nelec/2+1"
+  },
+  "bandgap/Si_scf.out": {
+   "cbm_eV": 6.8275,
+   "gap_eV": 0.6154999999999999,
+   "vbm_eV": 6.212,
+   "via": "pw.x's own 'highest occupied, lowest unoccupied level' line"
+  }
+ },
+ "records": [
+  {
+   "task": "inputgen",
+   "input": "Si_relajado.cif",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 1.714643805000378,
+   "user_s": 1.165112,
+   "sys_s": 0.14432399999999998,
+   "max_rss_kb": 101160,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "cli gen --kgrid 4 4 4",
+    "roundtrip": {
+     "bytes": 878,
+     "cell": [
+      [
+       3.8195362735,
+       0.0,
+       0.0
+      ],
+      [
+       1.9097681368,
+       3.3078154436,
+       0.0
+      ],
+      [
+       1.9097681368,
+       1.1026051479,
+       3.1186383081
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      4,
+      4,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 2,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "Si": "Si.pbe-n-rrkjus_psl.1.0.0.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.24999999999999997,
+       0.25,
+       0.25
+      ]
+     ],
+     "symbols": [
+      "Si",
+      "Si"
+     ],
+     "volume_A3": 39.40187769469898
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "Si_relajado.cif",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.4783853660001114,
+   "user_s": 0.43082899999999996,
+   "sys_s": 0.044982,
+   "max_rss_kb": 81128,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "ase.io.write(format='espresso-in')",
+    "roundtrip": {
+     "bytes": 835,
+     "cell": [
+      [
+       3.8195362735285,
+       0.0,
+       0.0
+      ],
+      [
+       1.90976813676425,
+       3.30781544355183,
+       0.0
+      ],
+      [
+       1.90976813676425,
+       1.10260514785061,
+       3.11863830806545
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      4,
+      4,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 2,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "Si": "Si.pbe-n-rrkjus_psl.1.0.0.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.250000000003643,
+       0.2500000000166802,
+       0.24999999999475334
+      ]
+     ],
+     "symbols": [
+      "Si",
+      "Si"
+     ],
+     "volume_A3": 39.401877693982705
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "Si_relajado.cif",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.3762402789998305,
+   "user_s": 0.305658,
+   "sys_s": 0.042089999999999995,
+   "max_rss_kb": 78744,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "pymatgen.io.pwscf.PWInput",
+    "roundtrip": {
+     "bytes": 623,
+     "cell": [
+      [
+       3.307815,
+       0.0,
+       1.909768
+      ],
+      [
+       1.102605,
+       3.118638,
+       1.909768
+      ],
+      [
+       0.0,
+       0.0,
+       3.819536
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      4,
+      4,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 2,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "Si": "Si.pbe-n-rrkjus_psl.1.0.0.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.25000000000000006,
+       0.24999999999999997,
+       0.25
+      ]
+     ],
+     "symbols": [
+      "Si",
+      "Si"
+     ],
+     "volume_A3": 39.40186569661943
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "Si_relajado.cif",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.5278139190004367,
+   "user_s": 0.476556,
+   "sys_s": 0.050058,
+   "max_rss_kb": 81196,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "ase.io.write(format='espresso-in')",
+    "roundtrip": {
+     "bytes": 835,
+     "cell": [
+      [
+       3.8195362735285,
+       0.0,
+       0.0
+      ],
+      [
+       1.90976813676425,
+       3.30781544355183,
+       0.0
+      ],
+      [
+       1.90976813676425,
+       1.10260514785061,
+       3.11863830806545
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      4,
+      4,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 2,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "Si": "Si.pbe-n-rrkjus_psl.1.0.0.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.250000000003643,
+       0.2500000000166802,
+       0.24999999999475334
+      ]
+     ],
+     "symbols": [
+      "Si",
+      "Si"
+     ],
+     "volume_A3": 39.401877693982705
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "Si_relajado.cif",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.537851647000025,
+   "user_s": 0.48732299999999995,
+   "sys_s": 0.043028,
+   "max_rss_kb": 78812,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "pymatgen.io.pwscf.PWInput",
+    "roundtrip": {
+     "bytes": 623,
+     "cell": [
+      [
+       3.307815,
+       0.0,
+       1.909768
+      ],
+      [
+       1.102605,
+       3.118638,
+       1.909768
+      ],
+      [
+       0.0,
+       0.0,
+       3.819536
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      4,
+      4,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 2,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "Si": "Si.pbe-n-rrkjus_psl.1.0.0.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.25000000000000006,
+       0.24999999999999997,
+       0.25
+      ]
+     ],
+     "symbols": [
+      "Si",
+      "Si"
+     ],
+     "volume_A3": 39.40186569661943
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "Si_relajado.cif",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.2227589479998642,
+   "user_s": 1.115749,
+   "sys_s": 0.100977,
+   "max_rss_kb": 100752,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "cli gen --kgrid 4 4 4",
+    "roundtrip": {
+     "bytes": 878,
+     "cell": [
+      [
+       3.8195362735,
+       0.0,
+       0.0
+      ],
+      [
+       1.9097681368,
+       3.3078154436,
+       0.0
+      ],
+      [
+       1.9097681368,
+       1.1026051479,
+       3.1186383081
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      4,
+      4,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 2,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "Si": "Si.pbe-n-rrkjus_psl.1.0.0.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.24999999999999997,
+       0.25,
+       0.25
+      ]
+     ],
+     "symbols": [
+      "Si",
+      "Si"
+     ],
+     "volume_A3": 39.40187769469898
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "ZnO.cif",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.6921726869995837,
+   "user_s": 0.613169,
+   "sys_s": 0.070019,
+   "max_rss_kb": 99972,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "cli gen --kgrid 6 6 4",
+    "roundtrip": {
+     "bytes": 1006,
+     "cell": [
+      [
+       3.2495,
+       0.0,
+       0.0
+      ],
+      [
+       -1.62475,
+       2.8141495496,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       5.2069
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      6,
+      6,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 4,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "O": "O.pbe-kjpaw.UPF",
+      "Zn": "Zn_pbe_v1.uspp.F.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.3333333333,
+       0.6666666667,
+       0.1201764879
+      ],
+      [
+       0.3333333333,
+       0.6666666667,
+       0.5
+      ],
+      [
+       0.0,
+       0.0,
+       0.6201764879
+      ]
+     ],
+     "symbols": [
+      "Zn",
+      "O",
+      "Zn",
+      "O"
+     ],
+     "volume_A3": 47.61490819424488
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "ZnO.cif",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.49700291200042557,
+   "user_s": 0.437021,
+   "sys_s": 0.051002,
+   "max_rss_kb": 81168,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "ase.io.write(format='espresso-in')",
+    "roundtrip": {
+     "bytes": 939,
+     "cell": [
+      [
+       3.2495,
+       0.0,
+       0.0
+      ],
+      [
+       -1.62475,
+       2.81414954959753,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       5.2069
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      6,
+      6,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 4,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "O": "O.pbe-kjpaw.UPF",
+      "Zn": "Zn_pbe_v1.uspp.F.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.33333333332770343,
+       0.6666666666554069,
+       0.12017648789106762
+      ],
+      [
+       0.33333333332770343,
+       0.6666666666554069,
+       0.5
+      ],
+      [
+       0.0,
+       0.0,
+       0.6201764878910676
+      ]
+     ],
+     "symbols": [
+      "Zn",
+      "O",
+      "Zn",
+      "O"
+     ],
+     "volume_A3": 47.614908194203096
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "ZnO.cif",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.5080265630003851,
+   "user_s": 0.44681299999999996,
+   "sys_s": 0.054977,
+   "max_rss_kb": 78672,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "pymatgen.io.pwscf.PWInput",
+    "roundtrip": {
+     "bytes": 706,
+     "cell": [
+      [
+       3.2495,
+       0.0,
+       0.0
+      ],
+      [
+       -1.62475,
+       2.81415,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       5.2069
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      6,
+      6,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 4,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "O": "O.pbe-kjpaw.UPF",
+      "Zn": "Zn_pbe_v1.uspp.F.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.33333300000000005,
+       0.6666670000000001,
+       0.5
+      ],
+      [
+       0.33333300000000005,
+       0.6666670000000001,
+       0.120176
+      ],
+      [
+       0.0,
+       0.0,
+       0.620176
+      ]
+     ],
+     "symbols": [
+      "Zn",
+      "Zn",
+      "O",
+      "O"
+     ],
+     "volume_A3": 47.6149158149325
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "ZnO.cif",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.1692397059996438,
+   "user_s": 1.043507,
+   "sys_s": 0.11694399999999999,
+   "max_rss_kb": 100112,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "cli gen --kgrid 6 6 4",
+    "roundtrip": {
+     "bytes": 1006,
+     "cell": [
+      [
+       3.2495,
+       0.0,
+       0.0
+      ],
+      [
+       -1.62475,
+       2.8141495496,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       5.2069
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      6,
+      6,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 4,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "O": "O.pbe-kjpaw.UPF",
+      "Zn": "Zn_pbe_v1.uspp.F.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.3333333333,
+       0.6666666667,
+       0.1201764879
+      ],
+      [
+       0.3333333333,
+       0.6666666667,
+       0.5
+      ],
+      [
+       0.0,
+       0.0,
+       0.6201764879
+      ]
+     ],
+     "symbols": [
+      "Zn",
+      "O",
+      "Zn",
+      "O"
+     ],
+     "volume_A3": 47.61490819424488
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "ZnO.cif",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.4973975579996477,
+   "user_s": 0.438965,
+   "sys_s": 0.057995,
+   "max_rss_kb": 78876,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "pymatgen.io.pwscf.PWInput",
+    "roundtrip": {
+     "bytes": 706,
+     "cell": [
+      [
+       3.2495,
+       0.0,
+       0.0
+      ],
+      [
+       -1.62475,
+       2.81415,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       5.2069
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      6,
+      6,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 4,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "O": "O.pbe-kjpaw.UPF",
+      "Zn": "Zn_pbe_v1.uspp.F.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.33333300000000005,
+       0.6666670000000001,
+       0.5
+      ],
+      [
+       0.33333300000000005,
+       0.6666670000000001,
+       0.120176
+      ],
+      [
+       0.0,
+       0.0,
+       0.620176
+      ]
+     ],
+     "symbols": [
+      "Zn",
+      "Zn",
+      "O",
+      "O"
+     ],
+     "volume_A3": 47.6149158149325
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "inputgen",
+   "input": "ZnO.cif",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.6684263180004564,
+   "user_s": 0.607618,
+   "sys_s": 0.057058,
+   "max_rss_kb": 81216,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "file": "/home/jorge/GITHUB/olla-dft-bench/results/20260904-154049/work/gen/scf.in",
+    "rc": 0,
+    "via": "ase.io.write(format='espresso-in')",
+    "roundtrip": {
+     "bytes": 939,
+     "cell": [
+      [
+       3.2495,
+       0.0,
+       0.0
+      ],
+      [
+       -1.62475,
+       2.81414954959753,
+       0.0
+      ],
+      [
+       0.0,
+       0.0,
+       5.2069
+      ]
+     ],
+     "ecutrho": 240,
+     "ecutwfc": 30,
+     "kgrid": [
+      6,
+      6,
+      4
+     ],
+     "kshift": [
+      0,
+      0,
+      0
+     ],
+     "natoms": 4,
+     "occupations": "fixed",
+     "pseudopotentials": {
+      "O": "O.pbe-kjpaw.UPF",
+      "Zn": "Zn_pbe_v1.uspp.F.UPF"
+     },
+     "scaled_positions": [
+      [
+       0.0,
+       0.0,
+       0.0
+      ],
+      [
+       0.33333333332770343,
+       0.6666666666554069,
+       0.12017648789106762
+      ],
+      [
+       0.33333333332770343,
+       0.6666666666554069,
+       0.5
+      ],
+      [
+       0.0,
+       0.0,
+       0.6201764878910676
+      ]
+     ],
+     "symbols": [
+      "Zn",
+      "O",
+      "Zn",
+      "O"
+     ],
+     "volume_A3": 47.614908194203096
+    }
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.6905129259994283,
+   "user_s": 0.625632,
+   "sys_s": 0.060964,
+   "max_rss_kb": 99344,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "Γ"
+    ],
+    "path": [
+     "Γ-X-U",
+     "K-Γ-L-W-X"
+    ],
+    "point_coords": {
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "seekpath",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.518216652000774,
+   "user_s": 0.46083199999999996,
+   "sys_s": 0.05298,
+   "max_rss_kb": 82748,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "GAMMA",
+     "K",
+     "L",
+     "U",
+     "W",
+     "W_2",
+     "X"
+    ],
+    "path": [
+     "GAMMA-X",
+     "X-U",
+     "K-GAMMA",
+     "GAMMA-L",
+     "L-W",
+     "W-X"
+    ],
+    "point_coords": {
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "W_2": [
+      0.75,
+      0.25,
+      0.5
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ]
+    },
+    "spacegroup": 227,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.4990986780003368,
+   "user_s": 0.435625,
+   "sys_s": 0.052073999999999995,
+   "max_rss_kb": 83588,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "G",
+     "K",
+     "L",
+     "U",
+     "W",
+     "X"
+    ],
+    "path": [
+     "GXWKGLUWLK,UX"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.6209782930000074,
+   "user_s": 0.514853,
+   "sys_s": 0.061742,
+   "max_rss_kb": 90392,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-X-W-K-\\Gamma-L-U-W-L-K",
+     "U-X"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.558825416000218,
+   "user_s": 0.503613,
+   "sys_s": 0.052063,
+   "max_rss_kb": 83720,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "G",
+     "K",
+     "L",
+     "U",
+     "W",
+     "X"
+    ],
+    "path": [
+     "GXWKGLUWLK,UX"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.6002563409992945,
+   "user_s": 0.541335,
+   "sys_s": 0.04903,
+   "max_rss_kb": 90272,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-X-W-K-\\Gamma-L-U-W-L-K",
+     "U-X"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.6602815730002476,
+   "user_s": 0.599484,
+   "sys_s": 0.052042,
+   "max_rss_kb": 99504,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "Γ"
+    ],
+    "path": [
+     "Γ-X-U",
+     "K-Γ-L-W-X"
+    ],
+    "point_coords": {
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "Si_relajado.cif",
+   "tool": "seekpath",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.49934811599996465,
+   "user_s": 0.457532,
+   "sys_s": 0.03896,
+   "max_rss_kb": 82460,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "GAMMA",
+     "K",
+     "L",
+     "U",
+     "W",
+     "W_2",
+     "X"
+    ],
+    "path": [
+     "GAMMA-X",
+     "X-U",
+     "K-GAMMA",
+     "GAMMA-L",
+     "L-W",
+     "W-X"
+    ],
+    "point_coords": {
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "W_2": [
+      0.75,
+      0.25,
+      0.5
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ]
+    },
+    "spacegroup": 227,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.8336066279998704,
+   "user_s": 0.7440479999999999,
+   "sys_s": 0.07900499999999999,
+   "max_rss_kb": 99572,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "Γ"
+    ],
+    "path": [
+     "Γ-M-K-Γ-A-L-H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "H": [
+      0.333333,
+      0.333333,
+      0.5
+     ],
+     "K": [
+      0.333333,
+      0.333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "seekpath",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.68025620500066,
+   "user_s": 0.6059709999999999,
+   "sys_s": 0.07299599999999999,
+   "max_rss_kb": 82576,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "GAMMA",
+     "H",
+     "H_2",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GAMMA-M",
+     "M-K",
+     "K-GAMMA",
+     "GAMMA-A",
+     "A-L",
+     "L-H",
+     "H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "H": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.5
+     ],
+     "H_2": [
+      0.3333333333333333,
+      0.3333333333333333,
+      -0.5
+     ],
+     "K": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "spacegroup": 186,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.7212342930006344,
+   "user_s": 0.634056,
+   "sys_s": 0.080007,
+   "max_rss_kb": 83820,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "G",
+     "H",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GMKGALHA,LM,KH"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.6403467029995227,
+   "user_s": 0.579491,
+   "sys_s": 0.06005,
+   "max_rss_kb": 90620,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-M-K-\\Gamma-A-L-H-A",
+     "L-M",
+     "K-H"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.5370903419998285,
+   "user_s": 0.480755,
+   "sys_s": 0.045975999999999996,
+   "max_rss_kb": 83660,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "G",
+     "H",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GMKGALHA,LM,KH"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.669012407000082,
+   "user_s": 0.607484,
+   "sys_s": 0.058046,
+   "max_rss_kb": 90612,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-M-K-\\Gamma-A-L-H-A",
+     "L-M",
+     "K-H"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.0463234199996805,
+   "user_s": 0.958012,
+   "sys_s": 0.085001,
+   "max_rss_kb": 99472,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "Γ"
+    ],
+    "path": [
+     "Γ-M-K-Γ-A-L-H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "H": [
+      0.333333,
+      0.333333,
+      0.5
+     ],
+     "K": [
+      0.333333,
+      0.333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "ZnO.cif",
+   "tool": "seekpath",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.8317874920003305,
+   "user_s": 0.7425959999999999,
+   "sys_s": 0.087952,
+   "max_rss_kb": 82480,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "GAMMA",
+     "H",
+     "H_2",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GAMMA-M",
+     "M-K",
+     "K-GAMMA",
+     "GAMMA-A",
+     "A-L",
+     "L-H",
+     "H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "H": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.5
+     ],
+     "H_2": [
+      0.3333333333333333,
+      0.3333333333333333,
+      -0.5
+     ],
+     "K": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "spacegroup": 186,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 1.015939210000397,
+   "user_s": 0.9254669999999999,
+   "sys_s": 0.082952,
+   "max_rss_kb": 99616,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "Γ"
+    ],
+    "path": [
+     "Γ-M-K-Γ-A-L-H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "H": [
+      0.333333,
+      0.333333,
+      0.5
+     ],
+     "K": [
+      0.333333,
+      0.333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "seekpath",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.791745880000235,
+   "user_s": 0.7136159999999999,
+   "sys_s": 0.067963,
+   "max_rss_kb": 82616,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "GAMMA",
+     "H",
+     "H_2",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GAMMA-M",
+     "M-K",
+     "K-GAMMA",
+     "GAMMA-A",
+     "A-L",
+     "L-H",
+     "H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "H": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.5
+     ],
+     "H_2": [
+      0.3333333333333333,
+      0.3333333333333333,
+      -0.5
+     ],
+     "K": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "spacegroup": 194,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 1.0038371580003513,
+   "user_s": 0.904103,
+   "sys_s": 0.09000999999999999,
+   "max_rss_kb": 83908,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "G",
+     "H",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GMKGALHA,LM,KH"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 1.56228770800044,
+   "user_s": 1.417864,
+   "sys_s": 0.136986,
+   "max_rss_kb": 90448,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-M-K-\\Gamma-A-L-H-A",
+     "L-M",
+     "K-H"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.0973742030000722,
+   "user_s": 0.9962529999999999,
+   "sys_s": 0.094928,
+   "max_rss_kb": 99424,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "Γ"
+    ],
+    "path": [
+     "Γ-M-K-Γ-A-L-H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "H": [
+      0.333333,
+      0.333333,
+      0.5
+     ],
+     "K": [
+      0.333333,
+      0.333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "seekpath",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.8124135300004127,
+   "user_s": 0.735988,
+   "sys_s": 0.06999799999999999,
+   "max_rss_kb": 82696,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "GAMMA",
+     "H",
+     "H_2",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GAMMA-M",
+     "M-K",
+     "K-GAMMA",
+     "GAMMA-A",
+     "A-L",
+     "L-H",
+     "H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "H": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.5
+     ],
+     "H_2": [
+      0.3333333333333333,
+      0.3333333333333333,
+      -0.5
+     ],
+     "K": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "spacegroup": 194,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.8229597350000404,
+   "user_s": 0.7599309999999999,
+   "sys_s": 0.057918,
+   "max_rss_kb": 90532,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-M-K-\\Gamma-A-L-H-A",
+     "L-M",
+     "K-H"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "grafito.cif",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.7713484980004068,
+   "user_s": 0.697368,
+   "sys_s": 0.066939,
+   "max_rss_kb": 83656,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "G",
+     "H",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GMKGALHA,LM,KH"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 1.0435802849997344,
+   "user_s": 0.957263,
+   "sys_s": 0.08176599999999999,
+   "max_rss_kb": 99472,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "Γ"
+    ],
+    "path": [
+     "Γ-M-K-Γ-A-L-H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "H": [
+      0.333333,
+      0.333333,
+      0.5
+     ],
+     "K": [
+      0.333333,
+      0.333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "seekpath",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.7501357279998047,
+   "user_s": 0.674299,
+   "sys_s": 0.073032,
+   "max_rss_kb": 82596,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "GAMMA",
+     "H",
+     "H_2",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GAMMA-M",
+     "M-K",
+     "K-GAMMA",
+     "GAMMA-A",
+     "A-L",
+     "L-H",
+     "H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "H": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.5
+     ],
+     "H_2": [
+      0.3333333333333333,
+      0.3333333333333333,
+      -0.5
+     ],
+     "K": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "spacegroup": 194,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.7613956529994539,
+   "user_s": 0.678643,
+   "sys_s": 0.076959,
+   "max_rss_kb": 83888,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "G",
+     "H",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GMKGALHA,LM,KH"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.8536895159995765,
+   "user_s": 0.785759,
+   "sys_s": 0.06498,
+   "max_rss_kb": 90752,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-M-K-\\Gamma-A-L-H-A",
+     "L-M",
+     "K-H"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.2429772450004748,
+   "user_s": 1.147416,
+   "sys_s": 0.09095299999999999,
+   "max_rss_kb": 90504,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-M-K-\\Gamma-A-L-H-A",
+     "L-M",
+     "K-H"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "seekpath",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.317267057999743,
+   "user_s": 1.185678,
+   "sys_s": 0.12296599999999999,
+   "max_rss_kb": 82716,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "GAMMA",
+     "H",
+     "H_2",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GAMMA-M",
+     "M-K",
+     "K-GAMMA",
+     "GAMMA-A",
+     "A-L",
+     "L-H",
+     "H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "H": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.5
+     ],
+     "H_2": [
+      0.3333333333333333,
+      0.3333333333333333,
+      -0.5
+     ],
+     "K": [
+      0.3333333333333333,
+      0.3333333333333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "spacegroup": 194,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.2666090390002864,
+   "user_s": 1.131461,
+   "sys_s": 0.12505,
+   "max_rss_kb": 99548,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "A",
+     "H",
+     "K",
+     "L",
+     "M",
+     "Γ"
+    ],
+    "path": [
+     "Γ-M-K-Γ-A-L-H-A",
+     "L-M",
+     "H-K"
+    ],
+    "point_coords": {
+     "A": [
+      0.0,
+      0.0,
+      0.5
+     ],
+     "H": [
+      0.333333,
+      0.333333,
+      0.5
+     ],
+     "K": [
+      0.333333,
+      0.333333,
+      0.0
+     ],
+     "L": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "M": [
+      0.5,
+      0.0,
+      0.0
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "hbn.cif",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.0015895670003374,
+   "user_s": 0.8938609999999999,
+   "sys_s": 0.10498299999999999,
+   "max_rss_kb": 83776,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "A",
+     "G",
+     "H",
+     "K",
+     "L",
+     "M"
+    ],
+    "path": [
+     "GMKGALHA,LM,KH"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.9049977630002104,
+   "user_s": 0.81636,
+   "sys_s": 0.083036,
+   "max_rss_kb": 99280,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "Γ"
+    ],
+    "path": [
+     "Γ-X-U",
+     "K-Γ-L-W-X"
+    ],
+    "point_coords": {
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "seekpath",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.5378196450001269,
+   "user_s": 0.485957,
+   "sys_s": 0.050995,
+   "max_rss_kb": 82048,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "GAMMA",
+     "K",
+     "L",
+     "U",
+     "W",
+     "W_2",
+     "X"
+    ],
+    "path": [
+     "GAMMA-X",
+     "X-U",
+     "K-GAMMA",
+     "GAMMA-L",
+     "L-W",
+     "W-X"
+    ],
+    "point_coords": {
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "W_2": [
+      0.75,
+      0.25,
+      0.5
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ]
+    },
+    "spacegroup": 225,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.5677157709997118,
+   "user_s": 0.508645,
+   "sys_s": 0.054960999999999996,
+   "max_rss_kb": 83340,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "G",
+     "M",
+     "R",
+     "X"
+    ],
+    "path": [
+     "GXMGRX,MR"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 1.4542464850001124,
+   "user_s": 1.298886,
+   "sys_s": 0.097216,
+   "max_rss_kb": 133336,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-X-W-K-\\Gamma-L-U-W-L-K",
+     "U-X"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "seekpath",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.112674140999843,
+   "user_s": 1.012784,
+   "sys_s": 0.093979,
+   "max_rss_kb": 82236,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "GAMMA",
+     "K",
+     "L",
+     "U",
+     "W",
+     "W_2",
+     "X"
+    ],
+    "path": [
+     "GAMMA-X",
+     "X-U",
+     "K-GAMMA",
+     "GAMMA-L",
+     "L-W",
+     "W-X"
+    ],
+    "point_coords": {
+     "GAMMA": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "W_2": [
+      0.75,
+      0.25,
+      0.5
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ]
+    },
+    "spacegroup": 225,
+    "via": "seekpath.get_path (HPKOT)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 2.0530402060003325,
+   "user_s": 1.909347,
+   "sys_s": 0.138952,
+   "max_rss_kb": 133716,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "\\Gamma"
+    ],
+    "path": [
+     "\\Gamma-X-W-K-\\Gamma-L-U-W-L-K",
+     "U-X"
+    ],
+    "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.0364691079994373,
+   "user_s": 0.93828,
+   "sys_s": 0.087932,
+   "max_rss_kb": 83376,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "Setyawan-Curtarolo",
+    "labels": [
+     "G",
+     "M",
+     "R",
+     "X"
+    ],
+    "path": [
+     "GXMGRX,MR"
+    ],
+    "via": "ase Cell.bandpath()"
+   },
+   "stderr_tail": "",
+   "correct": null,
+   "comparable": false,
+   "detail": "different convention; not compared with HPKOT"
+  },
+  {
+   "task": "kpath",
+   "input": "POSCAR_NaCl",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 1.179082321000351,
+   "user_s": 1.081226,
+   "sys_s": 0.090018,
+   "max_rss_kb": 99560,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "convention": "HPKOT",
+    "labels": [
+     "K",
+     "L",
+     "U",
+     "W",
+     "X",
+     "Γ"
+    ],
+    "path": [
+     "Γ-X-U",
+     "K-Γ-L-W-X"
+    ],
+    "point_coords": {
+     "K": [
+      0.375,
+      0.375,
+      0.75
+     ],
+     "L": [
+      0.5,
+      0.5,
+      0.5
+     ],
+     "U": [
+      0.625,
+      0.25,
+      0.625
+     ],
+     "W": [
+      0.5,
+      0.25,
+      0.75
+     ],
+     "X": [
+      0.5,
+      0.0,
+      0.5
+     ],
+     "Γ": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    "rc": 0,
+    "via": "cli kpath"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "HPKOT segments and coordinates match"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.6410548389994801,
+   "user_s": 0.568124,
+   "sys_s": 0.053916,
+   "max_rss_kb": 53188,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "cbm_eV": 6.8275,
+    "gap_eV": 0.6155,
+    "raw": "--- Análisis de band gap ---\nArchivo XML: /tmp/ollad_gap_82115dee/Si.xml\nCálculo: scf  |  bandas: 8  |  puntos k: 29  |  electrones: 8\nEnergía de Fermi: 6.2120 eV\n\n  Band gap fundamental: 0.6155 eV  (INDIRECTO)\n    VBM = 6.2120 eV  en  (0.000, 0.000, 0.000)\n    CBM = 6.8275 eV  en  (0.000, 0.375, 0.375)\n  Gap directo mínimo: 2.5627 eV  en  (0.000, 0.000, 0.000)\n\nRecuerda: los funcionales GGA/LDA subestiman el gap sistemáticamente (típicamente 30–50 %).\n",
+    "rc": 0,
+    "vbm_eV": 6.212,
+    "via": "cli gap"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "gap 0.6155 eV vs ref 0.6155 eV; VBM/CBM checked"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "qeschema",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.7279864610000004,
+   "user_s": 0.660976,
+   "sys_s": 0.03888,
+   "max_rss_kb": 49248,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "cbm_eV": 6.82752906628028,
+    "gap_eV": 0.6155421137080532,
+    "vbm_eV": 6.211986952572227,
+    "via": "qeschema.PwDocument + numpy (VBM/CBM from eigenvalues)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "gap 0.6155421137080532 eV vs ref 0.6155 eV; VBM/CBM checked"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 1.1022426949994042,
+   "user_s": 0.975192,
+   "sys_s": 0.115904,
+   "max_rss_kb": 79696,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "ASE reads pw.x text output (espresso-out), not the data-file-schema XML",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "ASE reads pw.x text output (espresso-out), not the data-file-schema XML"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.3940960580002866,
+   "user_s": 0.34702099999999997,
+   "sys_s": 0.036002,
+   "max_rss_kb": 40900,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.42017957900043257,
+   "user_s": 0.36902399999999996,
+   "sys_s": 0.047002999999999996,
+   "max_rss_kb": 40916,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.8516996899998048,
+   "user_s": 0.752656,
+   "sys_s": 0.089958,
+   "max_rss_kb": 79848,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "ASE reads pw.x text output (espresso-out), not the data-file-schema XML",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "ASE reads pw.x text output (espresso-out), not the data-file-schema XML"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "qeschema",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.9735884490000899,
+   "user_s": 0.9309499999999999,
+   "sys_s": 0.032998,
+   "max_rss_kb": 49148,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "cbm_eV": 6.82752906628028,
+    "gap_eV": 0.6155421137080532,
+    "vbm_eV": 6.211986952572227,
+    "via": "qeschema.PwDocument + numpy (VBM/CBM from eigenvalues)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "gap 0.6155421137080532 eV vs ref 0.6155 eV; VBM/CBM checked"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.xml",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.46752152599947294,
+   "user_s": 0.418029,
+   "sys_s": 0.047002999999999996,
+   "max_rss_kb": 53116,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "cbm_eV": 6.8275,
+    "gap_eV": 0.6155,
+    "raw": "--- Análisis de band gap ---\nArchivo XML: /tmp/ollad_gap_vme5pb6a/Si.xml\nCálculo: scf  |  bandas: 8  |  puntos k: 29  |  electrones: 8\nEnergía de Fermi: 6.2120 eV\n\n  Band gap fundamental: 0.6155 eV  (INDIRECTO)\n    VBM = 6.2120 eV  en  (0.000, 0.000, 0.000)\n    CBM = 6.8275 eV  en  (0.000, 0.375, 0.375)\n  Gap directo mínimo: 2.5627 eV  en  (0.000, 0.000, 0.000)\n\nRecuerda: los funcionales GGA/LDA subestiman el gap sistemáticamente (típicamente 30–50 %).\n",
+    "rc": 0,
+    "vbm_eV": 6.212,
+    "via": "cli gap"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "gap 0.6155 eV vs ref 0.6155 eV; VBM/CBM checked"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "olla-dft",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.051716662000217184,
+   "user_s": 0.031730999999999995,
+   "sys_s": 0.013881999999999999,
+   "max_rss_kb": 21020,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "`olla-dft gap` reads the data-file-schema XML, not the pw.x text output",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "`olla-dft gap` reads the data-file-schema XML, not the pw.x text output"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "qeschema",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.1432068949998211,
+   "user_s": 0.11087599999999999,
+   "sys_s": 0.021974999999999998,
+   "max_rss_kb": 26288,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "qeschema reads the data-file-schema XML, not the text output",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "qeschema reads the data-file-schema XML, not the text output"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "ase",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.7631675389993688,
+   "user_s": 0.6927949999999999,
+   "sys_s": 0.063981,
+   "max_rss_kb": 79840,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "cbm_eV": 6.8275,
+    "gap_eV": 0.6154999999999999,
+    "vbm_eV": 6.212,
+    "via": "ase.io.read(espresso-out): eigenvalues + reported Fermi/HOMO level; VBM/CBM by comparison (ase.dft.bandgap returns 0 when the level equals the VBM)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "gap 0.6154999999999999 eV vs ref 0.6155 eV; VBM/CBM checked"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "pymatgen",
+   "rep": -1,
+   "warmup": true,
+   "wall_s": 0.295360103999883,
+   "user_s": 0.256515,
+   "sys_s": 0.033066,
+   "max_rss_kb": 40772,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "qeschema",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.1431766810001136,
+   "user_s": 0.125584,
+   "sys_s": 0.012957,
+   "max_rss_kb": 26300,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "qeschema reads the data-file-schema XML, not the text output",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "qeschema reads the data-file-schema XML, not the text output"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "olla-dft",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.061826156999813975,
+   "user_s": 0.03846,
+   "sys_s": 0.012145,
+   "max_rss_kb": 21020,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "`olla-dft gap` reads the data-file-schema XML, not the pw.x text output",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "`olla-dft gap` reads the data-file-schema XML, not the pw.x text output"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "ase",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.7911560399998052,
+   "user_s": 0.714591,
+   "sys_s": 0.074957,
+   "max_rss_kb": 80008,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "cbm_eV": 6.8275,
+    "gap_eV": 0.6154999999999999,
+    "vbm_eV": 6.212,
+    "via": "ase.io.read(espresso-out): eigenvalues + reported Fermi/HOMO level; VBM/CBM by comparison (ase.dft.bandgap returns 0 when the level equals the VBM)"
+   },
+   "stderr_tail": "",
+   "correct": true,
+   "comparable": true,
+   "detail": "gap 0.6154999999999999 eV vs ref 0.6155 eV; VBM/CBM checked"
+  },
+  {
+   "task": "bandgap",
+   "input": "Si_scf.out",
+   "tool": "pymatgen",
+   "rep": 0,
+   "warmup": false,
+   "wall_s": 0.28514626900050644,
+   "user_s": 0.24765199999999998,
+   "sys_s": 0.034949999999999995,
+   "max_rss_kb": 40916,
+   "returncode": 0,
+   "timed_out": false,
+   "payload": {
+    "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser",
+    "unsupported": true
+   },
+   "stderr_tail": "",
+   "unsupported": true,
+   "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser"
+  }
+ ],
+ "e2e": {},
+ "summary": {
+  "inputgen": {
+   "Si_relajado.cif": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.2227589479998642,
+      "min": 1.2227589479998642,
+      "max": 1.2227589479998642,
+      "iqr": 0.0,
+      "mean": 1.2227589479998642,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.2167260000000002,
+      "min": 1.2167260000000002,
+      "max": 1.2167260000000002,
+      "iqr": 0.0,
+      "mean": 1.2167260000000002,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 98.390625,
+      "min": 98.390625,
+      "max": 98.390625,
+      "iqr": 0.0,
+      "mean": 98.390625,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match",
+     "via": "cli gen --kgrid 4 4 4"
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.5278139190004367,
+      "min": 0.5278139190004367,
+      "max": 0.5278139190004367,
+      "iqr": 0.0,
+      "mean": 0.5278139190004367,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.526614,
+      "min": 0.526614,
+      "max": 0.526614,
+      "iqr": 0.0,
+      "mean": 0.526614,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 79.29296875,
+      "min": 79.29296875,
+      "max": 79.29296875,
+      "iqr": 0.0,
+      "mean": 79.29296875,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match",
+     "via": "ase.io.write(format='espresso-in')"
+    },
+    "pymatgen": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.537851647000025,
+      "min": 0.537851647000025,
+      "max": 0.537851647000025,
+      "iqr": 0.0,
+      "mean": 0.537851647000025,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.5303509999999999,
+      "min": 0.5303509999999999,
+      "max": 0.5303509999999999,
+      "iqr": 0.0,
+      "mean": 0.5303509999999999,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 76.96484375,
+      "min": 76.96484375,
+      "max": 76.96484375,
+      "iqr": 0.0,
+      "mean": 76.96484375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match",
+     "via": "pymatgen.io.pwscf.PWInput"
+    }
+   },
+   "ZnO.cif": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.1692397059996438,
+      "min": 1.1692397059996438,
+      "max": 1.1692397059996438,
+      "iqr": 0.0,
+      "mean": 1.1692397059996438,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.160451,
+      "min": 1.160451,
+      "max": 1.160451,
+      "iqr": 0.0,
+      "mean": 1.160451,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 97.765625,
+      "min": 97.765625,
+      "max": 97.765625,
+      "iqr": 0.0,
+      "mean": 97.765625,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match",
+     "via": "cli gen --kgrid 6 6 4"
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.6684263180004564,
+      "min": 0.6684263180004564,
+      "max": 0.6684263180004564,
+      "iqr": 0.0,
+      "mean": 0.6684263180004564,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.664676,
+      "min": 0.664676,
+      "max": 0.664676,
+      "iqr": 0.0,
+      "mean": 0.664676,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 79.3125,
+      "min": 79.3125,
+      "max": 79.3125,
+      "iqr": 0.0,
+      "mean": 79.3125,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match",
+     "via": "ase.io.write(format='espresso-in')"
+    },
+    "pymatgen": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.4973975579996477,
+      "min": 0.4973975579996477,
+      "max": 0.4973975579996477,
+      "iqr": 0.0,
+      "mean": 0.4973975579996477,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.49696,
+      "min": 0.49696,
+      "max": 0.49696,
+      "iqr": 0.0,
+      "mean": 0.49696,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 77.02734375,
+      "min": 77.02734375,
+      "max": 77.02734375,
+      "iqr": 0.0,
+      "mean": 77.02734375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "geometry, species, pseudos, grid/shift, occupations and cutoffs match",
+     "via": "pymatgen.io.pwscf.PWInput"
+    }
+   }
+  },
+  "kpath": {
+   "Si_relajado.cif": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.6602815730002476,
+      "min": 0.6602815730002476,
+      "max": 0.6602815730002476,
+      "iqr": 0.0,
+      "mean": 0.6602815730002476,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.651526,
+      "min": 0.651526,
+      "max": 0.651526,
+      "iqr": 0.0,
+      "mean": 0.651526,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 97.171875,
+      "min": 97.171875,
+      "max": 97.171875,
+      "iqr": 0.0,
+      "mean": 97.171875,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "cli kpath"
+    },
+    "seekpath": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.49934811599996465,
+      "min": 0.49934811599996465,
+      "max": 0.49934811599996465,
+      "iqr": 0.0,
+      "mean": 0.49934811599996465,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.496492,
+      "min": 0.496492,
+      "max": 0.496492,
+      "iqr": 0.0,
+      "mean": 0.496492,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 80.52734375,
+      "min": 80.52734375,
+      "max": 80.52734375,
+      "iqr": 0.0,
+      "mean": 80.52734375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "seekpath.get_path (HPKOT)"
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.558825416000218,
+      "min": 0.558825416000218,
+      "max": 0.558825416000218,
+      "iqr": 0.0,
+      "mean": 0.558825416000218,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.555676,
+      "min": 0.555676,
+      "max": 0.555676,
+      "iqr": 0.0,
+      "mean": 0.555676,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 81.7578125,
+      "min": 81.7578125,
+      "max": 81.7578125,
+      "iqr": 0.0,
+      "mean": 81.7578125,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "ase Cell.bandpath()"
+    },
+    "pymatgen": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.6002563409992945,
+      "min": 0.6002563409992945,
+      "max": 0.6002563409992945,
+      "iqr": 0.0,
+      "mean": 0.6002563409992945,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.590365,
+      "min": 0.590365,
+      "max": 0.590365,
+      "iqr": 0.0,
+      "mean": 0.590365,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 88.15625,
+      "min": 88.15625,
+      "max": 88.15625,
+      "iqr": 0.0,
+      "mean": 88.15625,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+    }
+   },
+   "ZnO.cif": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.0463234199996805,
+      "min": 1.0463234199996805,
+      "max": 1.0463234199996805,
+      "iqr": 0.0,
+      "mean": 1.0463234199996805,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.043013,
+      "min": 1.043013,
+      "max": 1.043013,
+      "iqr": 0.0,
+      "mean": 1.043013,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 97.140625,
+      "min": 97.140625,
+      "max": 97.140625,
+      "iqr": 0.0,
+      "mean": 97.140625,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "cli kpath"
+    },
+    "seekpath": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.8317874920003305,
+      "min": 0.8317874920003305,
+      "max": 0.8317874920003305,
+      "iqr": 0.0,
+      "mean": 0.8317874920003305,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.830548,
+      "min": 0.830548,
+      "max": 0.830548,
+      "iqr": 0.0,
+      "mean": 0.830548,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 80.546875,
+      "min": 80.546875,
+      "max": 80.546875,
+      "iqr": 0.0,
+      "mean": 80.546875,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "seekpath.get_path (HPKOT)"
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.5370903419998285,
+      "min": 0.5370903419998285,
+      "max": 0.5370903419998285,
+      "iqr": 0.0,
+      "mean": 0.5370903419998285,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.526731,
+      "min": 0.526731,
+      "max": 0.526731,
+      "iqr": 0.0,
+      "mean": 0.526731,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 81.69921875,
+      "min": 81.69921875,
+      "max": 81.69921875,
+      "iqr": 0.0,
+      "mean": 81.69921875,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "ase Cell.bandpath()"
+    },
+    "pymatgen": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.669012407000082,
+      "min": 0.669012407000082,
+      "max": 0.669012407000082,
+      "iqr": 0.0,
+      "mean": 0.669012407000082,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.6655300000000001,
+      "min": 0.6655300000000001,
+      "max": 0.6655300000000001,
+      "iqr": 0.0,
+      "mean": 0.6655300000000001,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 88.48828125,
+      "min": 88.48828125,
+      "max": 88.48828125,
+      "iqr": 0.0,
+      "mean": 88.48828125,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+    }
+   },
+   "grafito.cif": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.0973742030000722,
+      "min": 1.0973742030000722,
+      "max": 1.0973742030000722,
+      "iqr": 0.0,
+      "mean": 1.0973742030000722,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.091181,
+      "min": 1.091181,
+      "max": 1.091181,
+      "iqr": 0.0,
+      "mean": 1.091181,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 97.09375,
+      "min": 97.09375,
+      "max": 97.09375,
+      "iqr": 0.0,
+      "mean": 97.09375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "cli kpath"
+    },
+    "seekpath": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.8124135300004127,
+      "min": 0.8124135300004127,
+      "max": 0.8124135300004127,
+      "iqr": 0.0,
+      "mean": 0.8124135300004127,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.805986,
+      "min": 0.805986,
+      "max": 0.805986,
+      "iqr": 0.0,
+      "mean": 0.805986,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 80.7578125,
+      "min": 80.7578125,
+      "max": 80.7578125,
+      "iqr": 0.0,
+      "mean": 80.7578125,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "seekpath.get_path (HPKOT)"
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.7713484980004068,
+      "min": 0.7713484980004068,
+      "max": 0.7713484980004068,
+      "iqr": 0.0,
+      "mean": 0.7713484980004068,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.764307,
+      "min": 0.764307,
+      "max": 0.764307,
+      "iqr": 0.0,
+      "mean": 0.764307,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 81.6953125,
+      "min": 81.6953125,
+      "max": 81.6953125,
+      "iqr": 0.0,
+      "mean": 81.6953125,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "ase Cell.bandpath()"
+    },
+    "pymatgen": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.8229597350000404,
+      "min": 0.8229597350000404,
+      "max": 0.8229597350000404,
+      "iqr": 0.0,
+      "mean": 0.8229597350000404,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.8178489999999999,
+      "min": 0.8178489999999999,
+      "max": 0.8178489999999999,
+      "iqr": 0.0,
+      "mean": 0.8178489999999999,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 88.41015625,
+      "min": 88.41015625,
+      "max": 88.41015625,
+      "iqr": 0.0,
+      "mean": 88.41015625,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+    }
+   },
+   "hbn.cif": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.2666090390002864,
+      "min": 1.2666090390002864,
+      "max": 1.2666090390002864,
+      "iqr": 0.0,
+      "mean": 1.2666090390002864,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.2565110000000002,
+      "min": 1.2565110000000002,
+      "max": 1.2565110000000002,
+      "iqr": 0.0,
+      "mean": 1.2565110000000002,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 97.21484375,
+      "min": 97.21484375,
+      "max": 97.21484375,
+      "iqr": 0.0,
+      "mean": 97.21484375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "cli kpath"
+    },
+    "seekpath": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.317267057999743,
+      "min": 1.317267057999743,
+      "max": 1.317267057999743,
+      "iqr": 0.0,
+      "mean": 1.317267057999743,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.308644,
+      "min": 1.308644,
+      "max": 1.308644,
+      "iqr": 0.0,
+      "mean": 1.308644,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 80.77734375,
+      "min": 80.77734375,
+      "max": 80.77734375,
+      "iqr": 0.0,
+      "mean": 80.77734375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "seekpath.get_path (HPKOT)"
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.0015895670003374,
+      "min": 1.0015895670003374,
+      "max": 1.0015895670003374,
+      "iqr": 0.0,
+      "mean": 1.0015895670003374,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.9988439999999998,
+      "min": 0.9988439999999998,
+      "max": 0.9988439999999998,
+      "iqr": 0.0,
+      "mean": 0.9988439999999998,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 81.8125,
+      "min": 81.8125,
+      "max": 81.8125,
+      "iqr": 0.0,
+      "mean": 81.8125,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "ase Cell.bandpath()"
+    },
+    "pymatgen": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.2429772450004748,
+      "min": 1.2429772450004748,
+      "max": 1.2429772450004748,
+      "iqr": 0.0,
+      "mean": 1.2429772450004748,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.238369,
+      "min": 1.238369,
+      "max": 1.238369,
+      "iqr": 0.0,
+      "mean": 1.238369,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 88.3828125,
+      "min": 88.3828125,
+      "max": 88.3828125,
+      "iqr": 0.0,
+      "mean": 88.3828125,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+    }
+   },
+   "POSCAR_NaCl": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.179082321000351,
+      "min": 1.179082321000351,
+      "max": 1.179082321000351,
+      "iqr": 0.0,
+      "mean": 1.179082321000351,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.171244,
+      "min": 1.171244,
+      "max": 1.171244,
+      "iqr": 0.0,
+      "mean": 1.171244,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 97.2265625,
+      "min": 97.2265625,
+      "max": 97.2265625,
+      "iqr": 0.0,
+      "mean": 97.2265625,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "cli kpath"
+    },
+    "seekpath": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.112674140999843,
+      "min": 1.112674140999843,
+      "max": 1.112674140999843,
+      "iqr": 0.0,
+      "mean": 1.112674140999843,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.106763,
+      "min": 1.106763,
+      "max": 1.106763,
+      "iqr": 0.0,
+      "mean": 1.106763,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 80.30859375,
+      "min": 80.30859375,
+      "max": 80.30859375,
+      "iqr": 0.0,
+      "mean": 80.30859375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "HPKOT segments and coordinates match",
+     "via": "seekpath.get_path (HPKOT)"
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 1.0364691079994373,
+      "min": 1.0364691079994373,
+      "max": 1.0364691079994373,
+      "iqr": 0.0,
+      "mean": 1.0364691079994373,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 1.026212,
+      "min": 1.026212,
+      "max": 1.026212,
+      "iqr": 0.0,
+      "mean": 1.026212,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 81.421875,
+      "min": 81.421875,
+      "max": 81.421875,
+      "iqr": 0.0,
+      "mean": 81.421875,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "ase Cell.bandpath()"
+    },
+    "pymatgen": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": false,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 2.0530402060003325,
+      "min": 2.0530402060003325,
+      "max": 2.0530402060003325,
+      "iqr": 0.0,
+      "mean": 2.0530402060003325,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 2.048299,
+      "min": 2.048299,
+      "max": 2.048299,
+      "iqr": 0.0,
+      "mean": 2.048299,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 130.58203125,
+      "min": 130.58203125,
+      "max": 130.58203125,
+      "iqr": 0.0,
+      "mean": 130.58203125,
+      "stdev": 0.0
+     },
+     "correct": [
+      false
+     ],
+     "detail": "different convention; not compared with HPKOT",
+     "via": "pymatgen HighSymmKpath(setyawan_curtarolo)"
+    }
+   }
+  },
+  "bandgap": {
+   "Si_scf.xml": {
+    "olla-dft": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.46752152599947294,
+      "min": 0.46752152599947294,
+      "max": 0.46752152599947294,
+      "iqr": 0.0,
+      "mean": 0.46752152599947294,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.465032,
+      "min": 0.465032,
+      "max": 0.465032,
+      "iqr": 0.0,
+      "mean": 0.465032,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 51.87109375,
+      "min": 51.87109375,
+      "max": 51.87109375,
+      "iqr": 0.0,
+      "mean": 51.87109375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "gap 0.6155 eV vs ref 0.6155 eV; VBM/CBM checked",
+     "via": "cli gap"
+    },
+    "qeschema": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.9735884490000899,
+      "min": 0.9735884490000899,
+      "max": 0.9735884490000899,
+      "iqr": 0.0,
+      "mean": 0.9735884490000899,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.9639479999999999,
+      "min": 0.9639479999999999,
+      "max": 0.9639479999999999,
+      "iqr": 0.0,
+      "mean": 0.9639479999999999,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 47.99609375,
+      "min": 47.99609375,
+      "max": 47.99609375,
+      "iqr": 0.0,
+      "mean": 47.99609375,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "gap 0.6155421137080532 eV vs ref 0.6155 eV; VBM/CBM checked",
+     "via": "qeschema.PwDocument + numpy (VBM/CBM from eigenvalues)"
+    },
+    "ase": {
+     "unsupported": true,
+     "n": 1,
+     "comparable": true,
+     "reason": "ASE reads pw.x text output (espresso-out), not the data-file-schema XML",
+     "failed": 0,
+     "wall_s": {
+      "n": 0
+     },
+     "cpu_s": {
+      "n": 0
+     },
+     "max_rss_mb": {
+      "n": 0
+     },
+     "correct": [],
+     "detail": null,
+     "via": null
+    },
+    "pymatgen": {
+     "unsupported": true,
+     "n": 1,
+     "comparable": true,
+     "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser",
+     "failed": 0,
+     "wall_s": {
+      "n": 0
+     },
+     "cpu_s": {
+      "n": 0
+     },
+     "max_rss_mb": {
+      "n": 0
+     },
+     "correct": [],
+     "detail": null,
+     "via": null
+    }
+   },
+   "Si_scf.out": {
+    "olla-dft": {
+     "unsupported": true,
+     "n": 1,
+     "comparable": true,
+     "reason": "`olla-dft gap` reads the data-file-schema XML, not the pw.x text output",
+     "failed": 0,
+     "wall_s": {
+      "n": 0
+     },
+     "cpu_s": {
+      "n": 0
+     },
+     "max_rss_mb": {
+      "n": 0
+     },
+     "correct": [],
+     "detail": null,
+     "via": null
+    },
+    "qeschema": {
+     "unsupported": true,
+     "n": 1,
+     "comparable": true,
+     "reason": "qeschema reads the data-file-schema XML, not the text output",
+     "failed": 0,
+     "wall_s": {
+      "n": 0
+     },
+     "cpu_s": {
+      "n": 0
+     },
+     "max_rss_mb": {
+      "n": 0
+     },
+     "correct": [],
+     "detail": null,
+     "via": null
+    },
+    "ase": {
+     "unsupported": false,
+     "n": 1,
+     "comparable": true,
+     "reason": null,
+     "failed": 0,
+     "wall_s": {
+      "n": 1,
+      "median": 0.7911560399998052,
+      "min": 0.7911560399998052,
+      "max": 0.7911560399998052,
+      "iqr": 0.0,
+      "mean": 0.7911560399998052,
+      "stdev": 0.0
+     },
+     "cpu_s": {
+      "n": 1,
+      "median": 0.7895479999999999,
+      "min": 0.7895479999999999,
+      "max": 0.7895479999999999,
+      "iqr": 0.0,
+      "mean": 0.7895479999999999,
+      "stdev": 0.0
+     },
+     "max_rss_mb": {
+      "n": 1,
+      "median": 78.1328125,
+      "min": 78.1328125,
+      "max": 78.1328125,
+      "iqr": 0.0,
+      "mean": 78.1328125,
+      "stdev": 0.0
+     },
+     "correct": [
+      true
+     ],
+     "detail": "gap 0.6154999999999999 eV vs ref 0.6155 eV; VBM/CBM checked",
+     "via": "ase.io.read(espresso-out): eigenvalues + reported Fermi/HOMO level; VBM/CBM by comparison (ase.dft.bandgap returns 0 when the level equals the VBM)"
+    },
+    "pymatgen": {
+     "unsupported": true,
+     "n": 1,
+     "comparable": true,
+     "reason": "pymatgen.io.pwscf.PWOutput parses energies only (no eigenvalues) and there is no XML parser",
+     "failed": 0,
+     "wall_s": {
+      "n": 0
+     },
+     "cpu_s": {
+      "n": 0
+     },
+     "max_rss_mb": {
+      "n": 0
+     },
+     "correct": [],
+     "detail": null,
+     "via": null
+    }
+   }
+  }
+ },
+ "artifacts_sha256": {
+  "artifacts/inputgen/Si_relajado.cif/ase/scf.in": "c085cef85992e5eff6a74f29fbc371a98c60d79d9a292bd88aed235d5f8af197",
+  "artifacts/inputgen/Si_relajado.cif/olla-dft/scf.in": "90ed017c1752ea20f88a651da3c9d2ae049c8c93569ceed8a7d24c4c4b0fe6e4",
+  "artifacts/inputgen/Si_relajado.cif/pymatgen/scf.in": "99c453c34a5b096dfda01614611329b742edeeae1a6cfe10f1349505ca37d95e",
+  "artifacts/inputgen/ZnO.cif/ase/scf.in": "4f48676c14caea8b097a80c4951f0689fb9aea985998cdaf2352f9f41bff8581",
+  "artifacts/inputgen/ZnO.cif/olla-dft/scf.in": "ccc4e64acc41cde347d78464225157fa58765618c60ba74b5e9d4e5431070745",
+  "artifacts/inputgen/ZnO.cif/pymatgen/scf.in": "ff364f6f804b7dd66f10009222ce39986b1b6462f0422539f0985dbf0a039c32"
+ },
+ "validation_errors": [],
+ "status": "complete"
+}
