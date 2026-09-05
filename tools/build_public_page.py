@@ -41,7 +41,7 @@ COPY = {
  'numeric':'Consultar la tabla de cifras',
  'take_title':'Llévate los ejemplos o empieza tu proyecto',
  'take_intro':'El PDF reúne las gráficas y sus condiciones. Si quieres trabajar con tus propios materiales, el repositorio explica cómo instalar la aplicación y preparar los cálculos.',
- 'pdf':'Descargar la galería PDF', 'install':'Ver cómo empezar con Olla-DFT', 'archive':'Ver la galería en Zenodo',
+ 'pdf':'Descargar la galería PDF', 'install':'Ver cómo empezar con Olla-DFT',
  'footer':'Olla-DFT · Jorge Enrique González Sevilla · Software libre', 'methods':'Métodos y datos originales', 'repo':'olla-dft-esp',
  'download_html':'Guardar el ejemplo para abrirlo sin conexión',
 },
@@ -80,7 +80,7 @@ COPY = {
  'numeric':'View the table of numbers',
  'take_title':'Take the examples with you or start a project',
  'take_intro':'The PDF collects the charts and their conditions. To work with your own materials, the repository explains how to install the application and prepare calculations.',
- 'pdf':'Download the PDF gallery', 'install':'See how to get started with Olla-DFT', 'archive':'View the gallery on Zenodo',
+ 'pdf':'Download the PDF gallery', 'install':'See how to get started with Olla-DFT',
  'footer':'Olla-DFT · Jorge Enrique González Sevilla · Free software', 'methods':'Methods and original data', 'repo':'olla-dft',
  'download_html':'Save the example to open it offline',
 }}
@@ -125,7 +125,7 @@ def render(folder):
 <details class="evidence"><summary>{c['evidence']}</summary><p>{c['figure_read']}</p><img loading="lazy" src="recovery-{lang}.png" alt="{esc(c['figure_read'])}"><p>{c['evidence_scope']}</p>
 <p class="downloads"><a href="recovery-{lang}.pdf">PDF</a><a href="recovery-{lang}.svg">SVG</a><a href="validation.csv">CSV</a><a href="validation.json">JSON</a></p>
 <details><summary>{c['numeric']}</summary><div class="scroll" tabindex="0" role="region" aria-label="{esc(c['numeric'])}"><table><thead><tr>{''.join('<th scope="col">'+esc(v)+'</th>' for v in c['columns'])}</tr></thead><tbody>{rows}</tbody></table></div></details></details></section>
-<section class="panel take"><h2>{c['take_title']}</h2><p>{c['take_intro']}</p><div class="actions"><a class="button" href="gallery/olla-dft-gallery-{lang}.pdf">{c['pdf']}</a><a class="button secondary" href="https://github.com/jorgegonzalezsevilla/{c['repo']}">{c['install']}</a></div><a href="https://zenodo.org/records/22315940">{c['archive']}</a></section>
+<section class="panel take"><h2>{c['take_title']}</h2><p>{c['take_intro']}</p><div class="actions"><a class="button" href="gallery/olla-dft-gallery-{lang}.pdf">{c['pdf']}</a><a class="button secondary" href="https://github.com/jorgegonzalezsevilla/{c['repo']}">{c['install']}</a></div></section>
 </main><footer><p>{c['footer']}</p><a href="https://github.com/jorgegonzalezsevilla/olla-dft-bench/tree/main/docs/publication-1.2.0">{c['methods']}</a></footer></body></html>
 '''
         (folder/('index.html' if lang=='es' else 'index-en.html')).write_text(page)

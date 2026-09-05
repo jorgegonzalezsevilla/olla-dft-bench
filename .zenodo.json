@@ -8,7 +8,7 @@
       "name": "González Sevilla, Jorge Enrique"
     }
   ],
-  "description": "<p>Reproducible benchmarks of Olla-DFT against ASE, pymatgen, seekpath and qeschema. Release 0.3.1 retains complete before/after runs for Olla 1.3.0 and 1.3.1, plus an interleaved comparison with identical dependencies, original inputs and unchanged numerical grading. It includes raw samples, package hashes, test evidence and an external model review of the proposed change.</p><p>The measurement engine remains 0.3.0; historical results retain their original protocol. Timings include command startup and imports on one consumer laptop with background load and turbo enabled. No new pw.x solver timings or physical power-loss measurements are claimed.</p><p><a href=\"https://github.com/jorgegonzalezsevilla/olla-dft-bench/tree/main/review/performance-1.3.1\">Performance report and reproduction</a>. <a href=\"https://doi.org/10.5281/zenodo.22315940\">Bilingual visual gallery</a>.</p>",
+  "description": "<p>Reproducible benchmarks of Olla-DFT against ASE, pymatgen, seekpath and qeschema. Release 0.3.1 retains complete before/after runs for Olla 1.3.0 and 1.3.1, plus an interleaved comparison with identical dependencies, original inputs and unchanged numerical grading. It includes raw samples, package hashes, test evidence and an external model review of the proposed change.</p><p>The measurement engine remains 0.3.0; historical results retain their original protocol. Timings include command startup and imports on one consumer laptop with background load and turbo enabled. No new pw.x solver timings or physical power-loss measurements are claimed.</p><p><a href=\"https://github.com/jorgegonzalezsevilla/olla-dft-bench/tree/main/review/performance-1.3.1\">Performance report and reproduction</a>.</p>",
   "keywords": [
     "Quantum ESPRESSO",
     "benchmark",
@@ -20,12 +20,6 @@
       "identifier": "10.5281/zenodo.22263121",
       "relation": "isSupplementTo",
       "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.22315940",
-      "relation": "isSupplementedBy",
-      "scheme": "doi",
-      "resource_type": "image-figure"
     }
   ],
   "access_right": "open"
