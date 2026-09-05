@@ -78,7 +78,10 @@ def plot(folder, language='es'):
             'Simulated local interruptions; physical power loss, VM replacement and cloud savings were not measured.')
     fig.text(.065, .032, note, fontsize=10, linespacing=1.5, color='#4f646a')
     for ext in ['png', 'svg', 'pdf']:
-        fig.savefig(folder/f'recovery-{language}.{ext}', dpi=180, facecolor='white')
+        target = folder/f'recovery-{language}.{ext}'
+        fig.savefig(target, dpi=180, facecolor='white')
+        if ext == 'svg':
+            target.write_text('\n'.join(line.rstrip() for line in target.read_text().splitlines())+'\n')
     plt.close(fig)
 
 
