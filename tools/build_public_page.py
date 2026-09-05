@@ -42,7 +42,7 @@ COPY = {
  'take_title':'Llévate los ejemplos o empieza tu proyecto',
  'take_intro':'El PDF reúne las gráficas y sus condiciones. Si quieres trabajar con tus propios materiales, el repositorio explica cómo instalar la aplicación y preparar los cálculos.',
  'pdf':'Descargar la galería PDF', 'install':'Ver cómo empezar con Olla-DFT',
- 'footer':'Olla-DFT · Jorge Enrique González Sevilla · Software libre', 'methods':'Métodos y datos originales', 'repo':'olla-dft-esp',
+ 'footer':'Olla-DFT · Jorge Enrique González Sevilla · Software libre', 'methods':'Métodos y datos originales', 'repo':'olla-dft/blob/main/README.es.md',
  'download_html':'Guardar el ejemplo para abrirlo sin conexión',
 },
 'en': {
